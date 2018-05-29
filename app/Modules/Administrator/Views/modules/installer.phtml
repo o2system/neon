@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#install1" role="tab">Install From URL</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#install2" role="tab">Install From Folder</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#install3" role="tab">Install From Computer</a>
+            </li>
+        </ul>
+        <div class="tab-content tabs bg-white p-3">
+            <div class="tab-pane active" id="install1" role="tabpanel">
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Install From URL</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" placeholder="https://" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary">Check and Install</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="install2" role="tabpanel">
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Install From Folder</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" placeholder="var/www/" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-primary">Check and Install</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="install3" role="tabpanel">
+                <form class="form-horizontal" action="data/upload-file.php">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="dropzone" id="dropzone-wrap">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3 hidden" id="dze_info">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="40%">File name</th>
+                                        <th width="15%">Size</th>
+                                        <th width="15%">Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

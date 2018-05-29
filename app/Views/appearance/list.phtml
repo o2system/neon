@@ -1,0 +1,84 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light page-navbar bg-white p-relative">
+                    <button type="button" class="btn btn-default navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-22" aria-controls="navbar-22" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar-22">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a href="{{base_url('pages/published')}}" class="nav-link active">Published</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{base_url('pages/draft')}}" class="nav-link">Draft</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{base_url('pages/scheduled')}}" class="nav-link">Scheduled</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{base_url('pages/trash')}}" class="nav-link">Trash</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="appearance-list">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card">
+                        <div class="theme-img">
+                            <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="card-title mb-1">Themes Title</h6>
+                                <a href="javascript:void" class="btn btn-default btn-xs">Activate</a>
+                            </div>
+                            <p class="mb-1">
+                                <strong>Author:</strong> O2System
+                            </p>
+                            <p class="mb-0">
+                                <strong>Contributor:</strong> Teguh Rianto
+                            </p>
+                        </div>
+                        <div class="card-footer p-3 d-flex justify-content-between align-items-center">
+                            <a href="javascript:void" class="btn btn-info btn-xs btn-icon"><i class="fas fa-info"></i> Info</a>
+                            <a href="javascript:void" class="btn btn-danger btn-xs btn-icon"><i class="fas fa-trash"></i> Uninstall</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card">
+                        <div class="theme-img">
+                            <img class="card-img-top" src="assets/img/cover.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="card-title mb-1">Themes Title <i class="fas fa-check-circle text-success" data-toggle="tooltip" title="Active Themes"></i></h6>
+                                <a href="javascript:void" class="btn btn-primary btn-xs btn-icon" data-toggle="tooltip" title="Customize Themes"><i class="fas fa-cog"></i> Customize</a>
+                            </div>
+                            <p class="mb-1">
+                                <strong>Author:</strong> O2System
+                            </p>
+                            <p class="mb-0">
+                                <strong>Contributor:</strong> Teguh Rianto
+                            </p>
+                        </div>
+                        <div class="card-footer p-3 d-flex justify-content-between align-items-center">
+                            <a href="javascript:void" class="btn btn-info btn-xs btn-icon"><i class="fas fa-info"></i> Info</a>
+                            <a href="javascript:void" class="btn btn-danger btn-xs btn-icon"><i class="fas fa-trash"></i> Uninstall</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

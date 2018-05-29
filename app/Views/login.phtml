@@ -1,0 +1,40 @@
+<form class="form-horizontal" id="form-login" action="{{base_url('login/authenticate')}}" method="post">
+    <a href="javascript:void(0)" class="text-center d-block">
+        <img src="./assets/img/logo/logo-200px.png" alt="O2CMS" height="100"/>
+    </a>
+
+    <div class="form-group row mt-4 first-child">
+        <div class="col-md-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text rounded-top"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="username" type="text" class="form-control" id="input-username" placeholder="username@example.com">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text rounded-bottom"><i class="fa fa-lock"></i></span>
+                </div>
+                <input name="password" type="password" class="form-control" id="input-password" placeholder="password">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12 d-flex justify-content-between align-items-center">
+            <div class="checkbox"> 
+                <input id="checkbox0" type="checkbox" name="remember"> 
+                <label for="checkbox0" class="mb-0"> Remember Me? </label> 
+            </div>
+            <a href="{{base_url('forgot-password')}}" id="to-recover" class="text-dark"><i class="fa fa-bell"></i> Forgot password?</a>
+        </div>
+    </div>
+    <div class="form-group row text-center mt-3">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+        </div>
+    </div>
+</form>

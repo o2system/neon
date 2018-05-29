@@ -1,0 +1,237 @@
+<div class="account-page">
+    <div class="account-cover" style="background-image:url({{$account->profile->images->cover}})">
+        <div class="account-cover-avatar">
+            <img src="{{$account->profile->images->avatar}}" alt="{{$account->profile->name->display}}">
+        </div>
+        <div class="account-cover-info">
+            <a href="{{base_url('personal/profile')}}">
+                {{$account->profile->name->display}}
+            </a>
+            <span>{{$account->roles->primary()}}</span>
+        </div>
+        <div class="account-cover-action">
+            <a href="mailto:{{$account->email}}" class="btn btn-sm btn-primary btn-icon"><i class="fa fa-envelope"></i> {{$account->email}}</a>
+            <a href="tel:{{$account->msisdn}}" class="btn btn-sm btn-info btn-icon"><i class="fa fa-phone"></i> {{$account->msisdn}}</a>
+        </div>
+    </div>
+
+    {{$page->menus->cover}}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h6 class="card-header">Profile</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Last Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{$account->profile->name->first}}</td>
+                                    <td>{{$account->profile->name->middle}}</td>
+                                    <td>{{$account->profile->name->last}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-condensed">
+                            <tbody>
+                            <tr>
+                                <th width="10">Display Name</th>
+                                <td width="90">
+                                    {{$account->profile->name->display}}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h6 class="card-header">Biodata</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <tbody>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>
+                                        <span class="badge badge-info">{{$account->profile->gender}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Marital Status</th>
+                                    <td>
+                                        <span class="badge badge-warning">{{$account->profile->marital}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Religion</th>
+                                    <td>
+                                        <span class="badge badge-primary">{{$account->profile->religion}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Birthday</th>
+                                    <td>{{$account->profile->birthday}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php if($account->profile->biography !== ''): ?>
+                    <div class="card-body">
+                        <p><?php echo $account->profile->biography; ?></p>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="card">
+                    <h6 class="card-header">Roles</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                            <tr>
+                                <th width="10">Code</th>
+                                <th width="20">Label</th>
+                                <th width="70">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($account->roles as $role): ?>
+                            <tr>
+                                <td width="10"><span class="badge badge-default"><?php echo $role->code; ?></span></td>
+                                <td width="20"><?php echo $role->label; ?></td>
+                                <td width="70"><?php echo $role->description; ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h6 class="card-header">Access</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Segments</th>
+                                <th>Permission</th>
+                                <th>Privileges</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($account->access as $access): ?>
+                            <tr>
+                                <td><?php echo $access->label; ?></td>
+                                <td class="text-muted"><?php echo $access->segments; ?></td>
+                                <td>
+                                    <?php if($access->permission === 'GRANTED'): ?>
+                                        <button type="button" class="btn btn-sm btn-success">Granted</button>
+                                    <?php else: ?>
+                                        <button type="button" class="btn btn-sm btn-danger">Restrict</button>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Privileges">
+                                        <button type="button" class="btn <?php echo($access->privileges['create'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-file"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['read'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-eye"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['update'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['delete'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-trash"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['import'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-download"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['export'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-upload"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['print'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-print"></i></button>
+                                        <button type="button" class="btn <?php echo($access->privileges['special'] ? 'btn-success' : 'btn-danger'); ?>"><i class="fa fa-star"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="change-logo" tabindex="-1" role="dialog" aria-labelledby="change-logo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Change Avatar</h4></div>
+            <form method="post" action="/update" enctype="multipart/form-data">
+                <div class="modal-body"><input type="hidden" name="canvas[x]" value=""> <input type="hidden"
+                                                                                               name="canvas[y]"
+                                                                                               value=""> <input
+                            type="hidden" name="canvas[width]" value=""> <input type="hidden" name="canvas[height]"
+                                                                                value="">
+                    <!-- CROP IMAGE PROFILE PICTURE -->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="avatar-canvas" class="img-container text-center"><img
+                                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22350%22%20height%3D%22350%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20350%20350%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160eb793a73%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160eb793a73%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22127.4609375%22%20y%3D%22183.1%22%3E350x350%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                        data-src="holder.js/350x350" alt="350x350" style="width: 350px; height: 350px;"
+                                        data-holder-rendered="true"></div>
+                        </div>
+                    </div> <!-- END CROP IMAGE PROFILE PICTURE --> </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar active" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="100" style="width: 0%"><span class="sr-only">0% Complete</span></div>
+                        </div>
+                        <div class="col-md-12"><label title="Upload avatar file" for="input-logo"
+                                                      class="btn btn-primary"><input id="input-avatar" accept="image/*"
+                                                                                     name="logo" class="hide"
+                                                                                     type="file" value=""> Browse
+                            </label>
+                            <button data-action="upload-avatar" type="button" class="btn btn-success">Upload</button>
+                            <a href="javascript:void(0);" class="btn btn-danger">Remove</a></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="change-cover" tabindex="-1" role="dialog" aria-labelledby="change-logo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Change Cover</h4></div>
+            <form method="post" action="/update" enctype="multipart/form-data">
+                <div class="modal-body"><input type="hidden" name="canvas[x]" value=""> <input type="hidden"
+                                                                                               name="canvas[y]"
+                                                                                               value=""> <input
+                            type="hidden" name="canvas[width]" value=""> <input type="hidden" name="canvas[height]"
+                                                                                value="">
+                    <!-- CROP IMAGE PROFILE PICTURE -->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="avatar-canvas" class="img-container text-center"><img
+                                        src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22350%22%20height%3D%22350%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20350%20350%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160eb793a73%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160eb793a73%22%3E%3Crect%20width%3D%22350%22%20height%3D%22350%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22127.4609375%22%20y%3D%22183.1%22%3E350x350%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                        data-src="holder.js/350x350" alt="350x350" style="width: 350px; height: 350px;"
+                                        data-holder-rendered="true"></div>
+                        </div>
+                    </div> <!-- END CROP IMAGE PROFILE PICTURE --> </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar active" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="100" style="width: 0%"><span class="sr-only">0% Complete</span></div>
+                        </div>
+                        <div class="col-md-12"><label title="Upload avatar file" for="input-logo"
+                                                      class="btn btn-primary"><input id="input-avatar" accept="image/*"
+                                                                                     name="logo" class="hide"
+                                                                                     type="file" value=""> Browse
+                            </label>
+                            <button data-action="upload-avatar" type="button" class="btn btn-success">Upload</button>
+                            <a href="javascript:void(0);" class="btn btn-danger">Remove</a></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

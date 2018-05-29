@@ -1,0 +1,13 @@
+<a href="javascript:void(0)" class="text-center d-block mb-5">
+    <img src="./assets/img/logo/logo-200px.png" alt="O2CMS" height="100"/>
+</a>
+
+<?php if (session()->getFlash('success')): ?>
+    <div class="alert alert-success">
+        <p><?php echo session()->getFlash('success'); ?></p>
+    </div>
+<?php elseif (session()->getFlash('error')): ?>
+    <div class="alert alert-danger">
+        <p><?php echo session()->getFlash('error'); ?></p>
+    </div>
+<?php endif; ?>

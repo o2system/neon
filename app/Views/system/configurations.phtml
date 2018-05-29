@@ -1,0 +1,125 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="mb-0">Configurations</h3>
+    </div>
+    <div class="card-body with-table">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mb-0">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">Commons</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Charset</th>
+                    <td><?php echo $configurations->charset; ?></td>
+                </tr>
+                <tr>
+                    <th>Language</th>
+                    <td><?php echo $configurations->language; ?></td>
+                </tr>
+                <tr>
+                    <th>Logging Threshold Level</th>
+                    <td><?php echo $configurations->logger['threshold']; ?></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">Date and Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Timezone</th>
+                    <td><?php echo $configurations->datetime['timezone']; ?></td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td><?php echo $configurations->datetime[ 'reference' ]; ?></td>
+                </tr>
+                <tr>
+                    <th>Format</th>
+                    <td><?php echo $configurations->datetime[ 'format' ]; ?></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">Units</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Currency</th>
+                    <td><?php echo $configurations->units['currency']; ?></td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td><?php echo $configurations->units[ 'weight' ]; ?></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">URI</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Protocol</th>
+                    <td><?php echo $configurations->uri['protocol']; ?></td>
+                </tr>
+                <tr>
+                    <th>Permitted Characters</th>
+                    <td><?php echo $configurations->uri['permittedChars']; ?></td>
+                </tr>
+                <tr>
+                    <th>Suffix</th>
+                    <td><?php echo $configurations->uri['suffix']; ?></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">IP Addresses</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Proxy</th>
+                    <td><?php echo implode( ',', $configurations->ipAddresses['proxy']); ?></td>
+                </tr>
+                <tr>
+                    <th>Debug</th>
+                    <td><?php echo implode( ',', $configurations->ipAddresses[ 'debug' ]); ?></td>
+                </tr>
+                </tbody>
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-info">Security</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>XSS Protection</th>
+                    <td>
+                        <?php if($configurations->security['protection']['xss'] === true): ?>
+                            <span class="badge badge-success">enabled</span>
+                        <?php else: ?>
+                            <span class="badge badge-danger">disabled</span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CSRF Protection</th>
+                    <td>
+                        <?php if($configurations->security['protection']['csrf'] === true): ?>
+                            <span class="badge badge-success">enabled</span>
+                        <?php else: ?>
+                            <span class="badge badge-danger">disabled</span>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

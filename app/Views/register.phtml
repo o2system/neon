@@ -1,0 +1,91 @@
+<form class="form-horizontal" id="form-login" action="{{base_url('login/authenticate')}}" method="post">
+    <a href="javascript:void(0)" class="text-center d-block">
+        <img src="./assets/img/logo/logo-200px.png" alt="O2CMS" height="100"/>
+    </a>
+
+    <div class="form-group row mt-5">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="namefirst" type="text" class="form-control" id="input-namefirst" placeholder="First Name">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="namelast" type="text" class="form-control" id="input-namelast" placeholder="Last Name">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                </div>
+                <input name="email" type="text" class="form-control" id="input-email" placeholder="mail@example.com">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="username" type="text" class="form-control" id="input-username" placeholder="username">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input name="password" type="password" class="form-control" id="input-password" placeholder="Password">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input name="password" type="password" class="form-control" id="input-password" placeholder="Repeat Password">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="input-group mb-2 mb-sm-0">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                </div>
+                <input name="phone" type="text" class="form-control" id="input-phone" placeholder="0898xxx">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <div class="checkbox"> 
+                <input id="checkbox0" type="checkbox" name="remember"> 
+                <label for="checkbox0" class="mb-0"> I Agree with <a href="#">Terms & Conditions</a> </label> 
+            </div>
+        </div>
+    </div>
+    <div class="form-group row text-center">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-block" type="submit">Register</button>
+        </div>
+    </div>
+</form>

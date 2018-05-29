@@ -1,0 +1,137 @@
+<div class="row justify-content-center post-editor">
+    <div class="col-md-8">
+        <div class="form-group row mb-0">
+            <div class="col-md-12">
+                <input type="hidden" name="id" value="<?php echo $page->id; ?>">
+                <input class="form-control editor-title" type="text" name="title" value="<?php echo $page->title; ?>" placeholder="Title" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <div class="editor-slug">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text pr-0 text-muted">
+                                <i class="fas fa-link"></i>&nbsp;
+                                <?php echo $settings->address; ?>/
+                            </span>
+                        </div>
+                        <input class="form-control pl-0" name="segments" value="<?php echo $page->segments; ?>" type="text" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-12">
+                <textarea name="content" class="form-control tinymce">
+                    <?php echo $page->content; ?>
+                </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="editor-sidebar-toggle" href="javascript:void"><i class="fa fa-cogs"></i></a>
+<div class="right-sidebar">
+    <div class="top-title">
+        <h6>Page Settings</h6>
+        <a href="javascript:void" class="rightside-toggle"><i class="fa fa-times"></i></a>
+    </div>
+
+    <div class="sidebar-scroll">
+        <div id="settings" role="tablist">
+            <div class="card">
+                <div class="card-header" role="tab" id="settings-language" class="collapsed" data-toggle="collapse"
+                     href="#language" aria-expanded="false" aria-controls="collapse-settings-record-status">
+                    <h5 class="mb-0">
+                        <a role="button">
+                            Language
+                        </a>
+                    </h5>
+                </div>
+
+                <div id="language" class="collapse" role="tabpanel" aria-labelledby="settings-language"
+                     data-parent="#language">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <?php echo $fields->language($page->language); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="settings-record-status" class="collapsed" data-toggle="collapse"
+                     href="#status" aria-expanded="false" aria-controls="collapse-settings-record-status">
+                    <h5 class="mb-0">
+                        <a role="button">
+                            Status
+                        </a>
+                    </h5>
+                </div>
+
+                <div id="status" class="collapse" role="tabpanel" aria-labelledby="settings-record-status"
+                     data-parent="#settings">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <?php echo $fields->recordStatus($page->record_status); ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Visibility</label>
+                            <?php echo $fields->visibility($page->visibility); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="settings-featured-image" class="collapsed" data-toggle="collapse"
+                     href="#featured-image" aria-expanded="false" aria-controls="collapse-settings-featured-image">
+                    <h5 class="mb-0">
+                        <a role="button">
+                            Featured Image
+                        </a>
+                    </h5>
+                </div>
+                <div id="featured-image" class="collapse" role="tabpanel" aria-labelledby="settings-featured-image"
+                     data-parent="#settings">
+                    <div class="card-body">
+                        <input type="file" name="file-image" class="dropify" data-height="150"
+                               data-allowed-file-extensions="gif jpg png" data-default-file="<?php echo images_url($page->image); ?>"/>
+                    </div>
+                    <input type="hidden" name="image" value="<?php echo $page->image; ?>">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="settings-search-engine-optimization" class="collapsed" data-toggle="collapse"
+                     href="#search-engine-optimization" aria-expanded="false" aria-controls="collapse-settings-search-engine-optimization">
+                    <h5 class="mb-0">
+                        <a role="button">
+                            Search Engine Optimization
+                        </a>
+                    </h5>
+                </div>
+                <div id="search-engine-optimization" class="collapse" role="tabpanel" aria-labelledby="settings-search-engine-optimization"
+                     data-parent="#settings">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="control-label" for="field-1">Metarobot</label>
+                            <?php echo $fields->metarobot($page->meta['robot']); ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="field-1">Metatitle</label>
+                            <input class="form-control" name="meta[title]" value="<?php echo $page->meta['title']; ?>" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="field-5">Metadescription</label>
+                            <textarea class="form-control" cols="5" name="meta[description]"><?php echo $page->meta['description']; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="field-5">Metakeywords</label>
+                            <input class="tagsinput form-control" name="meta[keywords]" value="<?php echo $page->meta['keywords']; ?>" data-role="tagsinput" value="" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
