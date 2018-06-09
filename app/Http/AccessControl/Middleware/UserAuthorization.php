@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the O2System PHP Framework package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         Steeve Andrian Salim
+ * @copyright      Copyright (c) Steeve Andrian Salim
  */
 // ------------------------------------------------------------------------
 
@@ -14,65 +14,29 @@ namespace App\Http\AccessControl\Middleware;
 
 // ------------------------------------------------------------------------
 
-use O2System\Psr\Http\Message\RequestInterface;
-use O2System\Psr\Http\Middleware\MiddlewareServiceInterface;
+use O2System\Psr\Http\Message\ServerRequestInterface;
+use O2System\Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * Class UserAuthorization
  *
- * @package App\Http\AccessControl\Middleware
+ * @package Manage\Http\AccessControl\Middleware
  */
-class UserAuthorization implements MiddlewareServiceInterface
+class UserAuthorization implements RequestHandlerInterface
 {
-    /**
-     * UserAuthorization::validate
-     *
-     * Validate the request.
-     *
-     * @param \O2System\Psr\Http\Message\RequestInterface $request
-     *
-     * @return mixed
-     */
-    public function validate( RequestInterface $request )
-    {
-        if( services( 'user' )->loggedIn() ) {
-            if( services( 'user' )->authorize( $request ) ) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    // ------------------------------------------------------------------------
-
     /**
      * UserAuthorization::handle
      *
-     * Handle the valid request.
+     * Handles a request and produces a response
      *
-     * @param \O2System\Psr\Http\Message\RequestInterface $request
-     *
-     * @return mixed
+     * May call other collaborating code to generate the response.
      */
-    public function handle( RequestInterface $request )
-    {
-
-    }
-
-    // ------------------------------------------------------------------------
-
-    /**
-     * UserAuthorization::terminate
-     *
-     * @param \O2System\Psr\Http\Message\RequestInterface $request
-     *
-     * @return mixed
-     */
-    public function terminate( RequestInterface $request )
+    public function handle(ServerRequestInterface $request)
     {
         if( services( 'user' )->loggedIn() ) {
-            redirect_url( 'error/403' );
+            if( ! services( 'user' )->authorize( $request ) ) {
+                redirect_url( 'error/403' );
+            }
         } else {
             redirect_url( 'login' );
         }
