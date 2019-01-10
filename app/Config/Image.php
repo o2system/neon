@@ -13,6 +13,8 @@
 
 use O2System\Image\Datastructures\Config;
 
+// ------------------------------------------------------------------------
+
 /**
  * Image Controller Configuration
  *
@@ -21,7 +23,7 @@ use O2System\Image\Datastructures\Config;
  * @var \O2System\Image\Datastructures\Config
  */
 $image = new Config([
-    'driver'              => 'gmagick', // gd | imagick | gmagick
+    'driver'              => 'gd', // gd | imagick | gmagick
     'maintainAspectRatio' => true,
     'scaleDirective'      => 'FIT', // FIT | UP | DOWN
     'focus'               => 'NORTHWEST',
