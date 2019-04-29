@@ -30,7 +30,6 @@ class Controller extends \O2System\Framework\Http\Controller
      */
     public function __reconstruct()
     {
-        presenter()->store('page', new Page());
         $className = get_class_name($this);
 
         presenter()->page

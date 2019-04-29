@@ -21,21 +21,10 @@ namespace App\Http;
 class Presenter extends \O2System\Framework\Http\Presenter
 {
     /**
-     * Presenter::$menus
-     *
-     * @var \App\Http\Presenter\Menus
-     */
-    public $menus;
-
-    // ------------------------------------------------------------------------
-
-    /**
      * Presenter::__construct
      */
     public function __construct()
     {
         parent::__construct();
-
-        $this->menus = new Presenter\Menus();
     }
 }
