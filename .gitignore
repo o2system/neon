@@ -1,6 +1,5 @@
 .idea
-.DS_Store
-/cache
-/node_modules
-/app/Config/Development
-/vendor
+*/.DS_Store
+cache
+composer.lock
+vendor

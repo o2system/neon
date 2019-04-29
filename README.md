@@ -1,23 +1,11 @@
-
-<div align="center" markdown="1">
-
 [![O2System Framework](http://o2system.id/assets/img/logo/logo-white-200px.png)](http://o2system.id/assets/img/logo/logo-white-200px.png)
-
-</div>
-
-<div align="center" markdown="1">
-
 [![Build Status](https://travis-ci.org/o2system/o2system.svg?branch=master)](https://travis-ci.org/o2system/o2system)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/o2system/framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/o2system/framework/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/o2system/o2system/v/stable)](https://packagist.org/packages/o2system/o2system)
 [![Total Downloads](https://poser.pugx.org/o2system/o2system/downloads)](https://packagist.org/packages/o2system/o2system)
 [![License](https://poser.pugx.org/o2system/o2system/license)](https://packagist.org/packages/o2system/o2system)
 
-</div>
-
-
-
-# O2System Basic Project
+# O2System Neon Boilerplate
 
 O2System Basic Project is for those who likes to make everything from scratch, build your project with this boilerplate.
 
@@ -26,7 +14,7 @@ O2System Basic Project is for those who likes to make everything from scratch, b
 
 The best way to use this boilerplate is using [Composer](https://getcomposer.org)
 ```
-composer create-project o2system/o2system
+composer create-project o2system/neon
 ```
 > Packagist: [https://packagist.org/packages/o2system/o2system](https://packagist.org/packages/o2system/o2system)
 
@@ -42,14 +30,6 @@ Please kindly submit your [issues at Github](http://github.com/o2system/o2system
 
 ### System Requirements
 
-- PHP 5.6+
+- PHP 7.2+
 - [Composer](https://getcomposer.org)
 - [O2System Framework](https://github.com/o2system/framework)
-
-### Credits
-
-|Role|Name|
-|----|----|
-|Founder and Lead Projects|[Steeven Andrian Salim](http://steevenz.com)|
-|Documentation|[Steeven Andrian Salim](http://steevenz.com)
-|Github Pages Designer| [Teguh Rianto](http://teguhrianto.tk)
