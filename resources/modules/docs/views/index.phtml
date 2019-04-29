@@ -1,0 +1,55 @@
+<div class="page-documentations">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center" id="units-add">
+                        <h5 class="mb-0">
+                            <?php echo $language->getLine('DOCUMENTATIONS'); ?>
+                        </h5>
+                        <span class="d-flex justify-content-start pr-3">
+                            <form>
+                                <select class="form-control select-with-search">
+                                    <option><?php echo $language->getLine('DEPARTMENT'); ?></option>
+                                </select>
+                            </form>
+                            <a href="<?=base_url('training/form');?>" class="ml-2 btn btn-primary" data-modal="modal-form">
+                                <?php echo $language->getLine('BTN_ADD'); ?>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row module-list">
+	                <?php if(count($packages)): ?>
+		                <?php foreach($packages as $package): ?>
+	                    <div class="col-lg-4 col-md-4">
+	                        <div class="card">
+	                            <div class="card-header bg-primary">
+	                                <div class="media align-items-center">
+	                                    <div class="img">
+	                                        <i class="fas <?=$package->presets->icon?>"></i>
+	                                    </div>
+	                                    <div class="media-body">
+	                                        <h5>
+	                                            <a href="<?=base_url('documentations/' . $package->folder);?>">
+		                                            <?=$package->presets->name?>
+	                                            </a>
+	                                        </h5>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="card-body">
+	                                <p>
+	                                    Last update on <?=$package->info->update_timestamp?>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+		                <?php endforeach; ?>
+	                <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

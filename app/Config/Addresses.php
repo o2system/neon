@@ -20,26 +20,10 @@ $addresses = new \O2System\Kernel\Http\Router\Addresses();
 
 // ------------------------------------------------------------------------
 
+// Example Route To Default Controller
 $addresses->any(
     '/',
     function () {
         return new \App\Controllers\Login();
-    }
-);
-
-// App Logout Request
-$addresses->any(
-    '/logout',
-    function () {
-        services( 'user' )->logout();
-        redirect_url('login');
-    }
-);
-
-// CMS Forgot-Password Request
-$addresses->any(
-    '/forgot-password',
-    function () {
-        return [ 'login', 'forgot-password' ];
     }
 );

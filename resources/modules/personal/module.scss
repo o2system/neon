@@ -1,0 +1,12 @@
+@import "../../themes/default/assets/scss/functions.scss";
+@import "../../themes/default/assets/scss/mixins.scss";
+@import "../../themes/default/assets/scss/variables.scss";
+@import "~@fullcalendar/core/main.css";
+@import "~@fullcalendar/daygrid/main.css";
+@import "~@fullcalendar/list/main.css";
+@import "~@fullcalendar/timegrid/main.css";
+@import "~jsgantt-improved/dist/jsgantt.css";
+@import "./assets/_partials/calendar.scss";
+@import "./assets/_partials/kanban.scss";
+@import "./assets/_partials/gantt.scss";
+@import "./assets/_partials/tasks.scss";

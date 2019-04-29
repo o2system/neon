@@ -1,0 +1,151 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<form  method="post" action="<?php echo current_url(); ?>">
+					<div class="card">
+						<h5 class="card-header d-flex justify-content-between align-items-center">
+							<?php echo $page->header; ?>
+							<div class="card-options">
+								<button type="button" class="btn btn-default" data-action="cancel">
+								<?php echo $language->getLine('BTN_CANCEL'); ?>
+								</button>
+								<button type="submit" class="btn btn-default">
+								<?php echo $language->getLine('BTN_SAVE'); ?>
+								</button>
+							</div>
+						</h5>
+						<div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+							<input type="hidden" name="id" value="<?php echo $post->id; ?>">
+							<div class="form-group">
+								<label><?php echo $language->getLine('FULL_NAME'); ?></label>
+								<input class="form-control" type="text" name="name" value="<?php echo $post->name; ?>" required>
+							</div>
+							<div class="form-group">
+								<label>
+								<?php echo $language->getLine('RELATIONSHIP'); ?>
+								</label>
+								<select name="relationship" class="form-control custom-select" required>
+									<?php foreach($options->familyRelationships as $value => $label): ?>
+										<option value="<?php echo $value; ?>" <?php echo($value === $post->relationship ? 'selected' : ''); ?>>
+										<?php echo $label; ?>
+									</option>
+                                    <?php endforeach; ?>
+								</select>
+							</div>
+							<div class="form-group">
+								<div class="form-row align-items-end">
+									<div class="col-sm">
+										<div class="form-group">
+											<label><?php echo $language->getLine('BIRTHDAY'); ?></label>
+											<select name="birthday[date]" class="form-control custom-select" required>
+												<?php foreach($options->dates as $value => $label): ?>
+													<option value="<?php echo $value; ?>" <?php echo($value == format_date($post->birthday, '%d') ? 'selected' : ''); ?>>
+													<?php echo $label; ?>
+												</option>
+                                                <?php endforeach; ?>
+											</select>
+										</div>
+									</div>
+									<div class="col-sm">
+										<div class="form-group">
+											<select name="birthday[month]" class="form-control custom-select" required>
+												<?php foreach($options->months as $value => $label): ?>
+													<option value="<?php echo $value; ?>" <?php echo($value == format_date($post->birthday, '%m') ? 'selected' : ''); ?>>
+													<?php echo $label; ?>
+												</option>
+                                                <?php endforeach; ?>
+											</select>
+										</div>
+									</div>
+									<div class="col-sm">
+										<div class="form-group">
+											<select name="birthday[year]" class="form-control custom-select" required>
+												<?php foreach($options->years as $value => $label): ?>
+													<option value="<?php echo $value; ?>" <?php echo($value == format_date($post->birthday, '%Y') ? 'selected' : ''); ?>>
+													<?php echo $label; ?>
+												</option>
+                                                <?php endforeach; ?>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>
+										<?php echo $language->getLine('GENDER'); ?>
+										</label>
+										<select name="gender" class="form-control custom-select" required>
+											<?php foreach($options->genders as $value => $label): ?>
+												<option value="<?php echo $value; ?>" <?php echo($value === $post->gender ? 'selected' : ''); ?>>
+												<?php echo $value; ?>
+											</option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label><?php echo $language->getLine('DECEASE'); ?></label>
+										<select name="decease" class="form-control custom-select" required>
+											<?php foreach(array_reverse($options->boolean) as $value => $label): ?>
+												<option value="<?php echo $value; ?>" <?php echo($value === $post->decease ? 'selected' : ''); ?>>
+												<?php echo $label; ?>
+											</option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label><?php echo $language->getLine('AMENABILITY'); ?></label>
+										<select name="amenability" class="form-control custom-select" required>
+											<?php foreach($options->boolean as $value => $label): ?>
+												<option value="<?php echo $value; ?>" <?php echo($value === $post->amenability ? 'selected' : ''); ?>>
+												<?php echo $label; ?>
+											</option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><?php echo $language->getLine('MOBILE'); ?></label>
+										<input class="form-control" type="text" name="mobile" value="<?=$post->mobile;?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><?php echo $language->getLine('EMAIL'); ?></label>
+										<input class="form-control" type="email" name="email" value="<?=$post->email;?>" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><?php echo $language->getLine('PENDIDIKAN_TERAKHIR'); ?></label>
+										<input class="form-control" type="text" name="last_education" value="<?=$post->last_education;?>">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><?php echo $language->getLine('PEKERJAAN_TERAKHIR'); ?></label>
+										<input class="form-control" type="text" name="occupation" value="<?=$post->occupation;?>">
+									</div>
+								</div>
+                                <div class="col-md-12">
+									<div class="form-group">
+										<label><?php echo $language->getLine('ADDRESS'); ?></label>
+										<input class="form-control" type="text" name="address" value="<?=$post->address;?>">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

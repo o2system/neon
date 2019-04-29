@@ -1,0 +1,125 @@
+<div class="page-career">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-md-4">
+                                <h5 class="mb-0"><?php echo $page->title ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body pb-1">
+                        <?php if($designations):?>
+                            <?php foreach ($designations as $designation):?>
+                                <div class="timeline-item-wrap">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-2">
+                                            <?php if($designation->approval):?>
+                                                <?php if($designation->approval->lastlog):?>
+                                                    <span class="badge badge-warning w-100 mb-2"><?=$designation->approval->lastlog->status;?></span>
+                                                <?php endif ;?>
+                                            <?php endif;?>
+                                            <div class="card shadow-none mb-0">
+                                                <div class="card-header text-center p-0">
+                                                    <h2 class="py-2 mb-0"><?=date('d', strtotime($designation->date_effective));?></h2>
+                                                </div>
+                                                <div class="card-body bg-primary text-white text-center px-0 py-1">
+                                                    <?=date('M Y', strtotime($designation->date_effective));?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="row align-items-center">
+                                                <div class="col-lg-5">
+                                                    <div class="d-flex align-items-center">
+                                                        <h6 class="mb-0 mr-2">
+                                                            <?=$designation->departmentDesignation ? $designation->departmentDesignation->department->name : '';?> &mdash; <?=$designation->departmentDesignation ? $designation->departmentDesignation->title : '';?>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="d-flex flex-wrap">
+                                                        <div class="btn-group btn-group-sm mr-2 mb-2">
+                                                            <span class="btn btn-default"><?=ucfirst(strtolower($designation->remark));?></span>
+                                                            <span class="btn btn-default"><?=date('d M Y', strtotime($designation->date_request));?></span>
+                                                        </div>
+                                                    </div>
+                                                    <blockquote>
+                                                        <p class="mb-0">
+                                                            <?=$designation->note;?>
+                                                        </p>
+                                                    </blockquote>
+                                                </div>
+                                                <div class="col-lg-7">
+                                                    <ul class="progress-indicator">
+                                                        <li class="completed">
+                                                            <?php echo $language->getLine('RECOMMENDATION'); ?>
+                                                            <span class="bubble"></span>
+                                                            <!-- <?php if($designation->recommendations):?>
+                                                                    <?php foreach ($designation->recommendations as $recommendation):?>
+                                                                        <?php if($recommendation->employee):?>
+                                                                          <?=$recommendation->employee->name;?>
+                                                                            <?php if($recommendation->employee->designation):?>
+                                                                                -<?=$recommendation->employee->designation->title ;?>
+                                                                                <?php if($recommendation->employee->designation->department):?>
+                                                                                 -<?=$recommendation->employee->designation->department->name;?>
+                                                                                <?php endif ;?>
+                                                                            <?php endif ;?>
+                                                                        <?php endif ;?>
+                                                                        <br>
+                                                                    <?php endforeach ;?>
+                                                                    <?php endif ;?>
+                                                                    <br> -->
+                                                        </li>
+                                                        <li class="completed">
+                                                            <?php echo $language->getLine('EXAMINER'); ?>
+                                                            <span class="bubble"></span>
+                                                            <!-- <?php if($designation->examiners):?>
+                                                                        <?php foreach ($designation->examiners as $examiner):?>
+                                                                            <?php if($examiner->employee):?>
+                                                                                <?=$examiner->employee->name;?>
+                                                                                <?php if($examiner->employee->designation):?>
+                                                                                    -<?=$examiner->employee->designation->title ;?>
+                                                                                    <?php if($examiner->employee->designation->department):?>
+                                                                                        -<?=$examiner->employee->designation->department->name;?>
+                                                                                    <?php endif ;?>
+                                                                                <?php endif ;?>
+                                                                            <?php endif ;?>
+                                                                            <br>
+                                                                        <?php endforeach ;?>
+                                                                    <?php endif ;?> -->
+                                                        </li>
+                                                        <li class="">
+                                                            <?php echo $language->getLine('APPROVER'); ?>
+                                                            <span class="bubble"></span>
+                                                            <!-- <?php if($designation->approvers):?>
+                                                                        <?php foreach ($designation->approvers as $approver):?>
+                                                                            <?php if($approver->employee):?>
+                                                                                <?=$approver->employee->name;?>
+                                                                                <?php if($approver->employee->designation):?>
+                                                                                    -<?=$approver->employee->designation->title ;?>
+                                                                                    <?php if($approver->employee->designation->department):?>
+                                                                                        -<?=$approver->employee->designation->department->name;?>
+                                                                                    <?php endif ;?>
+                                                                                <?php endif ;?>
+                                                                            <?php endif ;?>
+                                                                            <br>
+                                                                        <?php endforeach ;?>
+                                                                    <?php endif ;?> -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ;?>
+                        <?php endif ;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,31 +1,35 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
-namespace Personal\Http;
+namespace App\Modules\Personal\Http;
 
 // ------------------------------------------------------------------------
 
 use App\Http\AccessControl\Controllers\AuthenticatedController;
-use O2System\Framework\Libraries\Ui\Contents\Link;
-use O2System\Framework\Libraries\Ui\Components\Navbar;
 
 /**
  * Class Controller
- *
- * @package Personal\Http
+ * @package App\Modules\Personal\Http
  */
 class Controller extends AuthenticatedController
 {
-    protected $navigation;
+    /**
+     * Controller::$model
+     *
+     * @var string|\O2System\Framework\Models\Sql\Model
+     */
+    public $model;
+
+    // ------------------------------------------------------------------------
 
     /**
      * Controller::__reconstruct
@@ -35,23 +39,23 @@ class Controller extends AuthenticatedController
         parent::__reconstruct();
 
         presenter()->page
-            ->setHeader( 'Personal' )
-            ->setDescription( 'The Personal Module' );
+            ->setHeader('Personal')
+            ->setTitle(strtoupper(get_class_name($this)));
 
-        presenter()->page->breadcrumb->createList( new Link( language()->getLine( 'PERSONAL' ), '#' ) );
+        if (empty($this->model)) {
+            $controllerClassName = get_called_class();
+            $modelClassName = str_replace(['App', 'Controllers'], ['App\Api', 'Models'], $controllerClassName);
 
-        presenter()->page->icon->setClass( 'fa fa-user' );
-
-        // Navigation
-        $this->navigation = new Navbar();
-
-        $this->navigation->attributes->addAttributeClass( [ 'account-cover-navbar', 'navbar', 'navbar-expand-lg', 'navbar-light', 'bg-grey', 'p-relative' ] );
-
-        $items = [ 'PROFILE', 'SETTING' ];
-        foreach( $items as $item ) {
-            $this->navigation->nav->createLink( language()->getLine( $item ), base_url( [ 'personal', strtolower( $item ) ] ) );
+            if (class_exists($modelClassName)) {
+                $this->model = new $modelClassName();
+            }
+        } elseif (class_exists($this->model)) {
+            $this->model = new $this->model();
         }
+    }
 
-        presenter()->page->menus->store( 'cover', $this->navigation );
+    protected function uploadImage()
+    {
+
     }
 }

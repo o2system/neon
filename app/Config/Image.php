@@ -11,7 +11,7 @@
 
 // ------------------------------------------------------------------------
 
-use O2System\Image\Datastructures\Config;
+use O2System\Image\DataStructures\Config;
 
 // ------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ use O2System\Image\Datastructures\Config;
  *
  * @see https://github.com/o2system/image/wiki
  *
- * @var \O2System\Image\Datastructures\Config
+ * @var \O2System\Image\DataStructures\Config
  */
 $image = new Config([
     'driver'              => 'gd', // gd | imagick | gmagick

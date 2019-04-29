@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System PHP Framework package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian Salim
- * @copyright      Copyright (c) Steeve Andrian Salim
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
@@ -14,13 +14,18 @@ namespace App\Http\AccessControl\Middleware;
 
 // ------------------------------------------------------------------------
 
+use App\Api\Modules\Company\Models\Company;
+use App\Api\Modules\HumanResource\Models\Employee\Users;
+use App\Api\Modules\System\Models\Modules\Users\Notifications;
 use O2System\Psr\Http\Message\ServerRequestInterface;
 use O2System\Psr\Http\Server\RequestHandlerInterface;
+use O2System\Security\Authentication\User\Account;
+use O2System\Security\Authentication\User\Role;
 
 /**
  * Class UserAuthentication
  *
- * @package Manage\Http\AccessControl\Middleware
+ * @package App\Http\AccessControl\Middleware
  */
 class UserAuthentication implements RequestHandlerInterface
 {
@@ -35,6 +40,29 @@ class UserAuthentication implements RequestHandlerInterface
     {
         if( ! services( 'user' )->loggedIn() ) {
             redirect_url( 'login' );
+        }else{
+            $user = models(\App\Api\Modules\System\Models\Users::class)->find(session()->account['id']);
+            $account = new Account($user->getArrayCopy());
+            if($profile = $user->profile){
+                $account->store('profile', $profile);
+            }
+            if($role = $user->role){
+                $account->store('role', new Role([
+                    'label' => $role->label,
+                    'description' => $role->description,
+                    'code' => $role->code,
+                    'authorities' => $role->authorities
+                ]));
+            }
+            if($employee = $user->employee){
+                models(Notifications::class)->readNotifications($employee->id);
+                $account->store('profile', $employee);
+                $account->store('employee', $employee);
+            }
+            session()->set('account',$account->getArrayCopy());
+            globals()->store('account', $account);
+            globals()->store('company', models(Company::class)->getMetadata());
+            presenter()->store('account', $account);
         }
     }
 }

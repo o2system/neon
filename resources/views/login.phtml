@@ -1,0 +1,57 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-lg-4 col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<div class="logo text-center">
+						<a href="javascript:void(0);">
+							<img src="assets/img/logo/logo-rectangle-color.png">
+						</a>
+					</div>
+					<div class="alert align-items-center d-none" role="alert">
+						<div class="alert-message"></div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">
+								<i class="fas fa-times"></i>
+							</span>
+                        </button>
+					</div>
+					<form id="form-login" action="<?=base_url('login/authenticate');?>" method="post" class="needs-validation" novalidate>
+						<input type="hidden" name="csrf-token" value="{{$csrfToken}}">
+						<div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
+                            <div class="invalid-feedback">
+                                Please input your a username.
+                            </div>
+						</div>
+						<div class="form-group">
+							<div class="d-flex justify-content-between align-items-center">
+								<label for="userpassword">Password</label>
+								<label>
+									<a href="javascript:void(0);" class="text-primary">
+										Forgot your password?
+									</a>
+								</label>
+							</div>
+							<input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password" required>
+                            <div class="invalid-feedback">
+                                Please input your password.
+                            </div>
+						</div>
+						<div class="form-group pt-2">
+							<button class="btn btn-primary btn-block" type="submit">
+								<span class="text" role="btn-text">Log In</span>
+								<span class="btn-loading d-none" role="btn-preloader">
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+								</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

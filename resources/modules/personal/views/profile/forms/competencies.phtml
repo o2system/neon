@@ -1,0 +1,45 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<form  method="post" action="<?php echo current_url(); ?>">
+					<div class="card">
+						<h5 class="card-header d-flex justify-content-between align-items-center">
+							<?php echo $page->header; ?>
+							<div class="card-options">
+								<button type="button" class="btn btn-default" data-action="cancel">
+								<?php echo $language->getLine('BTN_CANCEL'); ?>
+								</button>
+								<button type="submit" class="btn btn-primary">
+								<?php echo $language->getLine('BTN_SAVE'); ?>
+								</button>
+							</div>
+						</h5>
+						<div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+							<div class="form-group">
+								<label class="d-block"><?php echo $language->getLine('COMPETENCIES'); ?> 1</label>
+								<input type="hidden" class="rating-tooltip" data-filled="fas fa-star" data-empty="far fa-star"/>
+							</div>
+							<div class="form-group">
+								<label class="d-block"><?php echo $language->getLine('COMPETENCIES'); ?> 2</label>
+								<input type="hidden" class="rating-tooltip" data-filled="fas fa-star" data-empty="far fa-star"/>
+							</div>
+							<div class="form-group">
+								<label class="d-block"><?php echo $language->getLine('COMPETENCIES'); ?> 3</label>
+								<input type="hidden" class="rating-tooltip" data-filled="fas fa-star" data-empty="far fa-star"/>
+							</div>
+							<div class="form-group">
+								<label class="d-block"><?php echo $language->getLine('COMPETENCIES'); ?> 4</label>
+								<input type="hidden" class="rating-tooltip" data-filled="fas fa-star" data-empty="far fa-star"/>
+							</div>
+							<div class="form-group">
+								<label class="d-block"><?php echo $language->getLine('COMPETENCIES'); ?> 5</label>
+								<input type="hidden" class="rating-tooltip" data-filled="fas fa-star" data-empty="far fa-star"/>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

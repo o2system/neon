@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System PHP Framework package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian Salim
- * @copyright      Copyright (c) Steeve Andrian Salim
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ use O2System\Psr\Http\Server\RequestHandlerInterface;
 /**
  * Class UserAuthorization
  *
- * @package Manage\Http\AccessControl\Middleware
+ * @package App\Http\AccessControl\Middleware
  */
 class UserAuthorization implements RequestHandlerInterface
 {

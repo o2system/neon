@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
@@ -14,7 +14,9 @@ namespace App\Http;
 
 // ------------------------------------------------------------------------
 
-use App\Http\Presenter;
+use App\Api\Modules\Company\Models\Company;
+use App\Http\Presenter\Page;
+use O2System\Framework\Libraries\Ui\Contents\Link;
 
 /**
  * Class Controller
@@ -28,32 +30,33 @@ class Controller extends \O2System\Framework\Http\Controller
      */
     public function __reconstruct()
     {
-        $this->presenter->meta->title->prepend( 'O2System Webapp' );
-        $this->presenter->meta->offsetSet( 'copyright', 'Copyright (c) 2017 - Steeve Andrian' );
-        $this->language->loadFile( 'app' );
+        presenter()->store('page', new Page());
+        $className = get_class_name($this);
 
-        $this->presenter->store( 'app', modules()->current()->getProperties() );
-        $this->presenter->store( 'page', new Presenter\Page() );
-        $this->presenter->store( 'menus', new Presenter\Menus() );
-        $this->presenter->store( 'settings', new Presenter\Settings() );
+        presenter()->page
+            ->setHeader('O2System Neon')
+            ->setDescription('O2System Neon Boilerplate');
 
-        if( $this->user->loggedIn() ) {
-            $account = $this->user->getAccount();
-            $account->roles = $this->user->getRoles();
-            $account->access = $this->user->getRolesAccess();
-            $account->profile = $this->user->getProfile();
+        presenter()->page->breadcrumb->createList(new Link(
+            language(strtoupper($className)),
+            base_url(strtolower($className))
+        ));
+    }
 
-            foreach( $account->profile->images->getArrayCopy() as $offset => $image ) {
-                $filePath = PATH_STORAGE . 'users' . DIRECTORY_SEPARATOR . $account->username . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $image;
-                if( is_file( $filePath ) ) {
-                    $account->profile->images->store( $offset, storage_url( $filePath ) );
-                } else {
-                    $account->profile->images->store( $offset, assets_url( 'img' . DIRECTORY_SEPARATOR . $offset . '.jpg' ) );
-                }
-            }
+    // ------------------------------------------------------------------------
 
-            $this->presenter->store( 'account', $account );
-
+    /**
+     * Controller::route
+     *
+     * @param string $method
+     * @param array  $args
+     */
+    public function route($method, array $args = [])
+    {
+        if (in_array($method, ['add', 'edit'])) {
+            call_user_func_array([&$this, 'form'], $args);
+        } else {
+            call_user_func_array([&$this, $method], $args);
         }
     }
 }

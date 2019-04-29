@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
@@ -14,68 +14,28 @@ namespace App\Controllers;
 
 // --------------------------------------------------------------------------------------
 
-use App\Http\Controller;
-use O2System\Cache\Item;
-use O2System\Framework\Libraries\Acl\Datastructures\Account;
-use O2System\Framework\Libraries\Email;
-use O2System\Kernel\Http\Message\Uri;
+use App\Http\AccessControl\Controllers\PublicController;
 use O2System\Security\Generators\Token;
+use O2System\Framework\Libraries\Email;
 
 /**
  * Class Login
- *
  * @package App\Controllers
  */
-class Login extends Controller
+class Login extends PublicController
 {
-    public function __reconstruct()
-    {
-        parent::__reconstruct();
-        presenter()->theme->setLayout( 'login' );
-    }
-
     /**
      * Login::index
      */
     public function index()
     {
-        if( $this->user->loggedIn() ) {
-            redirect_url( 'stats' );
+        if (services('user')->loggedIn()) {
+            redirect_url('personal/agenda');
         }
 
-        presenter()->page->setHeader( 'Login' );
-        view( 'login' );
-    }
-
-    // --------------------------------------------------------------------------------------
-
-    /**
-     * Login::register
-     */
-    public function register()
-    {
-        /*$account = new Acl\Datastructures\Account(
-            [
-                'email'    => 'administrator@circle-creative.com',
-                'msisdn'   => '085280790088',
-                'username' => 'administrator',
-                'password' => 'administrator123!',
-                'pin'      => '123456789',
-                'role'     => 1,
-                'profile'  => [
-                    'name' => [
-                        'first'   => 'Circle',
-                        'last'    => 'Creative',
-                        'display' => 'Circle Creative',
-                    ],
-                ],
-            ]
-        );
-
-        $this->user->register( $account );*/
-
-        presenter()->page->setHeader( 'Register' );
-        view( 'register' );
+        presenter()->theme->setLayout('login');
+        presenter()->page->setHeader('Login');
+        view('login');
     }
 
     // --------------------------------------------------------------------------------------
@@ -85,71 +45,113 @@ class Login extends Controller
      */
     public function authenticate()
     {
-        if ( $this->user->login( $this->input->post( 'username' ), $this->input->post( 'password' ), $this->input->post( 'remember' ) ) ) {
-            // Login True
-            redirect_url('stats');
+        $login = services('user')->authenticate(input()->post('username'), input()->post('password'));
+        if ($login) {
+            redirect_url('personal/agenda');
         } else {
-            redirect_url( 'login' );
+            session()->setFlash('danger', language('ALERT_DANGER_LOGIN_FAILED'));
+            redirect_url('login');
         }
     }
 
-    public function forgotPassword() {
-        presenter()->page->setHeader( 'Forgot Password' );
+    // --------------------------------------------------------------------------------------
 
-        if (null !== ($username = input()->post('username'))) {
-            if(false !== ($account = services('user')->findAccount($username))) {
-                $token = Token::generate(10, Token::ALPHANUMERIC_STRING);
-                if(cache()->hasItem($token)) {
-                    $token = Token::generate(10, Token::ALPHANUMERIC_STRING);
-                }
+    /**
+     * Login::forgotPassword
+     *
+     * @throws \Exception
+     */
+    public function forgotPassword()
+    {
+        $this->presenter->theme->setLayout('login');
+        $this->presenter->page->setHeader('Forgot Password');
 
-                $cache = new Item($token, $account->username, 3600);
-                cache()->save($cache);
+        $userNameOrEmail = $this->input->post('username');
+
+        if ($userNameOrEmail !== null) {
+            $checkUserOrEmail = $this->models->users->findwhere([
+                'email' => $userNameOrEmail,
+            ]);
+            if ($checkUserOrEmail == false) {
+                $checkUserOrEmail = $this->models->users->findwhere([
+                    'username' => $userNameOrEmail,
+                ]);
+            }
+            if ($checkUserOrEmail == false) {
+                session()->setFlash('error', $this->language->getLine('NOT_EXIST_EMAIL_OR_USERNAME'));
+            } else {
+                $token = new Token();
+                $getToken = $token->generate(8);
+                $arrayToken = ['pin' => $getToken];
+                session()->setFlash('success', $this->language->getLine('ALERT_CHECK_YOUR_EMAIL'));
+                $accountInfo = $checkUserOrEmail->first();
+                $this->models->users->update($arrayToken, ['id' => $accountInfo->id]);
 
                 $email = new Email();
-                $email->subject('RESET_PASSWORD');
-                $email->from('noreply@' . (new Uri())->getHost());
-                $email->to('steeven.lim@gmail.com');
+                $email->subject('Reset Password');
+                $email->from('no-reply@selarasholding.com', 'Selaras Holding');
+                $email->to($accountInfo->email);
                 $email->template('email/reset-password', [
-                   'username' => $account->username,
-                   'token' => $token
+                    'username' => $accountInfo->username,
+                    'token' => $getToken,
                 ]);
-
-                if($email->send()) {
-                    session()->setFlash('success', 'Silakan Check Email Anda');
+                if ($email->send()) {
+                } else {
                 }
-            } else {
-                session()->setFlash('failed', sprintf('%s tidak ditemukan', $username));
             }
         }
-
-        view( 'password/forgot' );
+        view('forgot-password');
     }
 
-    public function resetPassword($token = null) {
-        if($post = input()->post()) {
-            if(services('user')->update(new Account(
-                [
-                    'username' => $post->username,
-                    'password' => $post->password,
-                ]
-            ))) {
-                cache()->deleteItem($token);
-                view( 'password/success' );
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Login::validate
+     *
+     * @param string $token
+     */
+    public function validate($token = null)
+    {
+        $this->presenter->theme->setLayout('login');
+        $this->presenter->page->setHeader('Reset Password');
+        $account = $this->models->users->findWhere(['pin' => $token]);
+        if ($post = $this->input->post()) {
+            $password = $post->password;
+            $repasword = $post->repassword;
+            if ($password == $repasword) {
+                session()->setFlash('success', language('SUCCESS_CHANGE_YOUR_PASSWORD'));
+                $this->models->users->update(['password' => $this->user->passwordHash($password)], ['id' => $post->id]);
+                redirect_url('login');
             } else {
-                view( 'password/error' );
-            }
-        } else {
-            if(isset($token) && cache()->hasItem($token)) {
-                $cache = cache()->getItem($token);
-                if(false !== ($account = services('user')->findAccount($cache->get()))) {
-                    view( 'password/reset', ['account' => $account] );
-                }
-            } else {
-                session()->setFlash('error', 'Token yang anda masukan salah atau sudah tidak berlaku');
-                view( 'password/forgot' );
+                session()->setFlash('failed', language('Correct Your Password'));
             }
         }
+        if ($account != null) {
+            view('reset-account', [
+                'username' => $account->first()->username,
+                'iduser' => $account->first()->id,
+            ]);
+        } else {
+            redirect_url('forgot-password');
+        }
+    }
 
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Login::reset
+     */
+    public function reset()
+    {
+        $newPassword = $this->input->post('password');
+        $idUser = $this->input->post('id_user');
+
+        if ($newPassword !== false && $idUser !== false) {
+            if ($this->getForgotModel()->resetAccountPassword($idUser, $newPassword)) {
+                redirect_url('/login');
+            } else {
+                print_out('Failed');
+            }
+        }
     }
 }

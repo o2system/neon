@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<form  method="post" action="<?php echo current_url(); ?>">
+					<div class="card">
+						<h5 class="card-header d-flex justify-content-between align-items-center">
+                            <?php echo $page->header; ?>
+
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                    <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-default">
+                                    <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </h5>
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+                            <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('COMPANY'); ?></label>
+                                <input name="company_name" class="form-control" type="text" value="<?php echo $post->company_name ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('DEPARTMENT'); ?></label>
+                                <input name="company_department" class="form-control" type="text" value="<?php echo $post->company_department; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('POSITION'); ?></label>
+                                <input name="company_department_position" class="form-control" type="text" value="<?php echo $post->company_department_position; ?>">
+                            </div>
+
+	                        <div class="row">
+		                        <div class="col-md-6">
+			                        <label><?php echo $language->getLine('DATE_START'); ?></label>
+			                        <input name="date_start" class="form-control" type="date" value="<?php echo $post->date_start; ?>" required>
+		                        </div>
+		                        <div class="col-md-6">
+			                        <label><?php echo $language->getLine('DATE_END'); ?></label>
+			                        <input name="date_end" class="form-control" type="date" value="<?php echo $post->date_end; ?>" required>
+		                        </div>
+	                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<form  method="post" action="<?php echo current_url(); ?>">
+					<div class="card">
+						<h5 class="card-header d-flex justify-content-between align-items-center">
+                            <?php echo $page->header; ?>
+
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                    <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </h5>
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+							<input type="hidden" name="id" value="<?php echo $post->id; ?>">
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('SKILL'); ?></label>
+                                <input type="text" class="form-control" name="name" value="<?php echo $post->name; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('GRADE'); ?></label>
+                                <select class="form-control custom-select" name="grade" required>
+                                    <?php foreach($options->grades as $value => $label): ?>
+	                                    <option value="<?php echo $value; ?>" <?php echo($value === $post->grade ? 'selected' : ''); ?>>
+                                            <?php echo $label; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

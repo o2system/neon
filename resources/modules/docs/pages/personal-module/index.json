@@ -1,0 +1,6 @@
+{
+  "presets": {
+    "title": "Personal Module Documentation",
+    "access": "authenticated"
+  }
+}

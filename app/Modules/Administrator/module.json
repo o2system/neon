@@ -1,0 +1,23 @@
+{
+  "name": "Administrator Module",
+  "created": "19-09-2017",
+  "version": "1.0.0",
+  "description": "Administrator Module",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2017 - Steeve Andrian Salim",
+  "authors": [
+    {
+      "name": "Steeve Andrian Salim",
+      "email": "steeven@o2system.id",
+      "homepage": "http://www.o2system.id/authors/steevenz",
+      "role": "Founder"
+    }
+  ],
+  "presets": {
+    "menus": {
+      "sidebar": {
+
+      }
+    }
+  }
+}

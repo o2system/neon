@@ -1,16 +1,16 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
-namespace Administrator\Http;
+namespace App\Modules\Administrator\Http;
 
 // ------------------------------------------------------------------------
 
@@ -27,16 +27,22 @@ class Controller extends AuthorizedController
     /**
      * Controller::__construct
      */
+    public $model;
     public function __reconstruct()
     {
         parent::__reconstruct();
-
         $this->presenter->page
             ->setHeader( 'Administrator' )
             ->setDescription( 'The O2CMS Administrator Module' );
+        if (empty($this->model)) {
+            $controllerClassName = get_called_class();
+            $modelClassName = str_replace(['App', 'Controllers'], ['App\Api', 'Models'], $controllerClassName);
 
-        $this->presenter->page->breadcrumb->createList( new Link( language()->getLine( 'ADMINISTRATOR' ), '#' ) );
-
-        $this->presenter->page->icon->setClass( 'fa fa-user' );
+            if (class_exists($modelClassName)) {
+                $this->model = new $modelClassName();
+            }
+        } elseif (class_exists($this->model)) {
+            $this->model = new $this->model();
+        }
     }
 }

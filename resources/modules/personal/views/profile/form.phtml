@@ -1,0 +1,171 @@
+<div class="page-wrapper">
+
+    <div class="container-fluid pt-0">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form  method="POST" action="<?php echo current_url(); ?>" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <?php if (null !== ($message = $session->getFlash('success'))): ?>
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">
+                                <?php echo $language->getLine('ALERT_SUCCESS_HEADING'); ?>
+                            </h4>
+                            <p><?php echo $message; ?></p>
+                        </div>
+                    <?php elseif (null !== ($message = $session->getFlash('danger'))): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">
+                                <?php echo $language->getLine('ALERT_DANGER_HEADING'); ?>
+                            </h4>
+                            <p><?php echo $message; ?></p>
+                        </div>
+                    <?php endif; ?>
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <?php echo $language->getLine('ACCOUNT'); ?>
+
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                    <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+                            <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="file" class="dropify" name="photo" data-default-file="<?php echo (empty($post->photo) ? images_url('default/avatar.jpg') : $post->avatar) ?>" data-height="200" >
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="hr-employee-number-personal"><?php echo $language->getLine('NUMBER_PERSONNEL'); ?></label>
+                                        <input id="hr-employee-number-personal" type="text" class="form-control" name="number_personnel" value="<?php echo $post->number_personnel ?>" required>
+
+                                        <div class="valid-feedback">
+                                            <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo $language->getLine('PLEASE_INPUT_NUMBER_PERSONAL'); ?>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hr-employee-full-name"><?php echo $language->getLine('FULL_NAME'); ?></label>
+                                        <input id="hr-employee-full-name" type="text" class="form-control" name="name" value="<?php echo $post->name; ?>" required>
+
+                                        <div class="valid-feedback">
+                                            <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo $language->getLine('PLEASE_INPUT_YOUR_FULL_NAME'); ?>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="hr-employee-alias"><?php echo $language->getLine('ALIAS'); ?></label>
+                                                <input id="hr-employee-alias" type="text" class="form-control" name="alias" value="<?php echo $post->alias; ?>" required>
+
+                                                <div class="valid-feedback">
+                                                    <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <?php echo $language->getLine('PLEASE_INPUT_ALIAS'); ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="hr-employee-initial"><?php echo $language->getLine('INITIAL'); ?></label>
+                                                <input id="hr-employee-initial" type="text" class="form-control" name="initial" value="<?php echo $post->initial; ?>" required>
+
+                                                <div class="valid-feedback">
+                                                    <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <?php echo $language->getLine('PLEASE_INPUT_A_INITIAL'); ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-date-join"><?php echo $language->getLine('DATE_JOIN'); ?></label>
+                                        <input id="hr-employee-date-join" name="date_join" class="form-control" type="date" value="<?php echo $post->date_join; ?>" required>
+
+                                        <div class="valid-feedback">
+                                            <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <?php echo $language->getLine('PLEASE_INPUT_DATE_JOIN'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-date-resignation"><?php echo $language->getLine('DATE_RESIGNATION'); ?></label>
+                                        <input id="hr-employee-date-resignation" name="date_resignation" class="form-control" type="date" value="<?php echo $post->date_resignation; ?>" <?php echo($post->id ? '' : 'disabled'); ?>>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php if(!empty($post->id)):?>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="add_user" type="checkbox" value="YES" id="add-user" data-toggle="collapse" data-target="#add-user-form">
+                                    <label class="form-check-label" for="add-user">
+                                        + <?php echo $language->getLine('ADD_USER'); ?>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row collapse" id="add-user-form">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="hr-employee-mobile"><?php echo $language->getLine('MOBILE'); ?></label>
+                                        <input id="hr-employee-mobile" class="form-control" name="user[msisdn]" type="text" value="<?=$post->user->msisdn;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-email"><?php echo $language->getLine('EMAIL'); ?></label>
+                                        <input id="hr-employee-email" class="form-control" name="user[email]" type="email" value="<?=$post->user->email;?>">
+                                        <input class="form-control" name="user[id]" type="hidden" value="<?=$post->user->id;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-username"><?php echo $language->getLine('USERNAME'); ?></label>
+                                        <input id="hr-employee-username" name="user[username]" class="form-control" type="text" value="<?=$post->user->username;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-password"><?php echo $language->getLine('PASSWORD'); ?></label>
+                                        <input id="hr-employee-password" name="user[password]" class="form-control" type="password" value="<?=$post->user->password;?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="hr-employee-confirm-password"><?php echo $language->getLine('CONFIRM_PASSWORD'); ?></label>
+                                        <input id="hr-employee-confirm-password" name="user[password_confirm]" class="form-control" type="password" value="<?=$post->user->password;?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endif ;?>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

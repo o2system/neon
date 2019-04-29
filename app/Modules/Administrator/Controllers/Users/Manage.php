@@ -1,20 +1,21 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
-namespace Administrator\Controllers\Users;
+namespace App\Modules\Administrator\Controllers\Users;
 
 // ------------------------------------------------------------------------
 
-use Administrator\Http\Controller;
+
+use App\Modules\Administrator\Http\Controller;
 use O2System\Framework\Libraries\Ui\Contents\Link;
 
 /**
@@ -40,6 +41,9 @@ class Manage extends Controller
         $this->view->load( 'users/manage/table', ['users' => $u] );
     }
 
+    /**
+     * @param null $idUser
+     */
     public function form($idUser = NULL)
     {
         if ($idUser !== NULL) {

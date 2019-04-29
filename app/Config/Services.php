@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the O2System PHP Framework package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         Steeve Andrian Salim
+ * @copyright      Copyright (c) Steeve Andrian Salim
  */
 // ------------------------------------------------------------------------
 
@@ -23,7 +23,10 @@
 |
 | Example init libraries
 |   $services[ 'foo' ] = new App\Libraries\Foo( 'bar' );
+|   $services['user'] = \O2System\Framework\Libraries\AccessControl\User::class;
 |
 */
 
-$services[ 'user' ] = '\O2System\Framework\Libraries\Acl\User';
+$services = [
+    'user' => \O2System\Framework\Libraries\AccessControl\User::class
+];

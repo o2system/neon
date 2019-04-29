@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of the O2System Content Management System package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian
- * @copyright      Copyright (c) Steeve Andrian
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
-namespace Administrator\Controllers;
+namespace App\Modules\Administrator\Controllers;
 
 // ------------------------------------------------------------------------
 
-use Administrator\Http\Controller;
+use App\Modules\Administrator\Http\Controller;
 use O2System\Kernel\Http\Message\UploadFile;
 
 /**
@@ -26,7 +26,7 @@ class Settings extends Controller {
 
     public function __construct()
     {
-        $this->settingsModel = new \Administrator\Models\Settings();
+        $this->settingsModel = self::class;
     }
 
     public function index($segments = '') {
@@ -76,38 +76,38 @@ class Settings extends Controller {
         switch ($segment) {
             case 'general':
                 if ($this->input->post('saveSite')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_SITE;
+                    $defaultValue = self::DEFAULT_SITE;
                 } else if ($this->input->post('saveMeta')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_SITE_META;
+                    $defaultValue = self::DEFAULT_SITE_META;
                 } else {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_SITE_PRIVACY;
+                    $defaultValue = self::DEFAULT_SITE_PRIVACY;
                 }
                 break;
             case 'writing':
                 if ($this->input->post('composingSave')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_COMPOSING;
+                    $defaultValue = self::DEFAULT_COMPOSING;
                 } else {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_WRITE;
+                    $defaultValue = self::DEFAULT_WRITE;
                 }
                 break;
             case 'discussion':
                 if ($this->input->post('articleSave')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_ARTICLES;
+                    $defaultValue = self::DEFAULT_ARTICLES;
                 } else {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_DISCUSS;
+                    $defaultValue = self::DEFAULT_DISCUSS;
                 }
                 break;
             case 'traffic':
                 if ($this->input->post('saveRelated')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_TRAFFIC_RELATED;
+                    $defaultValue = self::DEFAULT_TRAFFIC_RELATED;
                 } else if ($this->input->post('saveMobile')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_TRAFFIC_MOBILE;
+                    $defaultValue = self::DEFAULT_TRAFFIC_MOBILE;
                 } else if ($this->input->post('saveSeo')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_TRAFFIC_SEO;
+                    $defaultValue = self::DEFAULT_TRAFFIC_SEO;
                 } else if ($this->input->post('saveAnalytic')) {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_TRAFFIC_GOOGLE_ANALYTIC;
+                    $defaultValue = self::DEFAULT_TRAFFIC_GOOGLE_ANALYTIC;
                 } else {
-                    $defaultValue = \Administrator\Models\Settings::DEFAULT_TRAFFIC_SITE_VERIFICATION;
+                    $defaultValue = self::DEFAULT_TRAFFIC_SITE_VERIFICATION;
                 }
                 break;
             default:

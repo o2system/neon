@@ -1,0 +1,54 @@
+<div class="page-wrapper">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<form  method="post" action="<?php echo current_url(); ?>">
+					<div class="card">
+						<h5 class="card-header d-flex justify-content-between align-items-center">
+							<?php echo $page->header; ?>
+							<div class="card-options">
+								<button type="button" class="btn btn-default" data-action="cancel">
+								<?php echo $language->getLine('BTN_CANCEL'); ?>
+								</button>
+								<button type="submit" class="btn btn-default">
+								<?php echo $language->getLine('BTN_SAVE'); ?>
+								</button>
+							</div>
+						</h5>
+						<div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+							<input type="hidden" name="id" value="<?php echo $post->id; ?>">
+							<div class="form-group">
+                                <label><?php echo $language->getLine('LABEL'); ?></label>
+                                <input class="form-control" name="label" type="text" value="<?php echo get_object_var('label', $post); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('BANK'); ?></label>
+                                <select class="form-control custom-select" name="id_bank" required>
+                                    <?php foreach($options->banks as $option): ?>
+                                    <option value="<?php echo $option->id; ?>" <?php echo ($option->id === get_object_var('id_bank', $post)); ?>><?php echo $option->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('BRANCH_NAME'); ?></label>
+                                <input class="form-control" name="branch_name" type="text" value="<?php echo get_object_var('branch_name', $post); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('BRANCH_CODE'); ?></label>
+                                <input class="form-control" name="branch_code" type="text" value="<?php echo get_object_var('branch_code', $post); ?>">
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('ACCOUNT_HOLDER'); ?></label>
+                                <input class="form-control" name="account_holder" type="text" value="<?php echo get_object_var('account_holder', $post); ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo $language->getLine('ACCOUNT_NUMBER'); ?></label>
+                                <input class="form-control" name="account_number" type="text" value="<?php echo get_object_var('account_number', $post); ?>" required>
+                            </div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

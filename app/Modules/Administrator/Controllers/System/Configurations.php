@@ -1,21 +1,22 @@
 <?php
 /**
- * This file is part of the O2System PHP Framework package.
+ * This file is part of the NEO ERP Application.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         Steeve Andrian Salim
- * @copyright      Copyright (c) Steeve Andrian Salim
+ * @author         PT. Lingkar Kreasi (Circle Creative)
+ * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 
 // ------------------------------------------------------------------------
 
-namespace Administrator\Controllers\System;
+
+namespace App\Modules\Administrator\Controllers\System;
 
 // ------------------------------------------------------------------------
 
-use Administrator\Http\Controller;
+use App\Modules\Administrator\Http\Controller;
 use O2System\Framework\Libraries\Ui\Contents\Link;
 
 /**
