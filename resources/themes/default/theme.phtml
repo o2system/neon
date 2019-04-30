@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ $meta->title }}</title>
-	{{ $assets->head }}
+    <title>{{$meta->title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{ $assets->head }}
 </head>
-<body class="multipurpose">
-	<div id="page-content" class="page-content">
-	    {{ $partials->content }}
-	</div>
-
-	<a class="scroll-to-top" href="#top"><i class="fas fa-long-arrow-alt-up"></i>To Top</a>
-	{{ $assets->body }}
+<body class="venus-admin">
+    <header class="header">
+        {{$partials->header}}
+    </header>
+    <aside class="sidebar-left">
+        {{$partials->sidebar}}
+    </aside>
+    <main class="main">
+        {{$partials->content}}
+    </main>
+    {{ $assets->body }}
 </body>
 </html>

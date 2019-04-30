@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="nav-pages">    
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Published</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Drafts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Trash</a>
+                            </li>
+                        </ul>
+
+                        <form class="nav-search">
+                            <div class="search-icon open-search">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="search-input">
+                                <input type="search" placeholder="Search...">
+                            </div>
+                            <div class="search-icon close-search">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="appearance-list">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="card">
+                    <div class="theme-img">
+                        <img class="card-img-top" src="assets/img/nopost.png" alt="Card image cap">
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-title mb-0 font-weight-bold">Themes Title</h6>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle dropdown-ellipsis" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="<?php echo base_url('pages/form'); ?>">
+                                        <i class="fas fa-check-circle"></i> 
+                                        Activate
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-trash"></i>
+                                        Trash
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            <strong>Author:</strong> O2System
+                        </p>
+                        <p class="mb-0">
+                            <strong>Contributor:</strong> Teguh Rianto
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="card">
+                    <div class="theme-img">
+                        <img class="card-img-top" src="assets/img/nopost.png" alt="Card image cap">
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-title mb-0 font-weight-bold">Themes Title <i class="fas fa-check-circle text-success" data-toggle="tooltip" title="Active Themes"></i></h6>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle dropdown-ellipsis" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="<?php echo base_url('pages/form'); ?>">
+                                        <i class="fas fa-cog"></i> 
+                                        Customize
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-trash"></i>
+                                        Trash
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            <strong>Author:</strong> O2System
+                        </p>
+                        <p class="mb-0">
+                            <strong>Contributor:</strong> Teguh Rianto
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

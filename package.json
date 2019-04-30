@@ -39,7 +39,10 @@
     "webpack-livereload-plugin": "^2.2.0"
   },
   "dependencies": {
+    "jquery-slinky": "^4.1.0",
     "o2system-espresso": "git+https://github.com/o2system/espresso.git",
+    "o2system-venus-admin": "git+https://github.com/o2system/venus-admin.git",
+    "o2system-venus-form": "git+https://github.com/o2system/venus-form.git",
     "o2system-venus-ui": "git+https://github.com/o2system/venus-ui.git"
   }
 }

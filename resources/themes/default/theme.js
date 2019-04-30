@@ -1,12 +1,15 @@
-/*
- * This file is part of the O2System PHP Framework package.
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- * @author         Steeve Andrian Salim
- *  @copyright      Copyright (c) Steeve Andrian Salim
- */
-
 import "o2system-venus-ui/src/main";
-import "./theme.scss";
+import "o2system-venus-form/src/main";
+import "o2system-venus-admin/src/main"
+import Search from "./assets/js/Search";
+import Sidebar from "./assets/js/Sidebar";
+import Customizer from "./assets/js/Customizer";
+import "./theme.scss"
+
+export default class Theme {
+    constructor() {
+        this.search = new Search();
+        this.sidebar = new Sidebar();
+        this.customizer = new Customizer();
+    }
+}

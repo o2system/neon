@@ -1,0 +1,305 @@
+#personal-notes-sidebar{
+    min-height: 100vh;
+    background: #f5f7f9;
+    padding: 1rem 0 1rem 1.5rem;
+    form{
+        padding-right: 1.5rem;
+    }
+    .notes-list{
+        padding-left: 0;
+        list-style: none;
+        .notes-list-item{
+            padding-right: 1.5rem;
+            .item-label{
+                position: relative;
+                input{
+                    font-size: 10px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    color: darkgray;
+                    background: 0;
+                    padding: 0;
+                    border: 0;
+                    &:hover, &:focus{
+                        background: 0;
+                        padding: 0;
+                        border: 0;
+                        outline: none;
+                    }
+                }
+                .btn{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    opacity: 0;
+                    transition: all .3s ease-in-out;
+                }
+                &:hover{
+                    .btn{
+                        opacity: 1;
+                        transition: all .3s ease-in-out;
+                    }
+                }
+            }
+            .pages-list{
+                padding-left: 0;
+                list-style: none;
+                .pages-list-item{
+                    position: relative;
+                    .item-title{
+                        font-size: 15px;
+                        font-weight: 400;
+                        text-transform: capitalize;
+                        width: 65%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        height: 20px;
+                        white-space: nowrap;
+                        .btn-group{
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            opacity: 0;
+                            transition: all .3s ease-in-out;
+                        }
+                        &:hover{
+                            .btn-group{
+                                opacity: 1;
+                                transition: all .3s ease-in-out;
+                            }
+                        }
+                    }
+                    &:first-child{
+                        padding-top: .25rem;
+                    }
+                }
+                .pages-list-add{
+                    color: darkgray;
+                    padding-top: .25rem;
+                    cursor: pointer;
+                    >.row{
+                        opacity: 0;
+                        transition: all .3s ease-in-out;
+                    }
+                    &:hover{
+                        >.row{
+                            opacity: 1;
+                            transition: all .3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+        .notes-list-add{
+            border-top: 1px solid #ebebeb;
+            color: darkgray;
+            padding: .5rem .75rem;
+            margin-top: .5rem;
+            a{
+                font-size: 10px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: darkgray;
+                position: relative;
+            }
+        }
+    }
+}
+
+#personal-notes-page{
+    min-height: 100vh;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    form{
+        .form-group{
+            &:first-child{
+                border-left: 3px solid $primary;
+                padding-left: 1rem;
+            }
+        }
+    }
+    input[name=title]{
+        border: none;
+        background-color: transparent;
+        font-size: 2rem;
+        box-shadow: none !important;
+        margin-bottom: .25rem;
+        position: relative;
+        padding: 5px 20px 5px 0 !important;
+        border-radius: 0 !important;
+        transition: all .5s ease-in-out;
+        &:focus{
+            color: #495057;
+            background-color: #f5f7f9;
+            border: 0;
+            outline: 0;
+        }
+        &:hover{
+            color: #495057;
+            background-color: #f5f7f9;
+            border: 0;
+            outline: 0;
+        }
+    }
+    .tinymce-inline{
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        box-shadow: none !important;
+        margin-bottom: 0;
+        position: relative;
+        padding: 0px !important;
+        border-radius: 0 !important;
+        transition: all .5s ease-in-out;
+        &:focus{
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+        }
+        &:hover{
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+        }
+    }
+}
+
+.notes-form-description{
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    box-shadow: none !important;
+    margin-bottom: 0;
+    position: relative;
+    padding: 10px 20px !important;
+    border-radius: 0 !important;
+    transition: all .5s ease-in-out;
+    &:focus{
+        color: #495057;
+        background-color: #f5f7f9;
+        border: 0;
+        outline: 0;
+    }
+    &:hover{
+        color: #495057;
+        background-color: #f5f7f9;
+        border: 0;
+        outline: 0;
+    }
+}
+
+.notes{
+    transform: translateY(0px);
+    transition: all .5s ease-in-out;
+    &.hidden{
+        display: none !important;
+        transform: translateY(-30px);
+        transition: all .5s ease-in-out;
+    }
+}
+
+.hidden{
+    display: none !important;
+}
+
+.notes-display-title{
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    box-shadow: none !important;
+    margin-bottom: 0;
+    position: relative;
+    padding: 10px 20px !important;
+    border-radius: 0 !important;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    &[readonly]{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+    &:focus{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+    &:hover{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+}
+
+.notes-display-description{
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    box-shadow: none !important;
+    margin-bottom: 0;
+    position: relative;
+    padding: 10px 20px !important;
+    border-radius: 0 !important;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    &[readonly]{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+    &:focus{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+    &:hover{
+        color: #495057;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+    }
+}
+
+.animate-load{
+    color: transparent !important;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: placeHolderShimmer;
+    animation-name: placeHolderShimmer;
+    background: #f6f7f8;
+    background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%) !important;
+    background-size: 800px 14px !important;
+    position: relative;
+    border: 0;
+    a, input{
+        color: transparent !important;
+    }
+}
+
+@-webkit-keyframes placeHolderShimmer {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+  }
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+}

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-lg-4 col-md-6">
+			<div class="card">
+				<div class="card-body">
+					<div class="logo text-center">
+						<a href="javascript:void(0);">
+							<img src="assets/img/logo/color.png">
+						</a>
+					</div>
+					<form>
+						<div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" class="form-control" id="username" value="username" readonly>
+						</div>
+                        <div class="form-group">
+                            <label for="pass1">Password<span class="text-danger">*</span></label>
+                            <input id="pass1" type="password" placeholder="Password" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="passWord2">Confirm Password <span class="text-danger">*</span></label>
+                            <input data-parsley-equalto="#pass1" type="password" required placeholder="Password" class="form-control" id="passWord2">
+                        </div>
+                        <div class="form-group text-right">
+                            <button class="btn btn-primary" type="submit">Reset Password</button>
+                        </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

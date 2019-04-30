@@ -1,0 +1,135 @@
+.right-sidebar{
+    position: fixed;
+    right: -270px;
+    width: 270px;
+    z-index: 40;
+    background: #E9EFF3;
+    padding-bottom: 20px;
+    height: 100%;
+    border-left: 1px solid $gray-200;
+    transition: all 0.3s ease;
+    top: 60px;
+    overflow-y: auto !important;
+
+    .top-title{
+        position: relative;
+        padding: 15px;
+        background: #E9EFF3;
+        z-index: 40;
+
+        h6{
+            margin: 0;
+            color: $gray-900;
+            font-size: 0.9rem;
+        }
+
+        a{
+            color: $gray-900;
+            font-size: 0.9rem;
+            position: absolute;
+            right: 5%;
+            top: 25%;
+        }
+    }
+
+    .card{
+        margin-bottom: 0;
+        box-shadow: 0 -1px 0 #dce5ec,0 1px 0 #dce5ec;
+        margin-top: 1px;
+        position: relative;
+        border-radius: 0;
+        border: none;
+
+        .card-header{
+            border: none;
+            cursor: pointer;
+            border-radius: 0;
+            position: relative;
+
+            h5{
+                font-size: 1rem;
+                a{
+                    color: $body-color;
+                }
+            }
+
+            &[aria-expanded="false"]{
+                &:after {
+                    font-family: 'Font Awesome\ 5 Free';
+                    content: "\f0d7";
+                    position: absolute;
+                    right: 5%;
+                    top: 25%;
+                    font-weight: 900;
+                }
+            }
+
+            &[aria-expanded="true"]{
+                &:after {
+                    font-family: 'Font Awesome\ 5 Free';
+                    content: "\f0d8";
+                    position: absolute;
+                    right: 5%;
+                    top: 25%;
+                    font-weight: 900;
+                }
+
+                &:hover{
+                    background-color: transparent;
+                    h5{
+                        a{
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+
+            &:hover{
+                h5{
+                    a{
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .card-body{
+            padding: 0.5rem 1rem;
+        }
+
+    }
+
+    .dropzone{
+        border: 1px solid #E9EFF3;
+    }
+}
+
+.show-rightside {
+    right: 0px;
+    width: 270px;
+    display: block;
+}
+
+.editor-sidebar-toggle{
+    position: absolute;
+    width: 54px;
+    height: 50px;
+    top: 20%;
+    right: 0px; 
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    background-color: $white;
+    color: $gray-900;
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 0 0 1.25rem rgba(108,118,134,.1);
+}
+
+.editor-sidebar-showing{
+    .right-sidebar{
+        right: 0px;
+        width: 270px;
+        display: block;
+    }
+}
