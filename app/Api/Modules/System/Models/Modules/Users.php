@@ -8,6 +8,7 @@
  * @author         Steeve Andrian Salim
  * @copyright      Copyright (c) Steeve Andrian Salim
  */
+
 // ------------------------------------------------------------------------
 
 namespace App\Api\Modules\System\Models\Modules;
@@ -15,9 +16,9 @@ namespace App\Api\Modules\System\Models\Modules;
 // ------------------------------------------------------------------------
 
 use App\Api\Modules\System\Models\Modules;
-use O2System\Framework\Models\Sql\DataObjects\Result;
+use O2System\Framework\Http\Message\ServerRequest;
 use O2System\Framework\Models\Sql\Model;
-use O2System\Framework\Models\Sql\Traits\RelationTrait;
+use O2System\Spl\DataStructures\SplArrayObject;
 
 /**
  * Class Users
@@ -25,8 +26,6 @@ use O2System\Framework\Models\Sql\Traits\RelationTrait;
  */
 class Users extends Model
 {
-    use RelationTrait;
-
     /**
      * Users::$table
      *
@@ -34,78 +33,47 @@ class Users extends Model
      */
     public $table = 'sys_modules_users';
 
+    /**
+     * Users::$visibleColumns
+     *
+     * @var array
+     */
+    public $visibleColumns = [
+        'id',
+        'id_sys_user',
+        'id_sys_module_role',
+        'status',
+    ];
+
     // ------------------------------------------------------------------------
 
     /**
-     * Users::getAccount
+     * Users::statusOptions
      *
-     * @param array $conditions
-     *
-     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result
-     * @throws \O2System\Psr\Cache\InvalidArgumentException
-     * @throws \O2System\Spl\Exceptions\RuntimeException
+     * @return array
      */
-    public function findWhere(array $conditions, $limit = 1)
+    public function statusOptions()
     {
-        $this->qb->select('sys_modules_users.*');
-        $this->qb->join('sys_users', 'sys_users.id = sys_modules_users.id_sys_user');
-
-        foreach($conditions as $field => $value) {
-            $this->qb->where('sys_users.' . $field, $value);
-        }
-
-        if ($result = $this->qb
-            ->from($this->table)
-            ->get(1)) {
-            if ($result->count() > 0) {
-                $this->result = new Result($result, $this);
-                $this->result->setInfo($result->getInfo());
-
-                if ($this->result->count() == 1) {
-                    return $this->result->first();
-                }
-
-                return $this->result;
-            }
-        }
-
-        return false;
+        return [
+            'ACTIVE'            => language('ACTIVE'),
+            'INACTIVE'          => language('INACTIVE'),
+            'BLOCKED_BY_USER'   => language('BLOCKED_BY_USER'),
+            'BLOCKED_BY_SYSTEM' => language('BLOCKED_BY_SYSTEM'),
+            'BANNED_BY_USER'    => language('BANNED_BY_USER'),
+            'BANNED_BY_SYSTEM'  => language('BANNED_BY_SYSTEM'),
+        ];
     }
 
     // ------------------------------------------------------------------------
 
     /**
-     * Users::account
+     * Users::user
      *
      * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
      */
-    public function account()
+    public function user()
     {
         return $this->belongsTo(\App\Api\Modules\System\Models\Users::class, 'id_sys_user');
-    }
-
-    // ------------------------------------------------------------------------
-
-    /**
-     * Users::profile
-     *
-     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
-     */
-    public function profile()
-    {
-        return $this->account()->profile;
-    }
-
-    // ------------------------------------------------------------------------
-
-    /**
-     * Users::module
-     *
-     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
-     */
-    public function module()
-    {
-        return $this->belongsTo(Modules::class, 'id_sys_module');
     }
 
     // ------------------------------------------------------------------------
@@ -118,5 +86,168 @@ class Users extends Model
     public function role()
     {
         return $this->belongsTo(Roles::class, 'id_sys_module_role');
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::permission
+     *
+     * @param mixed $request
+     *
+     * @return string Returns DENIED | GRANTED | WRITE
+     * @throws \O2System\Spl\Exceptions\RuntimeException
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
+    public function permission($request = null)
+    {
+        $permission = 'DENIED';
+        $uriString = server_request()->getUri()->getSegments()->__toString();
+
+        if (isset($request)) {
+            if ($request instanceof ServerRequest) {
+                $uriString = $request->getUri()->getSegments()->__toString();
+            } elseif (is_string($request)) {
+                if (strpos($request, 'http') !== false) {
+                    $url = parse_url($request);
+                    $uriString = $url[ 'path' ];
+                } elseif (strpos($request, '/') !== false) {
+                    $uriString = $request;
+                }
+            } elseif (is_array($request)) {
+                $uriString = implode('/', $request);
+            }
+        }
+
+        $sysModulesSegmentsTable = models(Segments::class)->table;
+        $sysModulesSegmentsAuthoritiesRolesTable = models(Modules\Segments\Authorities\Roles::class)->table;
+
+        /**
+         * Authorities by Role
+         */
+        if ($result = $this->qb
+            ->select($sysModulesSegmentsAuthoritiesRolesTable . '.permission')
+            ->from($sysModulesSegmentsAuthoritiesRolesTable)
+            ->join($sysModulesSegmentsTable,
+                $sysModulesSegmentsTable . '.id = ' . $sysModulesSegmentsAuthoritiesRolesTable . '.id_sys_module_segment')
+            ->where([
+                'id_sys_module_role'              => $this->row->id,
+                $sysModulesSegmentsTable . '.uri' => $uriString,
+            ])
+            ->get(1)) {
+            if ($result->count() == 1) {
+                $permission = strtoupper($result->first()->permission);
+            }
+        }
+
+        $sysModulesSegmentsAuthoritiesUsersTable = models(Modules\Segments\Authorities\Users::class)->table;
+
+        /**
+         * Authorities by User
+         */
+        if ($result = $this->qb
+            ->select($sysModulesSegmentsAuthoritiesUsersTable . '.permission')
+            ->from($sysModulesSegmentsAuthoritiesUsersTable)
+            ->join($sysModulesSegmentsTable,
+                $sysModulesSegmentsTable . '.id = ' . $sysModulesSegmentsAuthoritiesUsersTable . '.id_sys_module_segment')
+            ->where([
+                'id_sys_module_user'              => $this->row->id,
+                $sysModulesSegmentsTable . '.uri' => $uriString,
+            ])
+            ->get(1)) {
+            if ($result->count() == 1) {
+                $permission = strtoupper($result->first()->permission);
+            }
+        }
+
+        /**
+         * By Default User Role
+         */
+        if (in_array(strtoupper($this->role()->code), ['DEVELOPER', 'ADMINISTRATOR'])) {
+            $permission = 'WRITE';
+        }
+
+        return $permission;
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::profile
+     *
+     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
+     */
+    public function profile()
+    {
+        return $this->user()->profile;
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::settings
+     *
+     * @return \O2System\Spl\DataStructures\SplArrayObject|null
+     */
+    public function settings()
+    {
+        if ($result = $this->hasMany(Modules\Users\Settings::class, 'id_post')) {
+            $setting = new SplArrayObject();
+            foreach ($result as $row) {
+                $setting->offsetSet($row->key, $row->value);
+            }
+
+            return $setting;
+        }
+
+        return null;
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::approvals
+     *
+     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result
+     */
+    public function approvals()
+    {
+        return $this->hasMany(Modules\Users\Approvals::class, 'id_sys_module_user');
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::notifies
+     *
+     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result
+     */
+    public function notifies()
+    {
+        return $this->hasMany(Modules\Users\Notifications::class, 'module_user_sender_id');
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::notifications
+     *
+     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result
+     */
+    public function notifications()
+    {
+        return $this->hasMany(Modules\Users\Notifications::class, 'module_user_recipient_id');
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Users::trails
+     *
+     * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result
+     */
+    public function trails()
+    {
+        return $this->hasMany(Modules\Users\Notifications::class, 'id_sys_module_user');
     }
 }

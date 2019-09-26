@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form  method="post" action="<?php echo current_url(); ?>" enctype="multipart/form-data">
+                    <div class="card">
+                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                            <?php $page->title; ?>
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </h5>
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+                            <?php if($post->id):?>
+                            <input type="hidden" name="id" value="<?=$post->id;?>">
+                            <?php endif;?>
+                            <input type="hidden" name="id_sys_module_user" value="<?=input()->get('id_sys_module_user');?>">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('SETTINGS'); ?></label>
+                                        <select name="id_sys_module_setting" class="form-control custom-select">
+                                        <?php if($options->settings):?>
+                                        <?php foreach ($options->settings as $setting):?>
+                                                <option value="<?=$setting->id;?>"
+                                                    <?=$setting->id === $post->id_sys_module_setting ? 'selected' : ''?>
+                                                ><?=$language->getLine($setting->value .'-'.$setting->key);?></option>
+                                        <?php endforeach;?>
+                                        <?php endif;?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('VALUE'); ?></label>
+                                        <input type="text" name="value" class="form-control" value="<?=$post->value;?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

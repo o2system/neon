@@ -16,6 +16,23 @@
     <main class="main">
         {{$partials->content}}
     </main>
+    <?php if (null !== ($message = $session->getFlash('success'))): ?>
+        <script type="text/javascript">
+            Swal.fire({
+                title: '<?php echo $language->getLine('ALERT_SUCCESS_HEADING'); ?>',
+                text: '<?php echo $message; ?>',
+                type: 'success'
+            })
+        </script>
+    <?php elseif (null !== ($message = $session->getFlash('danger'))): ?>
+        <script type="text/javascript">
+            Swal.fire({
+                title: '<?php echo $language->getLine('ALERT_DANGER_HEADING'); ?>',
+                text: '<?php echo $message; ?>',
+                type: 'error'
+            })
+        </script>
+    <?php endif; ?>
     {{ $assets->body }}
 </body>
 </html>

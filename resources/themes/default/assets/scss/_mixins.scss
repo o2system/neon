@@ -1,3 +1,13 @@
+/*!
+ * This file is part of the O2System PHP Framework package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author         Steeve Andrian Salim
+ *  @copyright      Copyright (c) Steeve Andrian Salim
+ */
+
 @mixin device($media) {
     @if $media == mobile {
         @media only screen and (max-width: 768px - 1) { @content; }
@@ -21,4 +31,15 @@
     @else if $media == hdd-up {
         @media only screen and (min-width: 1400px) { @content; }
     }
+}
+
+@mixin middle-manual ($mt, $ml, $mr, $minmX, $minmY ) {
+    top: $mt;
+    left: $ml;
+    right: $mr;
+    -webkit-transform: translate($minmX, $minmY);
+    -moz-transform:    translate($minmX, $minmY);
+    -ms-transform:     translate($minmX, $minmY);
+    -o-transform:      translate($minmX, $minmY);
+    transform: translate($minmX, $minmY);
 }

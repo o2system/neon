@@ -1,0 +1,233 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <?=view('settings/nav', [], true);?>
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <h5 class="mb-0">Emails</h5>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Mail Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="send_mail" value="off" />
+                                            <input type="checkbox" name="send_mail" <?= ($settings->fetch('send_mail') ? ($settings->fetch('send_mail')->send_mail == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Send Mail
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="disable_mass_mail" value="off" />
+                                            <input type="checkbox" name="disable_mass_mail" <?= ($settings->fetch('disable_mass_mail') ? ($settings->fetch('disable_mass_mail')->disable_mass_mail == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Disable Mass Mail 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>From Email</label>
+                                    <input type="email" name="from_email" class="form-control" value="<?= ($settings->fetch('from_email') ? $settings->fetch('from_email')->from_email : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>From Name</label>
+                                    <input type="text" name="from_name" class="form-control" value="<?= ($settings->fetch('from_name') ? $settings->fetch('from_name')->from_name : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Reply to Email</label>
+                                    <input type="email" name="reply_to_email" class="form-control" value="<?= ($settings->fetch('reply_to_email') ? $settings->fetch('reply_to_email')->reply_to_email : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Reply to Name</label>
+                                    <input type="text" name="reply_to_name" class="form-control" value="<?= ($settings->fetch('reply_to_name') ? $settings->fetch('reply_to_name')->reply_to_name : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mailer</label>
+                                    <select name="mailer" class="form-control custom-select">
+                                        <?php foreach ($emails_mailer as $key => $value): ?>
+                                        <option value="<?= $key ?>" <?= ($settings->fetch('mailer') ? ($settings->fetch('mailer')->mailer == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                    <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact Email</label>
+                                    <input type="text" name="contact_email" class="form-control" value="<?= ($settings->fetch('contact_email') ? $settings->fetch('contact_email')->contact_email : '') ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Email Templates</h5>
+                    </div>
+                    <div class="card-body" id="accordion-template">
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-1">
+                                    Booking Confirmation
+                                </button>
+                            </div>
+
+                            <div id="collapse-1" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="booking_confirmation_subject" class="form-control" value="<?= ($settings->fetch('booking_confirmation_subject') ? $settings->fetch('booking_confirmation_subject')->booking_confirmation_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="booking_confirmation_content" class="form-control tinymce-minimal"><?= ($settings->fetch('booking_confirmation_content') ? $settings->fetch('booking_confirmation_content')->booking_confirmation_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-2">
+                                    Booking Received
+                                </button>
+                            </div>
+
+                            <div id="collapse-2" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="booking_received_subject" class="form-control" value="<?= ($settings->fetch('booking_received_subject') ? $settings->fetch('booking_received_subject')->booking_received_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="booking_received_content" class="form-control tinymce-minimal"><?= ($settings->fetch('booking_received_content') ? $settings->fetch('booking_received_content')->booking_received_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-3">
+                                    Booking Rejected
+                                </button>
+                            </div>
+
+                            <div id="collapse-3" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="booking_rejected_subject" class="form-control" value="<?= ($settings->fetch('booking_rejected_subject') ? $settings->fetch('booking_rejected_subject')->booking_rejected_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="booking_rejected_content" class="form-control tinymce-minimal"><?= ($settings->fetch('booking_rejected_content') ? $settings->fetch('booking_rejected_content')->booking_rejected_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-4">
+                                    Reset Password
+                                </button>
+                            </div>
+
+                            <div id="collapse-4" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="reset_password_subject" class="form-control" value="<?= ($settings->fetch('reset_password_subject') ? $settings->fetch('reset_password_subject')->reset_password_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="reset_password_content" class="form-control tinymce-minimal"><?= ($settings->fetch('reset_password_content') ? $settings->fetch('reset_password_content')->reset_password_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-5">
+                                    User Invitation
+                                </button>
+                            </div>
+
+                            <div id="collapse-5" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="user_invitation_subject" class="form-control" value="<?= ($settings->fetch('user_invitation_subject') ? $settings->fetch('user_invitation_subject')->user_invitation_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="user_invitation_content" class="form-control tinymce-minimal"><?= ($settings->fetch('user_invitation_content') ? $settings->fetch('user_invitation_content')->user_invitation_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-link btn-block text-left p-0 text-dark" type="button" data-toggle="collapse" data-target="#collapse-6">
+                                    User Registration
+                                </button>
+                            </div>
+
+                            <div id="collapse-6" class="collapse" data-parent="#accordion-template">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" name="user_registration_subject" class="form-control" value="<?= ($settings->fetch('user_registration_subject') ? $settings->fetch('user_registration_subject')->user_registration_subject : '') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Content</label>
+                                        <textarea name="user_registration_content" class="form-control tinymce-minimal"><?= ($settings->fetch('user_registration_content') ? $settings->fetch('user_registration_content')->user_registration_content : '') ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

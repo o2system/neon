@@ -2,11 +2,11 @@
 /**
  * This file is part of the NEO ERP Application.
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
  *
- * @author         PT. Lingkar Kreasi (Circle Creative)
- * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
+ *  @author         PT. Lingkar Kreasi (Circle Creative)
+ *  @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 
@@ -15,6 +15,7 @@ namespace App\Http\AccessControl\Controllers;
 // ------------------------------------------------------------------------
 
 use App\Http\AccessControl\Middleware\UserAuthentication;
+use App\Http\AccessControl\Middleware\UserAuthorization;
 use App\Http\Controller;
 
 /**
@@ -30,7 +31,6 @@ class AuthenticatedController extends Controller
     public function __reconstruct()
     {
         parent::__reconstruct();
-
         // Register user authentication middleware
         middleware()->register( new UserAuthentication() );
     }

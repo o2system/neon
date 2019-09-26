@@ -1,0 +1,260 @@
+<!-- Sidebar scroll-->
+<div class="scroll-sidebar perfect-scrollbar">
+    <!-- Sidebar navigation-->
+    <div class="d-flex justify-content-between align-items-center p-3 bg-white">
+        <a href="#"><i class="fas fa-times"></i></a>
+        <button class="btn btn-primary">Save</button>
+    </div>
+    <nav id="customize-menu">
+        <ul>
+            <li>
+                <a href="javascript:void">Site Identity</a>
+                <ul>
+                    <li>
+                        <label>Site Name</label>
+                        <input type="text" class="form-control" name="site_name" value="<?=$current->site_name;?>">
+                    </li>
+                    <li>
+                        <label>Tagline</label>
+                        <input type="text" class="form-control" name="tag_line" value="<?=$current->tag_line;?>">
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="check_site" value="1" <?=$current->check_site ? 'checked' : ''?> class="custom-control-input" id="checkbox-1">
+                            <label class="custom-control-label" for="checkbox-1">Display Site Title and Tagline</label>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Site Icon</label>
+                        <label class="text-muted">
+                            Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here!<br>
+                            Site Icons should be square and at least 512 × 512 pixels.
+                        </label>
+                        <input type="file" name="site_icon" data-default-file ="<?=$current->site_icon;?>" class="dropify" data-height="150" data-allowed-file-extensions="jpg png" />
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Schemes</a>
+                <ul>
+                    <li>
+                        <label class="d-block">Choose Scheme</label>
+                        <?php $i=1; foreach($schemes as $scheme) :?>
+                            <div class="radio-choose-scheme" style="width:100px;">
+                                <input name="scheme" id="radios-scheme<?php echo $i;?>" value="<?php echo $scheme;?>" <?php echo (isset($current->scheme) && $scheme == $current->scheme) ? 'checked="checked"' : ''?> type="radio">
+                                <label for="radios-scheme<?php echo $i;?>">
+                                    <div style="background:<?php echo $scheme;?>;padding:5px;font-size:12px;color:#FFF;"><?php echo $scheme;?></div>
+                                </label>
+                            </div>
+                            <br/>
+                        <?php $i++;endforeach;?>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Fonts</a>
+                <ul>
+                    <li>
+                        <label>Heading</label>
+                        <select name="fonts[heading]" class="form-control custom-select">
+                            <option>Default Theme Font</option>
+                            <?php foreach($fonts as $font) :?>
+                                <option value="<?php echo $font?>" <?php echo (isset($current->fonts->heading) && $font == $current->fonts->heading) ? 'selected' : ''?>><?php echo $font?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </li>
+                    <li>
+                        <label>Body</label>
+                        <select name="fonts[body]" class="form-control custom-select">
+                            <option>Default Theme Font</option>
+                            <?php foreach($fonts as $font) :?>
+                                <option value="<?php echo $font?>" <?php echo (isset($current->fonts->body) && $font == $current->fonts->body) ? 'selected' : ''?>><?php echo $font?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </li>
+                </ul>
+            </li>
+<!--            <li>-->
+<!--                <a href="javascript:void">Menus</a>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        <label>Menus</label>-->
+<!--                        <label class="text-muted">-->
+<!--                            It doesn’t look like your site has any menus yet. Want to build one? Click the button to start.<br><br>-->
+<!--                            You’ll create a menu, assign it a location, and add menu items like links to pages and categories. If your theme has multiple menu areas, you might need to create more than one. -->
+<!--                        </label>-->
+<!--                    </li>-->
+<!--                    <li data-tpl="menu-item">-->
+<!--                        <a href="javascript:void">Test</a>-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <label>Menu Name</label>-->
+<!--                                <input type="text" class="form-control" name="">-->
+<!--                                <label class="text-muted">-->
+<!--                                    Time to add some links! Click “Add Items” to start putting pages, categories, and custom links in your menu. Add as many things as you’d like. -->
+<!--                                </label>-->
+<!--                                <button type="button" class="btn btn-default" data-role="open-sidebar-panel"><i class="fas fa-plus"></i> Add Items</button>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label>Menu Location</label>-->
+<!--                                <label class="text-muted">-->
+<!--                                    Here’s where this menu appears. If you’d like to change that, pick another location.-->
+<!--                                </label>-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input" id="menu-location-1">-->
+<!--                                    <label class="custom-control-label" for="menu-location-1">Primary Menu</label>-->
+<!--                                </div>-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input" id="menu-location-2">-->
+<!--                                    <label class="custom-control-label" for="menu-location-2">Bottom Menu</label>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label>Menu Options</label>-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input" id="menu-option-1">-->
+<!--                                    <label class="custom-control-label" for="menu-option-1">Automatically add new top-level pages to this menu</label>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!---->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Test</a>-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <label>Menu Name</label>-->
+<!--                                    <input type="text" class="form-control" name="">-->
+<!--                                    <label class="text-muted">-->
+<!--                                        Time to add some links! Click “Add Items” to start putting pages, categories, and custom links in your menu. Add as many things as you’d like. -->
+<!--                                    </label>-->
+<!--                                    <button type="button" class="btn btn-default" data-role="open-sidebar-panel"><i class="fas fa-plus"></i> Add Items</button>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <label>Menu Location</label>-->
+<!--                                    <label class="text-muted">-->
+<!--                                        Here’s where this menu appears. If you’d like to change that, pick another location.-->
+<!--                                    </label>-->
+<!--                                    <div class="custom-control custom-checkbox">-->
+<!--                                        <input type="checkbox" class="custom-control-input" id="menu-location-1">-->
+<!--                                        <label class="custom-control-label" for="menu-location-1">Primary Menu</label>-->
+<!--                                    </div>-->
+<!--                                    <div class="custom-control custom-checkbox">-->
+<!--                                        <input type="checkbox" class="custom-control-input" id="menu-location-2">-->
+<!--                                        <label class="custom-control-label" for="menu-location-2">Bottom Menu</label>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <label>Menu Options</label>-->
+<!--                                    <div class="custom-control custom-checkbox">-->
+<!--                                        <input type="checkbox" class="custom-control-input" id="menu-option-1">-->
+<!--                                        <label class="custom-control-label" for="menu-option-1">Automatically add new top-level pages to this menu</label>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void" class="btn btn-default">Create New Menu</a>-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <label>Menu Name</label>-->
+<!--                                <input type="text" class="form-control" name="">-->
+<!--                                <label class="text-muted">-->
+<!--                                    If your theme has multiple menus, giving them clear names will help you manage them.-->
+<!--                                </label>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <label>Menu Location</label>-->
+<!--                                <label class="text-muted">-->
+<!--                                    Where do you want this menu to appear? -->
+<!--                                </label>-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input" id="menu-location-1">-->
+<!--                                    <label class="custom-control-label" for="menu-location-1">Primary Menu</label>-->
+<!--                                </div>-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                    <input type="checkbox" class="custom-control-input" id="menu-location-2">-->
+<!--                                    <label class="custom-control-label" for="menu-location-2">Bottom Menu</label>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="javascript:void">Widgets</a>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Profile</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="javascript:void">Homepage Settings</a>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Profile</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="javascript:void">Theme Options</a>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Profile</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="javascript:void">PWA</a>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Profile</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="javascript:void">Player</a>-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <a href="javascript:void">Equalizer</a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="javascript:void">Volume</a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+        </ul>
+    </nav>
+    <!-- End Sidebar navigation -->    
+</div>
+<!-- End Sidebar scroll-->
+
+<div class="sidebar-footer">
+    <div class="d-flex justify-content-between align-items-center p-3 bg-white">
+        <div>
+            <a class="nav-link  pl-0" href="{{base_url()}}">
+                <i class="fas fa-caret-left"></i> Hide Control
+            </a>
+        </div>
+        <div class="d-flex align-items-center">
+            <a class="px-2 480px" href="javascript:void(0)">
+                <i class="fas fa-mobile"></i>
+            </a>
+
+            <a class="px-2 768px" href="javascript:void(0)">
+                <i class="fas fa-tablet"></i>
+            </a>
+
+            <a class="px-2 reset" href="javascript:void(0)">
+                <i class="fas fa-desktop"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-panel">
+    <div class="sidebar-scroll">
+        
+    </div>
+</div>

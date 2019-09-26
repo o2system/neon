@@ -1,3 +1,21 @@
+/*!
+ * This file is part of the O2System PHP Framework package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author         Steeve Andrian Salim
+ *  @copyright      Copyright (c) Steeve Andrian Salim
+ */
+
+ .sidebar-left {
+     .sidebar-menu{
+        .content-placeholder{
+            opacity: 0.2;
+        }
+     }
+ }
+
 .right-sidebar{
     position: fixed;
     right: -270px;
@@ -131,5 +149,41 @@
         right: 0px;
         width: 270px;
         display: block;
+    }
+}
+
+.venus-admin{
+    .sidebar-left{
+        .sidebar-nav {
+            ul{
+                li{
+                    &.nav-small-cap{
+                        padding: 0 15px;
+                    }
+                    &.sidebar-item {
+                        .sidebar-link {
+                            i{
+                                font-size: 15px;
+                            }
+
+                            &.has-arrow{
+                                &.active{
+                                    box-shadow: 0 15px 15px -12px rgba($black, 0.2);
+                                }
+                            }
+
+                        }
+                    }
+
+                    ul{
+                        li{
+                            &.sidebar-item{
+                                background-color: darken($sidebar-dark, 1%);
+                            }
+                        }
+                    }
+                }
+            } 
+        }
     }
 }

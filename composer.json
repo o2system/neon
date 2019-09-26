@@ -1,11 +1,11 @@
 {
-    "name": "o2system/neon",
+    "name": "o2system/o2system",
     "description": "O2System PHP Framework.",
     "keywords": ["framework", "o2system"],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.2.0",
+        "php": "~7.2.0",
         "o2system/framework": "*"
     },
     "autoload": {

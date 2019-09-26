@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the NEO ERP Application.
+ * This file is part of the O2System PHP Framework package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         PT. Lingkar Kreasi (Circle Creative)
- * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
+ * @author         Steeve Andrian Salim
+ * @copyright      Copyright (c) Steeve Andrian Salim
  */
 // ------------------------------------------------------------------------
 
@@ -15,16 +15,15 @@ namespace App\Api\Http\AccessControl\Middleware;
 // ------------------------------------------------------------------------
 
 use O2System\Psr\Http\Message\ServerRequestInterface;
-use O2System\Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * Class UserAuthorization
  *
  * @package App\Api\Http\AccessControl\Middleware
  */
-class UserAuthorization implements RequestHandlerInterface
+class UserAuthorization extends \App\Http\AccessControl\Middleware\UserAuthorization
 {
-    /**
+/**
      * UserAuthorization::handle
      *
      * Handles a request and produces a response
@@ -33,12 +32,14 @@ class UserAuthorization implements RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request)
     {
-        if( services( 'user' )->loggedIn() ) {
-            if( ! services( 'user' )->authorize( $request ) ) {
-                redirect_url( 'error/403' );
+        parent::handle($request);
+
+        if (services('user')->loggedIn()) {
+            if ( ! services('user')->hasAccess($request->getUri()->getSegments()->getParts())) {
+                output()->sendError(403);
             }
         } else {
-            redirect_url( 'login' );
+            output()->sendError(403);
         }
     }
 }

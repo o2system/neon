@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{$meta->title}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{ $assets->head }}
+</head>
+<body class="venus-admin venus-customizer">
+    <form method="post" enctype="multipart/form-data" action="<?=current_url();?>">
+        <aside class="sidebar-left sidebar-customizer">
+            {{$partials->sidebar}}
+        </aside>
+        <main class="main">
+            <div class="main-customize">
+                {{$partials->content}}
+            </div>
+        </main>
+    </form>
+
+    {{ $assets->body }}
+</body>
+</html>

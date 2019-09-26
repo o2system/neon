@@ -21,4 +21,4 @@
 |	$helpers = [ 'url' ];
 */
 
-$helpers = [ 'Url', 'Html', 'DateTime' ];
+$helpers = [ 'Url', 'Html', 'Datetime', 'Options', 'LoanInstallmentsCalculation' ];

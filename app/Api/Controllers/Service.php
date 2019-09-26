@@ -14,13 +14,13 @@ namespace App\Api\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Api\Http\Controller;
+use App\Api\Http\AccessControl\Controllers\PublicController;
 
 /**
  * Class Service
  * @package App\Api\Controllers
  */
-class Service extends Controller
+class Service extends PublicController
 {
     /**
      * Service::index

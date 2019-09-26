@@ -16,7 +16,7 @@ namespace App\Api\Modules\System\Models\Modules;
 
 use App\Api\Modules\System\Models\Modules;
 use O2System\Framework\Models\Sql\Model;
-use O2System\Framework\Models\Sql\Traits\RelationTrait;
+use O2System\Framework\Models\Sql\Traits\HierarchicalTrait;
 
 /**
  * Class Menus
@@ -24,7 +24,7 @@ use O2System\Framework\Models\Sql\Traits\RelationTrait;
  */
 class Menus extends Model
 {
-    use RelationTrait;
+    use HierarchicalTrait;
 
     /**
      * Menus::$table
@@ -32,6 +32,23 @@ class Menus extends Model
      * @var string
      */
     public $table = 'sys_modules_menus';
+
+    /**
+     * Menus::$visibleColumns
+     *
+     * @var array
+     */
+    public $visibleColumns = [
+        'id',
+        'id_sys_module',
+        'position',
+        'label',
+        'description',
+        'href',
+        'attributes',
+        'settings',
+        'metadata'
+    ];
 
     // ------------------------------------------------------------------------
 

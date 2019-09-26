@@ -16,7 +16,7 @@ namespace App\Api\Modules\System\Models\Users;
 
 use App\Api\Modules\System\Models\Users;
 use O2System\Framework\Models\Sql\Model;
-use O2System\Framework\Models\Sql\Traits\RelationTrait;
+use App\Libraries\Rajaongkir;
 
 /**
  * Class Profiles
@@ -24,8 +24,6 @@ use O2System\Framework\Models\Sql\Traits\RelationTrait;
  */
 class Profiles extends Model
 {
-    use RelationTrait;
-
     /**
      * Profile::$table
      *
@@ -33,15 +31,50 @@ class Profiles extends Model
      */
     public $table = 'sys_users_profiles';
 
+    /**
+     * Profile::$visibleColumns
+     *
+     * @var array
+     */
+
     // ------------------------------------------------------------------------
 
     /**
-     * Profiles::account
+     * Profiles::user
      *
      * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
      */
-    public function account()
+    public function user()
     {
         return $this->belongsTo(Users::class, 'id_sys_user');
+    }
+
+    public function citizen()
+    {
+        $filePath = PATH_STORAGE . 'images/users/' . $this->row->citizen;
+        if (is_file($filePath)) {
+            return storage_url($filePath);
+        }
+
+        return storage_url('images/default/no-image.jpg');
+    }
+
+    public function taxpayer()
+    {
+        $filePath = PATH_STORAGE . 'images/users/' . $this->row->taxpayer;
+        if (is_file($filePath)) {
+            return storage_url($filePath);
+        }
+
+        return storage_url('images/default/no-image.jpg');
+    }
+
+    public function city()
+    {
+        if ($this->row->nonsibling_id_geodirectory) {
+            $rajaongkir = new Rajaongkir();
+            return $rajaongkir->result->getCity($this->row->nonsibling_id_geodirectory);
+        }
+        return false;
     }
 }

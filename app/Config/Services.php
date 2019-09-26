@@ -26,7 +26,4 @@
 |   $services['user'] = \O2System\Framework\Libraries\AccessControl\User::class;
 |
 */
-
-$services = [
-    'user' => \O2System\Framework\Libraries\AccessControl\User::class
-];
+$services['user'] = \O2System\Framework\Libraries\AccessControl\User::class;

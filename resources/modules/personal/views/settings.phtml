@@ -1,0 +1,210 @@
+<div class="page-personal-content">
+    <form class="row justify-content-center needs-validation" method="POST" action="<?=current_url();?>" enctype="multipart/form-data" novalidate>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0">
+                        <?php echo $page->header; ?>
+                    </h5>
+                    <div class="card-options">
+                        <button type="button" class="btn btn-default" data-action="cancel">
+                            <?php echo $language->getLine('BTN_CANCEL'); ?>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <?php echo $language->getLine('BTN_SAVE'); ?>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input name="avatar" type="file" class="dropify" data-height="130" data-default-file="<?=$user->profile->avatar;?>" value = "<?=$user->profile->avatar;?>" data-allowed-file-extensions="jpg png"/>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="personal-name"><?php echo $language->getLine('USERNAME'); ?></label>
+                                        <input id="personal-name" class="form-control" type="text" name="username" value="<?=$user->username;?>" required readonly>
+
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="personal-fullname"><?php echo $language->getLine('FULLNAME'); ?>*</label>
+                                        <input id="personal-fullname" class="form-control" type="text" name="profile[name_full]" value="<?=$user->profile->name_full;?>" required>
+
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="personal-email"><?php echo $language->getLine('EMAIL'); ?>*</label>
+                                <input id="personal-email" name="email" class="form-control" type="email" value="<?=$user->email;?>" required>
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="personal-msisdn"><?php echo $language->getLine('MOBILE'); ?>*</label>
+                                <input type="hidden" name="id" value="<?=$user->id?>">
+                                <input type="hidden" name="profile[id]" value="<?=$user->profile->id?>">
+                                <input id="personal-msisdn" name="msisdn" class="form-control" type="text" value="<?=$user->msisdn;?>" required>
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="personal-gender"><?php echo $language->getLine('GENDER'); ?>*</label>
+                                <select id="personal-gender" name="profile[gender]" class="form-control custom-select" required>
+                                    <option value="" disabled selected="true">
+                                        <?php echo $language->getLine('CHOOSE_GENDER'); ?>
+                                    </option>
+                                    <?php foreach ($genders as $key => $value):?>
+                                        <option value="<?=$key;?>" <?=$key === $user->profile->gender ? 'selected' : ''?>>
+                                            <?php echo $language->getLine($value); ?>
+                                        </option>
+                                    <?php endforeach ;?>
+                                </select>
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="personal-profile-religion"><?php echo $language->getLine('RELIGION'); ?>*</label>
+                                <select id="personal-profile-religion" name="profile[religion]" class="form-control custom-select">
+                                    <option value="" disabled selected="true">
+                                        <?php echo $language->getLine('CHOOSE_RELIGION'); ?>
+                                    </option>
+                                    <?php foreach ($religions as $key => $value):?>
+                                        <option value="<?=$key;?>" <?=$key === $user->profile->religion ? 'selected':'' ;?>>
+                                            <?php echo $language->getLine($value); ?>
+                                        </option>
+                                    <?php endforeach ;?>
+                                </select>
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="personal-profile-marital"><?php echo $language->getLine('MARITAL_STATUS'); ?></label>
+                                <select id="personal-profile-marital" name="profile[marital]" class="form-control custom-select">
+                                    <option value="" disabled selected="true">
+                                        <?php echo $language->getLine('CHOOSE_MARITAL_STATUS'); ?>
+                                    </option>
+                                    <?php foreach ($maritals as $key => $value):?>
+                                        <option value="<?=$key;?>" <?=$key === $user->profile->marital ? 'selected' : ''?>>
+                                            <?php echo $language->getLine($value); ?>
+                                        </option>
+                                    <?php endforeach ;?>
+                                </select>
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="personal-profile-birthplace"><?php echo $language->getLine('BIRTHPLACE'); ?></label>
+                                <input id="personal-profile-birthplace" name="profile[birthplace]" class="form-control" type="text" value="<?=$user->profile->birthplace;?>" placeholder="Birthplace">
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="personal-profile-birthday"><?php echo $language->getLine('BIRTHDAY'); ?></label>
+                                <input id="personal-profile-birthday" name="profile[birthday]" class="form-control" type="date"  placeholder="Birthday" value="<?=$user->profile->birthday;?>">
+
+                                <div class="valid-feedback">
+                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="personal-profile-biography"><?php echo $language->getLine('BIOGRAPHY'); ?></label>
+                        <textarea id="personal-profile-biography" name="profile[biography]" class="tinymce-minimal"><?=$user->profile->biography;?></textarea>
+
+                        <div class="valid-feedback">
+                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                        </div>
+                        <div class="invalid-feedback">
+                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>:
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

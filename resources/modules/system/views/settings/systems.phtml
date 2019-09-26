@@ -1,0 +1,192 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <?=view('settings/nav', [], true);?>
+
+            <form <?= current_url() ?> method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <h5 class="mb-0">Systems</h5>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">System Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Path to Log Folder</label>
+                                    <input type="text" name="path_log_folder" class="form-control" placeholder="/var/www/vhosts/cms.gfdk.org/httpdocs/joomla/administrator/logs" value="<?= ($settings->fetch('path_log_folder') ? $settings->fetch('path_log_folder')->path_log_folder : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Help Server</label>
+                                    <select name="help_server" class="form-control custom-select">
+                                        <?php foreach ($help_server as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('help_server') ? ($settings->fetch('help_server')->help_server == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Debug Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="debug_system" value="off" />
+                                            <input type="checkbox" name="debug_system" <?= ($settings->fetch('debug_system') ? ($settings->fetch('debug_system')->debug_system == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Debug System
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="debug_language" value="off" />
+                                            <input type="checkbox" name="debug_language" <?= ($settings->fetch('debug_language') ? ($settings->fetch('debug_language')->debug_language == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Debug Language
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Cache Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Cache Handler</label>
+                                    <select name="cache_handler" class="form-control custom-select">
+                                        <?php foreach ($cache_handler as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('cache_handler') ? ($settings->fetch('cache_handler')->cache_handler == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Path to Cache Folder</label>
+                                    <input type="text" name="path_cache_folder" class="form-control" value="<?= ($settings->fetch('path_cache_folder') ? $settings->fetch('path_cache_folder')->path_cache_folder : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Cache Time</label>
+                                    <div class="input-group">
+                                        <input type="number" min="0" max="15" name="cache_time" class="form-control" value="<?= ($settings->fetch('cache_time') ? $settings->fetch('cache_time')->cache_time : '') ?>">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Minutes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>System Cache</label>
+                                    <select name="system_cache" class="form-control custom-select">                                        
+                                        <?php foreach ($system_cache as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('system_cache') ? ($settings->fetch('system_cache')->system_cache == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="platform_specific_caching" value="off" />
+                                            <input type="checkbox" name="platform_specific_caching" <?= ($settings->fetch('platform_specific_caching') ? ($settings->fetch('platform_specific_caching')->platform_specific_caching == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Platform Specific Caching
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Sessions Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Session Handler</label>
+                                    <select name="session_handler" class="form-control custom-select">
+                                        <?php foreach ($session_handler as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('session_handler') ? ($settings->fetch('session_handler')->session_handler == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Session Lifetime</label>
+                                    <div class="input-group">
+                                        <input type="number" min="0" max="15" name="session_lifetime" class="form-control" value="<?= ($settings->fetch('session_lifetime') ? $settings->fetch('session_lifetime')->session_lifetime : '') ?>">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Minutes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="shared_session" value="off" />
+                                            <input type="checkbox" name="shared_session" <?= ($settings->fetch('shared_session') ? ($settings->fetch('shared_session')->shared_session == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Shared Sessions
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

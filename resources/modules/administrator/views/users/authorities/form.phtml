@@ -1,0 +1,126 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form  method="post" action="<?php echo current_url(); ?>" enctype="multipart/form-data">
+                    <div class="card">
+                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                            <?php echo $page->title; ?>
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+                            <?php if($post->id):?>
+                            <input type="hidden" name="id" value="<?=$post->id;?>">
+                            <?php endif;?>
+                            <input type="hidden" name="id_sys_module_user" value="<?=input()->get('id_sys_module_user');?>">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('AUTHORITIES'); ?></label>
+                                        <select name="id_sys_module_role_authority" class="form-control custom-select">
+                                            <?php if($options->authorities):?>
+                                            <?php foreach ($options->authorities as $value):?>
+                                                <option value="<?=$value->id;?>"
+                                                <?=$value->id === $post->id_sys_module_role_authority ? 'selected' : ''?>
+                                                ><?=$language->getLine($value->label .'-'.$value->segments);?></option>
+                                            <?php endforeach;?>
+                                            <?php endif;?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('PERMISSION'); ?></label>
+                                        <select name="permission" class="form-control custom-select">
+                                            <?php foreach (['GRANTED','DENIED'] as $value):?>
+                                                <option value="<?=$value;?>"><?=$language->getLine($value);?></option>
+                                            <?php endforeach;?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header"><?php echo $language->getLine('PRIVILEGE'); ?></h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <?php if(is_array($post->splitPrivileges)):?>
+                                <?php foreach($post->splitPrivileges as $label => $value):?>
+                                        <div class="col-md-4">
+                                            <div class="form-group d-flex align-items-center justify-content-between">
+                                                <p class="mb-0"><?=$label?></p>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="previleges[<?=$label;?>]" value="1" <?=$value == 1 ? 'checked' : ''?>>
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                <?php endforeach?>
+                                <?php else:?>
+                                <div class="col-md-4">
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('READ'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[read]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('WRITE'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[write]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('IMPORT'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[import]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('EXPORT'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[export]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('PRINT'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[print]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <div class="form-group d-flex align-items-center justify-content-between">
+                                        <p class="mb-0"><?php echo $language->getLine('SPECIAL'); ?></p>
+                                        <label class="switch">
+                                            <input type="checkbox" name="previleges[special]" value="1">
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                </div>
+                                <?php endif;?>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

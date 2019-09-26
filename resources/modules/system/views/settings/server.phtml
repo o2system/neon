@@ -1,0 +1,212 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12">
+            <?=view('settings/nav', [], true);?>
+
+            <form action="<?= current_url() ?>" method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <h5 class="mb-0">Server</h5>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Server Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Path to Temp Folder</label>
+                                    <input type="text" name="path_temp_folder" class="form-control" placeholder="/var/www/vhosts/cms.gfdk.org/httpdocs/joomla/administrator/logs" value="<?= ($settings->fetch('path_temp_folder') ? $settings->fetch('path_temp_folder')->path_temp_folder : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Error Reporting</label>
+                                    <select name="error_reporting" class="form-control custom-select">
+                                        <?php foreach ($error_reporting_systems as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('error_reporting') ? ($settings->fetch('error_reporting')->error_reporting == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Force Https</label>
+                                    <select name="force_https" class="form-control custom-select"> 
+                                        <?php foreach ($force_https as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('force_https') ? ($settings->fetch('force_https')->force_https == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group d-flex">
+                                    <div class="mt-0">
+                                        <label class="switch">
+                                            <input type="hidden" name="gzip_page_compression" value="off" />
+                                            <input type="checkbox" name="gzip_page_compression" <?= ($settings->fetch('gzip_page_compression') ? ($settings->fetch('gzip_page_compression')->gzip_page_compression == 'on' ? 'checked' : '') : '' ) ?>>
+                                            <span></span> 
+                                        </label>
+                                    </div>
+                                    <label class="mb-0 ml-3">
+                                        Gzip Page Compression
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="m-0">
+                    <div class="card-body">
+                        <div class="form-group d-flex">
+                            <div class="mt-0">
+                                <label class="switch">
+                                    <input type="hidden" name="enable_ftp" value="off" />
+                                    <input type="checkbox" name="enable_ftp" id="enable-ftp" data-toggle="collapse" data-target="#ftp-settings" <?= ($settings->fetch('enable_ftp') ? ($settings->fetch('enable_ftp')->enable_ftp == 'on' ? 'checked' : '') : '' ) ?>>
+                                    <span></span> 
+                                </label>
+                            </div>
+                            <label class="mb-0 ml-3">
+                                Enable FTP
+                            </label>
+                        </div>
+                        <div id="ftp-settings" class="collapse">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>FTP Host</label>
+                                        <input type="text" class="form-control" name="ftp_host" value="<?= ($settings->fetch('ftp_host') ? $settings->fetch('ftp_host')->ftp_host : '') ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>FTP Port</label>
+                                        <input type="number" class="form-control" name="ftp_port" value="<?= ($settings->fetch('ftp_port') ? $settings->fetch('ftp_port')->ftp_port : '') ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>FTP Username</label>
+                                        <input type="text" class="form-control" name="ftp_username" value="<?= ($settings->fetch('ftp_username') ? $settings->fetch('ftp_username')->ftp_username : '') ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>FTP Password</label>
+                                        <input type="password" class="form-control" name="ftp_password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>FTP Root</label>
+                                <input type="text" class="form-control" name="ftp_root" value="<?= ($settings->fetch('ftp_root') ? $settings->fetch('ftp_root')->ftp_root : '') ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="m-0">
+                    <div class="card-body">
+                        <div class="form-group d-flex">
+                            <div class="mt-0">
+                                <label class="switch">
+                                    <input type="hidden" name="enable_proxy" value="off" />
+                                    <input type="checkbox" name="enable_proxy" id="enable-proxy" data-toggle="collapse" data-target="#proxy-settings" <?= ($settings->fetch('enable_proxy') ? ($settings->fetch('enable_proxy')->enable_proxy == 'on' ? 'checked' : '') : '' ) ?>>
+                                    <span></span> 
+                                </label>
+                            </div>
+                            <label class="mb-0 ml-3">
+                                Enable Proxy
+                            </label>
+                        </div>
+                        <div id="proxy-settings" class="collapse">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Proxy Host</label>
+                                        <input type="text" class="form-control" name="proxy_host" value="<?= ($settings->fetch('proxy_host') ? $settings->fetch('proxy_host')->proxy_host : '') ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Proxy Port</label>
+                                        <input type="number" class="form-control" name="proxy_port" value="<?= ($settings->fetch('proxy_port') ? $settings->fetch('proxy_port')->proxy_port : '') ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Proxy Username</label>
+                                        <input type="text" class="form-control" name="proxy_username" value="<?= ($settings->fetch('proxy_username') ? $settings->fetch('proxy_username')->proxy_username : '') ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Proxy Password</label>
+                                        <input type="password" class="form-control" name="proxy_password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Database Settings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Database Type</label>
+                                    <select name="database_type" class="form-control custom-select">
+                                        <?php foreach ($database_type as $key => $value): ?>
+                                            <option value="<?= $key ?>" <?= ($settings->fetch('database_type') ? ($settings->fetch('database_type')->database_type == $key ? 'selected' : '') : '') ?>><?= $value ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Host</label>
+                                    <input type="text" class="form-control" name="host" placeholder="localhost:3306" value="<?= ($settings->fetch('host') ? $settings->fetch('host')->host : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Database Username</label>
+                                    <input type="text" class="form-control" name="database_username" value="<?= ($settings->fetch('database_username') ? $settings->fetch('database_username')->database_username : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Database Name</label>
+                                    <input type="text" class="form-control" name="database_name" value="<?= ($settings->fetch('database_name') ? $settings->fetch('database_name')->database_name : '') ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Database Tables Prefix</label>
+                                    <input type="text" class="form-control" name="database_table_prefix" placeholder="o2system_" value="<?= ($settings->fetch('database_table_prefix') ? $settings->fetch('database_table_prefix')->database_table_prefix : '') ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,286 @@
+<div class="page-administrator">
+    <div class="container-fluid">
+        <form method="post" enctype="multipart/form-data" action="<?=current_url();?>">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="card">
+                        <div class="card-header d-flex flex-wrap align-items-center justify-content-between p-0">
+                            <div class="nav-pages">    
+                                <ul class="nav" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#user-account" role="tab" aria-controls="user-account" aria-selected="true">
+	                                        <?=language('ACCOUNT')?>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#user-identity" role="tab" aria-controls="user-identity" aria-selected="false">
+	                                        <?=language('PROFILE')?>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-options px-3">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                    <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="tab-content p-0 border-0 mb-0">
+                                <div class="tab-pane active" id="user-account" role="tabpanel" aria-labelledby="user-account">
+                                    <?php if($post->id):?>
+                                    <input type="hidden" value="<?=$post->id;;?>" name="id">
+                                    <?php endif;?>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('ACCESS'); ?></label>
+                                                <select name="role[id_sys_module_role]" class="form-control custom-select">
+                                                    <?php if($options->roles):?>
+                                                    <?php foreach ($options->roles as $role):?>
+                                                    <option value="<?=$role->id;?>"
+                                                    <?php if($post->module):?>
+                                                    <?php if($role->id === $post->module->id_sys_module_role):?>
+                                                            selected
+                                                    <?php endif;?>
+                                                    <?php endif;?>
+                                                    >
+                                                        <?php echo $language->getLine($role->label); ?>
+                                                    </option>
+                                                    <?php endforeach;?>
+                                                    <?php endif;?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('EMAIL'); ?></label>
+                                                <input class="form-control" type="email" name="email" value="<?=$post->email;?>">
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: youremail@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('PASSWORD'); ?></label>
+                                                <input class="form-control" type="password" name="password" value="">
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: P@s5W0rD!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('CONFIRM_PASSWORD'); ?> </label>
+                                                <input class="form-control" type="password" name="password_confirm" value="">
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: P@s5W0rD!
+                                                </div>
+                                            </div>
+                                        </div>
+            
+<!--                                        <div class="col-md-6">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <label>--><?php //echo $language->getLine('INTERFACE_LANGUAGE'); ?><!-- </label>-->
+<!--                                                <select name="id_sys_module_user_role" class="form-control custom-select">-->
+<!--                                                    <option value="8" selected="">-->
+<!--                                                        English                                            -->
+<!--                                                    </option>-->
+<!--                                                    <option value="9">-->
+<!--                                                        Indonesia                                            -->
+<!--                                                    </option>             -->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-6">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <label>--><?php //echo $language->getLine('CONTENT_LANGUAGE'); ?><!-- </label>-->
+<!--                                                <select name="id_sys_module_user_role" class="form-control custom-select">-->
+<!--                                                    <option value="8" selected="">-->
+<!--                                                        English                                            -->
+<!--                                                    </option>-->
+<!--                                                    <option value="9">-->
+<!--                                                        Indonesia                                            -->
+<!--                                                    </option>             -->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--            -->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <label>--><?php //echo $language->getLine('EXTRA_INFO'); ?><!-- </label>-->
+<!--                                                <textarea name="" id="" class="form-control"></textarea>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="user-identity" role="tabpanel" aria-labelledby="user-identity">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input name="photo" type="file" class="dropify" data-height="140" data-default-file="<?=$post->profile ? $post->profile->avatar : storage_url('images/default/no-image.jpg');?>" data-allowed-file-extensions="jpg png">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><?php echo $language->getLine('NAME'); ?></label>
+                                                        <input class="form-control" type="text" name="profile[name]" value="<?=$post->profile ? $post->profile->fullname : ''?>" required="">
+                                                        <div class="valid-feedback">
+                                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: Alain Delon
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><?php echo $language->getLine('USERNAME'); ?></label>
+                                                        <input class="form-control" type="text" name="username" value="<?=$post->username?>" <?=$post->profile ? 'readonly' : ''?>>
+                                                        <div class="valid-feedback">
+                                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: alain_delon
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><?php echo $language->getLine('GENDER'); ?></label>
+                                                        <select class="form-control select-with-search" name="profile[gender]">
+                                                        <?php if($options->genders):?>
+                                                        <?php foreach ($options->genders as $key => $value):?>
+                                                        <option value="<?=$key;?>"
+                                                        <?php if($post->profile):?>
+                                                                <?php if($post->profile->gender === $key):?>
+                                                                selected
+                                                                <?php endif;?>
+                                                        <?php endif;?>
+                                                        ><?=$value;?></option>
+                                                        <?php endforeach;?>
+                                                        <?php endif;?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><?php echo $language->getLine('MOBILE'); ?></label>
+                                                        <input class="form-control" type="text" name="msisdn" value="<?=$post->msisdn?>">
+                                                        <div class="valid-feedback">
+                                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: 0891098765432
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('BIRTHPLACE'); ?> </label>
+                                                <input type="text" class="form-control" name="profile[birthplace]" value="<?=$post->profile ? $post->profile->birthplace : ''?>">
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: Jakarta
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('BIRTHDATE'); ?> </label>
+                                                <input type="date" name="profile[birthday]" class="form-control" value="<?=$post->profile ? $post->profile->birthday : '';?>">
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: 31/12/1990
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('RELIGION'); ?></label>
+                                                <select name="profile[religion]" class="form-control select-with-search">
+                                                    <?php if($options->religions):?>
+                                                        <?php foreach ($options->religions as $key => $value):?>
+                                                            <option value="<?=$key;?>"
+                                                                <?php if($post->profile):?>
+                                                                    <?php if($post->profile->religion === $key):?>
+                                                                        selected
+                                                                    <?php endif;?>
+                                                                <?php endif;?>
+                                                            ><?=$value;?></option>
+                                                        <?php endforeach;?>
+                                                    <?php endif;?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('MARITAL'); ?></label>
+                                                <select  name="profile[marital]" class="form-control select-with-search">
+                                                    <?php if($options->maritals):?>
+                                                        <?php foreach ($options->maritals as $key => $value):?>
+                                                            <option value="<?=$key;?>"
+                                                                <?php if($post->profile):?>
+                                                                    <?php if($post->profile->marital === $key):?>
+                                                                        selected
+                                                                    <?php endif;?>
+                                                                <?php endif;?>
+                                                            ><?=$value;?></option>
+                                                        <?php endforeach;?>
+                                                    <?php endif;?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label><?php echo $language->getLine('BIOGRAPHY'); ?></label>
+                                                <textarea name="profile[metadata][biography]" id="" class="form-control"><?=$post->profile ? ($post->profile->metadata ? $post->profile->metadata['biography'] : '') : ''?></textarea>
+                                                <div class="valid-feedback">
+                                                    <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: deskripsikan dirimu . .
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

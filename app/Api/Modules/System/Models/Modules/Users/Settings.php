@@ -16,7 +16,6 @@ namespace App\Api\Modules\System\Models\Modules\Users;
 
 use App\Api\Modules\System\Models\Modules\Users;
 use O2System\Framework\Models\Sql\Model;
-use O2System\Framework\Models\Sql\Traits\RelationTrait;
 
 /**
  * Class Settings
@@ -24,14 +23,19 @@ use O2System\Framework\Models\Sql\Traits\RelationTrait;
  */
 class Settings extends Model
 {
-    use RelationTrait;
-
     /**
      * Settings::$table
      *
      * @var string
      */
     public $table = 'sys_modules_users_settings';
+
+    public $visibleColumns = [
+        'id',
+        'id_sys_user',
+        'key',
+        'value'
+    ];
 
     // ------------------------------------------------------------------------
 

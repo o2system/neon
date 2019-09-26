@@ -2,11 +2,11 @@
 /**
  * This file is part of the NEO ERP Application.
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ *  For the full copyright and license information, please view the LICENSE
+ *  file that was distributed with this source code.
  *
- * @author         PT. Lingkar Kreasi (Circle Creative)
- * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
+ *  @author         PT. Lingkar Kreasi (Circle Creative)
+ *  @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 // ------------------------------------------------------------------------
 namespace App\Modules\Personal\Controllers;
@@ -14,15 +14,15 @@ namespace App\Modules\Personal\Controllers;
 // ------------------------------------------------------------------------
 
 use App\Api\Modules\System\Models\Users;
-use O2System\Framework\Libraries\Ui\Contents\Link;
 use App\Modules\Personal\Http\Controller;
+use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Image\Uploader;
 use O2System\Spl\DataStructures\SplArrayObject;
 
+
 /**
  * Class Setting
- *
- * @package Personal\Controllers
+ * @package App\Modules\Personal\Controllers
  */
 class Setting extends Controller
 {
@@ -42,7 +42,7 @@ class Setting extends Controller
                 'religions' => models('options')->religions(),
                 'maritals' => models('options')->maritals(),
             ];
-            if($user =  models(Users::class)->find($this->session->account['id'])){
+            if($user =  models(Users::class)->find(session()['account']['user']['id'])){
                 $vars['user'] = $user;
             }
             if($post = $this->input->post()) {
@@ -54,6 +54,7 @@ class Setting extends Controller
                 }
                 models(Users::class)->update($post->getArrayCopy());
                 models(Users\Profiles::class)->update($profile);
+                redirect_url('personal/setting');
             }
             $this->view->load('settings', $vars);
         }

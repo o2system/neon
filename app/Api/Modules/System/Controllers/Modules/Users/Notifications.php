@@ -8,14 +8,15 @@
  * @author         Steeve Andrian Salim
  * @copyright      Copyright (c) Steeve Andrian Salim
  */
+
 // ------------------------------------------------------------------------
 
 namespace App\Api\Modules\System\Controllers\Modules\Users;
 
 // ------------------------------------------------------------------------
 
-use App\Api\Http\Controller;
-use App\Api\Modules\System\Models;
+use App\Api\Modules\System\Http\Controller;
+use App\Api\Modules\System\Models\Modules;
 
 /**
  * Class Notifications
@@ -25,21 +26,22 @@ class Notifications extends Controller
 {
     /**
      * Notifications::index
+     * @throws \Exception
      */
     public function index()
     {
-        if ($get = input()->get()) {
-            if (false !== ($result = Models\Modules\Users\Notifications::withPaging()->findWhere([
-                    'id_sys_module'      => $get->id_sys_module,
-                    'id_sys_module_user' => session()->account->id,
-                    'seen'               => $get->offsetExists('seen') ? $get->seen : 'NO',
-                ]))) {
-                $this->sendPayload($result);
-            } else {
-                $this->sendError(204);
-            }
+        $conditions = [
+            'id_sys_module_user' => session()->account->id_sys_module_user,
+        ];
+
+        if ($get = input()->get('status')) {
+            $conditions[ 'status' ] = $get->status;
+        }
+
+        if (false !== ($result = Modules\Users\Notifications::withPaging()->findWhere($conditions))) {
+            $this->sendPayload($result);
         } else {
-            $this->sendError(403);
+            $this->sendError(204);
         }
     }
 }

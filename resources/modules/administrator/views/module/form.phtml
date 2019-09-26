@@ -1,0 +1,75 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form  method="post" action="<?php echo current_url(); ?>" enctype="multipart/form-data">
+                    <div class="card">
+                        <h5 class="card-header d-flex justify-content-between align-items-center">
+                            <?php echo $page->title; ?>
+                            <div class="card-options">
+                                <button type="button" class="btn btn-default" data-action="cancel">
+                                    <?php echo $language->getLine('BTN_CANCEL'); ?>
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <?php echo $language->getLine('BTN_SAVE'); ?>
+                                </button>
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="card">
+                        <div class="card-body" id="modal-form" data-title="<?php echo $page->header; ?>" data-action="<?php echo current_url(); ?>">
+                            <?php if($post->id):?>
+                                <input type="hidden" name="id" value="<?=$post->id;?>">
+                            <?php endif;?>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('PARENT'); ?></label>
+                                        <select name="id_parent" class="form-group custom-select">
+                                            <option value="0"><?=$language->getLine('ROOT');?></option>
+                                            <?php if($options->parents):?>
+                                                <?php foreach ($options->parents as $parent):?>
+                                                    <option value="<?=$parent->id;?>"
+                                                        <?=$post->id_parent === $parent->id ? 'selected' : ''?>
+                                                    ><?=$parent->namespace;?></option>
+                                                <?php endforeach?>
+                                            <?php endif;?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('NAMESPACE'); ?></label>
+                                        <input type="text" name="namespace" class="form-control " value="<?=$post->namespace;?>" required>
+                                        <div class="valid-feedback">
+                                            <i class="fas fa-check"></i> <?php echo $language->getLine('LOOKS_GOOD'); ?>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-info-circle"></i> <?php echo $language->getLine('EXAMPLE'); ?>: App\
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label><?php echo $language->getLine('TYPE'); ?></label>
+                                        <select name="type" class="form-group custom-select">
+                                            <?php if($options->types):?>
+                                                <?php foreach ($options->types as $type):?>
+                                                    <option value="<?=$type;?>"
+                                                        <?=$post->id_parent === $type ? 'selected' : ''?>
+                                                    ><?=$type;?></option>
+                                                <?php endforeach?>
+                                            <?php endif;?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

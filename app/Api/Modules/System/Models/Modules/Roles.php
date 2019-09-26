@@ -16,8 +16,6 @@ namespace App\Api\Modules\System\Models\Modules;
 
 use App\Api\Modules\System\Models\Modules;
 use O2System\Framework\Models\Sql\Model;
-use O2System\Framework\Models\Sql\Traits\RecordTrait;
-use O2System\Framework\Models\Sql\Traits\RelationTrait;
 
 /**
  * Class Roles
@@ -25,8 +23,6 @@ use O2System\Framework\Models\Sql\Traits\RelationTrait;
  */
 class Roles extends Model
 {
-    use RecordTrait, RelationTrait;
-
     /**
      * Roles::$table
      *
@@ -34,10 +30,23 @@ class Roles extends Model
      */
     public $table = 'sys_modules_roles';
 
+    /**
+     * Roles::$visibleColumns
+     *
+     * @var array
+     */
+    public $visibleColumns = [
+        'id',
+        'id_sys_module',
+        'code',
+        'label',
+        'description',
+    ];
+
     // ------------------------------------------------------------------------
 
     /**
-     * Menus::module
+     * Roles::module
      *
      * @return bool|\O2System\Framework\Models\Sql\DataObjects\Result\Row
      */

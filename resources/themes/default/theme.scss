@@ -1,18 +1,26 @@
+/*!
+ * This file is part of the O2System PHP Framework package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author         Steeve Andrian Salim
+ *  @copyright      Copyright (c) Steeve Andrian Salim
+ */
+
 @import "~o2system-venus-ui/src/Bootstrap/Functions.scss";
-@import "~o2system-venus-ui/src/Bootstrap/Mixins.scss";
+@import "./assets/scss/mixins.scss";
 @import "./assets/scss/variables.scss";
-@import "~o2system-venus-ui/src/UserInterface.scss";
 @import "~o2system-venus-admin/src/Admin.scss";
-@import "~o2system-venus-form/src/Form.scss";
 
 @import "./assets/scss/global.scss";
+@import "./assets/scss/header.scss";
+@import "./assets/scss/content-placeholder.scss";
+@import "./assets/scss/loading.scss";
+@import "./assets/scss/card.scss";
 @import "./assets/scss/sidebar.scss";    
 @import "./assets/scss/posts.scss";  
 @import "./assets/scss/switch.scss";
-@import "./assets/scss/form.scss"; 
-@import "./assets/scss/customizer.scss";
+@import "./assets/scss/form.scss";
 @import "./assets/scss/users.scss";
-@import "./assets/scss/setup.scss";
-@import "./assets/scss/step.scss";
-@import "./assets/scss/notifications.scss";
-@import "./assets/scss/personal.scss";
+@import "./assets/scss/appearance.scss";

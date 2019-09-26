@@ -2,121 +2,133 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
-                <?php if (null !== ($message = $session->getFlash('success'))): ?>
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">
-                            <?php echo $language->getLine('ALERT_SUCCESS_HEADING'); ?>
-                        </h4>
-                        <p><?php echo $message; ?></p>
-                    </div>
-                <?php elseif (null !== ($message = $session->getFlash('danger'))): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading">
-                            <?php echo $language->getLine('ALERT_DANGER_HEADING'); ?>
-                        </h4>
-                        <p><?php echo $message; ?></p>
-                    </div>
-                <?php endif; ?>
                 <div class="card">
-                    <div class="card-body p-0">
-                        <div class="nav-pages">    
+                    <div class="card-header d-flex align-items-center justify-content-between p-0 pr-3">
+                        <div class="nav-pages">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="<?=base_url('administrator/users')?>"><?php echo $language->getLine('USERS'); ?></a>
+                                    <a class="nav-link active" href="<?=base_url('administrator')?>"><?php echo $language->getLine('USERS'); ?></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?=base_url('administrator/roles')?>"><?php echo $language->getLine('ROLES'); ?></a>
+                                    <a class="nav-link" href="<?=base_url('administrator/modules/roles')?>"><?php echo $language->getLine('ROLES'); ?></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?=base_url('administrator/modules')?>"><?php echo $language->getLine('MODULES'); ?></a>
                                 </li>
                             </ul>
-
-                            <form class="nav-search">
-                                <div class="search-icon open-search">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <div class="search-input">
-                                    <input type="search" placeholder="Search...">
-                                </div>
-                                <div class="search-icon close-search">
-                                    <i class="fas fa-times"></i>
-                                </div>
-                            </form>
                         </div>
+                        <a href="<?=base_url('administrator/form'); ?>" class="btn btn-primary btn-md">
+                            <?=language('BTN_ADD_NEW')?>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="user-list">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <div class="card">
-                        <h5 class="card-header d-flex justify-content-between align-items-center">
-                            <?=$page->title?>
-                            <a href="<?=base_url('administrator/form'); ?>" class="btn btn-primary btn-md">
-	                            <?=language('BTN_ADD_NEW')?>
-                            </a>
-                        </h5>
-                        <div class="card-body pb-0">
-                            <?php if($users):?>
-	                        <?php foreach($users as $user): ?>
-                                <div class="media align-items-center mb-4">
-                                <div class="avatar">
-                                    <?php if(is_object($user->profile)):?>
-                                    <img src="<?=$user->profile->avatar;?>" class="mr-3 rounded-circle" width="72" height="72">
-                                    <?php endif ;?>
-                                </div>
-                                <div class="media-body d-flex align-items-center justify-content-between">
-                                    <div>
-                                        <h1>
+        <?php if($users):?>
+            <div class="user-list">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="card">
+                            <div class="card-body pb-0">
+                                <?php foreach($users as $user): ?>
+                                    <div class="media align-items-center mb-4">
+                                        <div class="avatar">
                                             <?php if(is_object($user->profile)):?>
-                                            <a href="<?=base_url('administrator/form/' . $user->id); ?>"><?=$user->profile->name_display?></a>
+                                                <img src="<?=$user->profile->avatar;?>" class="mr-3 rounded-circle" width="72" height="72">
                                             <?php endif ;?>
-                                        </h1>
-                                        <h6>
-                                            <span class="text-lowercase">@<?=$user->username?></span>
-                                        </h6>
-                                        <button class="btn btn-primary btn-xs btn-icon">
-                                            <?php if(is_object($user->role)):?>
-                                            <i class="fas fa-user-lock"></i> <?=$user->role->label?>
-                                            <?php endif ;?>
-                                        </button>
-                                    </div>
-                                    <div class="user-action">
-                                        <div class="dropdown">
-                                            <a class="dropdown-toggle dropdown-ellipsis" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="<?=base_url('administrator/form/' . $user->id); ?>">
-                                                    <i class="fas fa-pencil-alt"></i>
-                                                    <?=language('BTN_EDIT')?>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="<?=base_url('administrator/delete/' . $user->id); ?>">
-                                                    <i class="fa fa-trash"></i>
-                                                    <?=language('BTN_DELETE')?>
-                                                </a>
+                                        </div>
+                                        <div class="media-body d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h1>
+                                                    <?php if(is_object($user->profile)):?>
+                                                        <a href="<?=base_url('administrator/detail/' . $user->id); ?>"><?=$user->profile->name_display?></a>
+                                                    <?php endif ;?>
+                                                </h1>
+                                                <h6>
+                                                    <span class="text-lowercase">@<?=$user->username?></span>
+                                                </h6>
+                                                <button class="btn btn-primary btn-xs btn-icon">
+                                                    <?php if(is_object($user->role)):?>
+                                                        <i class="fas fa-user-lock"></i> <?=$user->role->label?>
+                                                    <?php endif ;?>
+                                                </button>
                                             </div>
+                                            <?php if(services('user')->hasWriteAccess()): ?>
+                                                <div class="user-action">
+                                                    <div class="dropdown">
+                                                        <a class="dropdown-toggle dropdown-ellipsis" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="<?=base_url('administrator/form/' . $user->id); ?>">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                                <?=language('BTN_EDIT')?>
+                                                            </a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" href="<?=base_url('administrator/delete/' . $user->id); ?>">
+                                                                <i class="fa fa-trash"></i>
+                                                                <?=language('BTN_DELETE')?>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
-	                        <?php endforeach; ?>
-                            <?php endif;?>
+                        </div>
+                        <div class="card nav-pagination">
+                            <div class="card-body">
+                                <div class="row justify-content-between">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="btn-group">
+                                            <a href="<?=base_url('administrator', ['page' => input()->get('page') - 1]); ?>" class="btn btn-default <?=($page = input()->get('page')) <= 1 ? 'disabled' : ''; ?>" >
+                                                <?php echo $language->getLine('BTN_PREV'); ?>
+                                            </a>
+                                            <?php if (($page = input()->get('page')) == 0):?>
+                                                <?php $page = $page + 1; ?>
+                                            <?php endif; ?>
+                                            <a href="<?=base_url('administrator', ['page' => $page + 1]); ?>" class="btn btn-default <?=$page >= $users->info->total->pages ? 'disabled' : ''; ?>" >
+                                                <?php echo $language->getLine('BTN_NEXT'); ?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-3">
+                                        <form action="<?=current_url(); ?>" method="get">
+                                            <div class="input-group">
+                                                <select class="custom-select select2" name="page" method="get">
+                                                    <?php for ($i = 1; $i <= $users->info->total->pages; ++$i):?>
+                                                        <option value="<?=$i; ?>"><?=$i; ?></option>
+                                                    <?php endfor; ?>
+                                                </select>
+
+                                                <div class="input-group-append">
+                                                    <button type="submit" class="btn btn-primary"><?php echo $language->getLine('BTN_GO'); ?></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <p class="mb-0 text-lowercase text-muted"><?php echo $language->getLine('SHOW'); ?> <span><?=$users->info->numbering->start; ?></span> <?php echo $language->getLine('TO'); ?> <span><?=$users->info->numbering->end; ?></span> <?php echo $language->getLine('FROM'); ?> <span><?=$users->info->total->rows; ?></span></p>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>
-
-        <nav>
-            <ul class="pagination d-flex justify-content-center">
-                <li class="page-item"><a class="page-link" href="#"><?php echo $language->getLine('BTN_PREV'); ?></a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"><?php echo $language->getLine('BTN_NEXT'); ?></a></li>
-            </ul>
-        </nav>
+        <?php else:?>
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center p-3">
+                    <img src="{{images_url('default/no-departments-image.jpg')}}" class="img-fluid">
+                    <h3 class="mt-3"><?php echo $language->getLine('ALERT_DATA_EMPTY_HEADING'); ?></h3>
+                    <h6 class="text-danger mb-4">
+                        <?php echo $language->getLine('ALERT_DATA_EMPTY_MESSAGE'); ?>
+                    </h6>
+                </div>
+            </div>
+        <?php endif;?>
     </div>
 </div>

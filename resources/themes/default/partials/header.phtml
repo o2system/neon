@@ -1,10 +1,10 @@
 <div class="header-left">
-	<div class="logo-large">
-		<img src="assets/img/logo/logo-rectangle.png">
-	</div>
-	<div class="logo-mini">
-		<img src="assets/img/logo/logo-square.png">
-	</div>
+    <div class="logo-large">
+        <img src="assets/img/logo/logo-rectangle.png">
+    </div>
+    <div class="logo-mini">
+        <img src="assets/img/logo/logo-square.png">
+    </div>
 </div>
 <div class="header-right">
 	<nav class="navbar navbar-light navbar-expand-sm">
@@ -13,105 +13,63 @@
 				<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0);" data-toggle="sidebar-left"><i class="fas fa-bars"></i></a>
 				</li>
-			</ul>
-
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdownLanguage" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="flag-icon flag-icon-us"></i>
-					</a>
-					<div class="dropdown-menu" aria-labelledby="dropdownLanguage">
-						<a class="dropdown-item" href="#"><i class="flag-icon flag-icon-id"></i> Indonesia</a>
-						<a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> English</a>
-					</div>
+				<li class="nav-item">
+					<a class="nav-link toolbar" href="javascript:history.go(-1)" data-toggle="tooltip" data-original-title="Go Back"><i class="fas fa-arrow-left"></i></a>
 				</li>
 
-		      	<li class="nav-item dropdown">
-			        <a class="nav-link dropdown-toggle remove-caret" href="#" id="dropdownNotif" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          	<i class="fas fa-bell"></i>
-			          	<span class="notify"></span>
-			        </a>
-			        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg py-0" aria-labelledby="dropdownNotif">
-			          	<div class="dropdown-item-header">
-			          		<p>Notification (3)</p>
-			          	</div>
-			          	<div class="dropdown-item-list">
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-primary">
-									<i class="fas fa-cart-plus"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>Your Order is placed</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-danger">
-									<i class="fas fa-comment"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>New Message Received</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-success">
-									<i class="fas fa-eye"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>New Message Received</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-primary">
-									<i class="fas fa-cart-plus"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>Your Order is placed</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-danger">
-									<i class="fas fa-comment"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>New Message Received</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-							<a href="#" class="dropdown-item">
-								<span class="icon bg-success">
-									<i class="fas fa-eye"></i>
-								</span>
-								<span class="notif-detail">
-									<h6>New Message Received</h6>
-									<p>Dummy text of the printing and typesetting industry.</p>
-								</span>
-							</a>
-			          	</div>
-			          	<a href="#" class="dropdown-item dropdown-item-footer">View All</a>
-			        </div>
-		      	</li>
+				<li class="nav-item">
+					<a class="nav-link toolbar" href="javascript:history.forward()" data-toggle="tooltip" data-original-title="Go Forward"><i class="fas fa-arrow-right"></i></a>
+				</li>
 
-		      	<li class="nav-item dropdown">
-			        <a class="nav-link dropdown-toggle" href="#" id="dropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          	<div class="avatar">
-			          		<img src="assets/img/avatar-male.png" alt="">
-			          	</div>
-			          	<span>Rio Haryanto</span>
-			        </a>
+				<li class="nav-item">
+					<a class="nav-link toolbar" href="javascript:location.reload()" data-toggle="tooltip" data-original-title="Reload"><i class="fas fa-sync-alt"></i></a>
+				</li>
+			</ul>
+            <div class="d-md-block d-none">
+                <?=$page->breadcrumb?>
+            </div>
 
-			        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUser">
-			          	<a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
-			          	<a class="dropdown-item" href="#"><i class="fas fa-wallet"></i> Wallet</a>
-			          	<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
-			          	<div class="dropdown-divider"></div>
-			          	<a class="dropdown-item" href="#"><i class="fas fa-power-off"></i> Logout</a>
-			        </div>
-		      	</li>
+			<ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownLanguage" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="flag-icon flag-icon-<?php echo strtolower($language->getDefaultMetadata()->getIdeom()); ?>"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                        <?php foreach($language->getRegistry() as $option): ?>
+                            <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('system/language') . '?language=' . $option->getParameter();?>">
+                                <span class="flag-icon flag-icon-<?php echo strtolower($option->getIdeom()); ?> mr-2"></span> <?php echo $option->getProperties()->name; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle remove-caret" href="#" id="dropdownNotif" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-bell"></i>
+						<span class="notify"></span>
+					</a>
+					<?php echo presenter()->notifications;?>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdownUser" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<div class="avatar">
+							<img src="<?=storage_url('images/default/avatar-male.png');?>" alt="">
+						</div>
+						<span><?= globals()->account->user->username ?></span>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownUser">
+						<!-- <a class="dropdown-item" href="<?= base_url('/system/users/profiles') ?>"><i class="fas fa-user"></i> Profile</a> -->
+						<!-- <a class="dropdown-item" href="#"><i class="fas fa-wallet"></i> Wallet</a> -->
+						<a class="dropdown-item" href="<?= base_url('/system/users/settings') ?>"><i class="fas fa-cog"></i> Settings</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="<?= base_url('/dashboard/logout') ?>"><i class="fas fa-power-off"></i> Logout</a>
+					</div>
+				</li>
 
 			</ul>
 		</div>

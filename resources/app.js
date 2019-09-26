@@ -9,22 +9,20 @@
  */
 // ------------------------------------------------------------------------
 
-import Espresso from "o2system-espresso";
 import "./app.scss";
 
-(function() {
-	window.addEventListener("load", function() {
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
-		const forms = document.getElementsByClassName("needs-validation");
-		// Loop over them and prevent submission
-		Array.prototype.filter.call(forms, function(form) {
-			form.addEventListener("submit", function(event) {
-				if (form.checkValidity() === false) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-				form.classList.add("was-validated");
-			}, false);
-		});
-	}, false);
-})();
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('service-worker.js')
+        .then(function(registration) {
+            console.info(
+                'Service Worker registration successful with scope: ',
+                registration.scope
+            );
+        })
+        .catch(function(err) {
+            console.error('Service Worker registration failed: ', err);
+        });
+} else {
+    console.error('Service Worker registration failed, insecure page, please serve your page over HTTPS or use localhost');
+}

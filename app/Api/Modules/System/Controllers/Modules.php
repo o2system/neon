@@ -14,7 +14,7 @@ namespace App\Api\Modules\System\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Api\Http\Controller;
+use App\Api\Modules\System\Http\Controller;
 use App\Api\Modules\System\Models;
 
 /**
@@ -23,10 +23,53 @@ use App\Api\Modules\System\Models;
  */
 class Modules extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
 
-        $this->model = new Models\Modules();
+    public function addRole()
+    {
+        if($post = input()->post()){
+            if(models(Models\Modules\Segments\Authorities\Roles::class)->findWhere([
+                'id_sys_module_segment'   => $post->id_sys_user_segment,
+                'id_sys_module_role'    => $post->id_sys_module_role
+            ])->count()){
+                models(Models\Modules\Segments\Authorities\Roles::class)->update([
+                    'id_sys_module_segment'   => $post->id_sys_user_segment,
+                    'id_sys_module_role'    => $post->id_sys_module_role,
+                    'permission'    => $post->permission
+                ],[
+                    'id_sys_module_segment'   => $post->id_sys_user_segment,
+                    'id_sys_module_role'    => $post->id_sys_module_role
+                ]);
+            }else{
+                models(Models\Modules\Segments\Authorities\Roles::class)->insert([
+                    'id_sys_module_segment'   => $post->id_sys_user_segment,
+                    'id_sys_module_role'    => $post->id_sys_module_role,
+                    'permission'    => $post->permission
+                ]);
+            }
+        }
+    }
+    public function addUser()
+    {
+        if($post = input()->post()){
+            if(models(Models\Modules\Segments\Authorities\Users::class)->findWhere([
+                'id_sys_module_segment'   => $post->id_sys_module_segment,
+                'id_sys_module_user'    => $post->id_sys_module_user
+            ])->count()){
+                models(Models\Modules\Segments\Authorities\Users::class)->update([
+                    'id_sys_module_segment'   => $post->id_sys_module_segment,
+                    'id_sys_module_user'    => $post->id_sys_module_user,
+                    'permission'    => $post->permission
+                ],[
+                    'id_sys_module_segment'   => $post->id_sys_module_segment,
+                    'id_sys_module_user'    => $post->id_sys_module_user
+                ]);
+            }else{
+                models(Models\Modules\Segments\Authorities\Users::class)->insert([
+                    'id_sys_module_segment'   => $post->id_sys_module_segment,
+                    'id_sys_module_user'    => $post->id_sys_module_user,
+                    'permission'    => $post->permission
+                ]);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace App\Api\Modules\System\Controllers\Modules;
 
 // ------------------------------------------------------------------------
 
-use App\Api\Http\Controller;
+use App\Api\Modules\System\Http\Controller;
 use App\Api\Modules\System\Models;
 
 /**
@@ -23,6 +23,11 @@ use App\Api\Modules\System\Models;
  */
 class Roles extends Controller
 {
+    /**
+     * Roles::$param
+     *
+     * @var array
+     */
     public $params = [
         [
             'field'    => 'id_sys_module',
@@ -32,6 +37,11 @@ class Roles extends Controller
         ]
     ];
 
+    /**
+     * Roles::$roles
+     *
+     * @var array
+     */
     public $roles = [
         [
             'field'    => 'code',
@@ -47,6 +57,11 @@ class Roles extends Controller
         ],
     ];
 
+    /**
+     * Roles::$fields
+     *
+     * @var array
+     */
     public $fields = [
         'id',
         'id_sys_module',
@@ -54,6 +69,10 @@ class Roles extends Controller
         'label'
     ];
 
+    /**
+     * Roles constructor.
+     * @throws \ReflectionException
+     */
     public function __construct()
     {
         parent::__construct();

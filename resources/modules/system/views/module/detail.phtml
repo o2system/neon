@@ -1,0 +1,194 @@
+<div class="page-administrator">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+	                <h1 class="card-header">
+		                <?=readable(snakecase(get_class_name(rtrim($module->namespace, '\\'))), true)?>
+		                <span class="btn btn-success float-right">
+	                        <?=$module->type?>
+                        </span>
+	                </h1>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+	                        <?php if($module->parent): ?>
+	                            <span class="btn btn-default btn-sm mr-2"><?=$module->parent->namespace?></span>
+	                        <?php endif; ?>
+                            <h5 class="mb-0"><?=$module->namespace?></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+	                <?php if($module->childs): ?>
+	                    <div class="col-md-4">
+	                        <div class="card">
+	                            <h5 class="card-header"><?=language('MODULES')?></h5>
+	                            <div class="card-body">
+	                                <div class="accordion">
+		                                <ul class="pl-0 mb-0 list-style-none">
+			                                    <li>
+				                                    <a href="#module-<?=$module->id?>" data-toggle="collapse" aria-expanded="false">
+					                                    <?=$module->namespace?>
+				                                    </a>
+				                                    <ul class="collapse" id="module-<?=$module->id?>">
+				                                        <?php foreach($module->childs as $child): ?>
+                                                            <?php if($child->type !== 'APP' and strpos($child->namespace, 'Api') === false): ?>
+						                                        <li>
+						                                            <?php if($child->childs): ?>
+							                                            <a href="#module-<?=$child->id?>" data-toggle="collapse" aria-expanded="false">
+							                                                <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $child->record_depth); ?>
+                                                                            <?php echo ($child->record_depth == 0 ? '' : '&#8627;'); ?>
+                                                                            <?=$child->namespace?>
+						                                                </a>
+							                                            <ul class="collapse" id="module-<?=$child->id?>">
+								                                            <?php foreach($child->childs as $subChild): ?>
+									                                            <li>
+					                                                                <?php if($subChild->childs): ?>
+						                                                                <a href="#module-<?=$subChild->id?>" data-toggle="collapse" aria-expanded="false">
+							                                                                <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $subChild->record_depth); ?>
+                                                                                            <?php echo ($subChild->record_depth == 0 ? '' : '&#8627;'); ?>
+                                                                                            <?=$subChild->namespace?>
+									                                                    </a>
+						                                                                <ul class="collapse" id="module-<?=$subChild->id?>">
+												                                            <?php foreach($subChild->childs as $subSubChild): ?>
+													                                            <li>
+											                                                    <a href="<?=base_url('system/modules/detail/' . $subSubChild->id);?>">
+												                                                    <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $subSubChild->record_depth); ?>
+                                                                                                    <?php echo ($subSubChild->record_depth == 0 ? '' : '&#8627;'); ?>
+                                                                                                    <?=$subSubChild->namespace?>
+											                                                    </a>
+											                                                </li>
+                                                                                            <?php endforeach; ?>
+											                                            </ul>
+                                                                                    <?php else: ?>
+						                                                                <a href="<?=base_url('system/modules/detail/' . $subChild->id);?>">
+							                                                                <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $subChild->record_depth); ?>
+                                                                                            <?php echo ($subChild->record_depth == 0 ? '' : '&#8627;'); ?>
+                                                                                            <?=$subChild->namespace?>
+									                                                    </a>
+                                                                                    <?php endif; ?>
+							                                                    </li>
+                                                                            <?php endforeach; ?>
+						                                                </ul>
+                                                                    <?php else: ?>
+							                                            <a href="<?=base_url('system/modules/detail/' . $child->id);?>">
+								                                            <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $child->record_depth); ?>
+                                                                            <?php echo ($child->record_depth == 0 ? '' : '&#8627;'); ?>
+                                                                            <?=$child->namespace?>
+			                                                            </a>
+                                                                    <?php endif; ?>
+				                                                </li>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+				                                    </ul>
+			                                    </li>
+		                                    </ul>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+                    <?php endif; ?>
+                    <div class="col-md-<?=($module->childs ? '8' : '12')?>">
+                        <div class="card">
+                            <div class="card-body with-table">
+                                <div class="accordion">
+                                    <div class="">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3"><?=language('CONTROLLERS')?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php $key = 0;?>
+                                                <?php if($module->controllers): ?>
+                                                    <?php foreach($module->controllers as $className => $methods): ?>
+		                                                <tr>
+		                                                    <td colspan="3">
+		                                                        <a href="#controller-<?=md5($className)?>" data-toggle="collapse" aria-expanded="false">
+			                                                        <?=readable(snakecase(get_class_name($className)), true)?>
+		                                                        </a>
+		                                                    </td>
+		                                                </tr>
+	                                                    <?php if(count($methods)): ?>
+		                                                    <tbody id="controller-<?=md5($className)?>" class="collapse">
+	                                                            <tr>
+		                                                            <th width="30%"><?=language('METHODS')?></th>
+		                                                            <th width="30%"><?=language('ROLES')?></th>
+	                                                            </tr>
+		                                                        <?php foreach($methods as $method): ?>
+			                                                        <tr>
+			                                                        <td><?=readable(snakecase(get_class_name($method->name)), true)?></td>
+			                                                        <td>
+                                                                        <?php if($roles):?>
+                                                                        <?php foreach ($roles as $role):?>
+			                                                            <div class="d-flex align-items-center justify-content-between mb-2">
+			                                                                <span><?=$role->label;?></span>
+			                                                                <div class="three-state-switch">
+			                                                                    <input class="insert-role" data-role="<?=$role->id;?>" data-segment="<?=$method->id;?>" data-permission="DENIED" type="radio" name="role[<?=$key;?>]" id="denied-<?=$key;?>"
+                                                                                <?php if($method->roles):?>
+                                                                                        <?php foreach ($method->roles as $methodRole):?>
+                                                                                        <?php if($methodRole->id_sys_module_role === $role->id):?>
+                                                                                        <?php if($methodRole->permission == 'DENIED'):?>
+                                                                                        checked
+                                                                                        <?php endif;?>
+                                                                                        <?php endif;?>
+                                                                                        <?php endforeach;?>
+                                                                                <?php endif;?>
+                                                                                >
+			                                                                    <label for="denied-<?=$key;?>" class="switch-danger ml-0" data-toggle="tooltip" data-original-title="Denied">
+			                                                                        <span><i class="fas fa-ban"></i></span>
+			                                                                    </label>
+
+			                                                                    <input
+                                                                                    <?php if($method->roles):?>
+                                                                                    <?php foreach ($method->roles as $methodRole):?>
+                                                                                        <?php if($methodRole->id_sys_module_role === $role->id):?>
+                                                                                            <?php if($methodRole->permission == 'GRANTED'):?>
+                                                                                                checked
+                                                                                            <?php endif;?>
+                                                                                        <?php endif;?>
+                                                                                    <?php endforeach;?>
+                                                                                <?php endif;?>
+                                                                                        class="insert-role" data-role="<?=$role->id;?>" data-segment="<?=$method->id;?>" data-permission="GRANTED" type="radio" name="role[<?=$key;?>]" id="GRANTED-<?=$key;?>" value="2">
+			                                                                    <label for="GRANTED-<?=$key;?>" class="switch-info" data-toggle="tooltip" data-original-title="GRANTED Only">
+			                                                                        <span><i class="fas fa-eye"></i></span>
+			                                                                    </label>
+
+			                                                                    <input   <?php if($method->roles):?>
+                                                                                    <?php foreach ($method->roles as $methodRole):?>
+                                                                                        <?php if($methodRole->id_sys_module_role === $role->id):?>
+                                                                                            <?php if($methodRole->permission == 'WRITE'):?>
+                                                                                                checked
+                                                                                            <?php endif;?>
+                                                                                        <?php endif;?>
+                                                                                    <?php endforeach;?>
+                                                                                <?php endif;?>
+                                                                                        class="insert-role" data-role="<?=$role->id;?>" data-segment="<?=$method->id;?>" data-permission="WRITE" type="radio" name="role[<?=$key;?>]" id="write-<?=$key;?>" value="3">
+			                                                                    <label for="write-<?=$key;?>" class="switch-success mr-0" data-toggle="tooltip" data-original-title="Can Write">
+			                                                                        <span><i class="fas fa-pencil-alt"></i></span>
+			                                                                    </label>
+			                                                                </div>
+			                                                            </div>
+                                                                            <?php $key++?>
+                                                                        <?php endforeach;?>
+                                                                        <?php endif;?>
+			                                                        </td>
+			                                                    </tr>
+		                                                        <?php endforeach; ?>
+		                                                    </tbody>
+	                                                    <?php endif; ?>
+	                                                <?php endforeach; ?>
+	                                            <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

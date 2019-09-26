@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body p-0">
+        <div class="nav-pages">    
+            <ul class="nav" id="nav-settings">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('system/settings');?>">Master Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('system/settings/emails');?>">Emails</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('system/settings/systems');?>">Systems</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('system/settings/server');?>">Server</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=base_url('system/settings/traffic');?>">Traffic</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    var current_url = "<?= current_url(); ?>";
+    var activeSlug = $('#nav-settings li a[href="'+ current_url +'"]');
+
+    activeSlug.addClass('active');
+</script>

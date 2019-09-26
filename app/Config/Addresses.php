@@ -27,3 +27,17 @@ $addresses->any(
         return new \App\Controllers\Login();
     }
 );
+
+$addresses->any(
+    '/login',
+    function () {
+        return new \App\Controllers\Login();
+    }
+);
+
+$addresses->any(
+    '/logout',
+    function () {
+        return (new \App\Controllers\Login())->logout();
+    }
+);

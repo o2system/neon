@@ -1,0 +1,42 @@
+.venus-admin {
+    .header{
+        .header-left{
+            width: 240px;
+            position: fixed;
+            z-index: 10;
+            background-color: #233242;
+
+            &.expand-logo{
+                width: 240px;
+
+                .logo-large{
+                    display: block;
+                }
+
+                .logo-mini{
+                    display: none;
+                }
+            }
+        }
+
+        .header-right{
+            margin-left: 240px;
+            transition: all 0.3s;
+        }
+    } 
+
+    &.mini-sidebar-left{
+        .header{
+            .header-right{
+                margin-left: 60px;
+                transition: all 0.3s;
+            }
+        }
+    }
+
+    .breadcrumb{
+        margin-bottom: 0;
+        margin-left: 1rem;
+        padding: 0;
+    }
+}

@@ -1,11 +1,11 @@
-/**
- * This file is part of the O2System Venus UI Framework package.
+/*!
+ * This file is part of the O2System PHP Framework package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author         Steeve Andrian Salim
- * @copyright      Copyright (c) Steeve Andrian Salim
+ *  @copyright      Copyright (c) Steeve Andrian Salim
  */
 // ------------------------------------------------------------------------
 
@@ -88,12 +88,12 @@ $colors: map-merge(
 );
 
 $default:       $white !default;
-$primary:       #16C7D1 !default;
-$secondary:     #556892 !default;
-$success:       #3E71B0 !default;
-$info:          #1B1129 !default;
-$warning:       #541A33 !default;
-$danger:        #D2002F !default;
+$primary:       #16C7D2 !default;
+$secondary:     #3E71B2 !default;
+$success:       #3EB08F !default;
+$info:          #FFB133 !default;
+$warning:       #FA5F27 !default;
+$danger:        #E43A43 !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 

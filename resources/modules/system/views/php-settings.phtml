@@ -1,0 +1,65 @@
+<div class="page-system">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-header p-0">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-md-auto">
+                            <div class="nav-pages">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('system/information'); ?>" class="nav-link">
+                                            <?php echo $language->getLine('INFORMATION'); ?>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('system/information/folder-permissions'); ?>" class="nav-link">
+                                            <?php echo $language->getLine('FOLDER_PERMISSIONS'); ?>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('system/information/php-settings'); ?>" class="nav-link active">
+                                            PHP Settings
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('system/information/php-info'); ?>" class="nav-link">
+                                            PHP Info
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body with-table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Global</th>
+                                    <th>Local</th>
+                                    <th>Access</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach( $phpSettings as $item => $phpSetting ): ?>
+                                    <tr>
+                                        <td><?php echo $item; ?></td>
+                                        <td><?php echo $phpSetting['global_value']; ?></td>
+                                        <td><?php echo $phpSetting['local_value']; ?></td>
+                                        <td><?php echo $phpSetting['access']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

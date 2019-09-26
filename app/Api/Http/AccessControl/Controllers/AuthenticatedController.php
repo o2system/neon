@@ -1,12 +1,12 @@
 <?php
 /**
- * This file is part of the NEO ERP Application.
+ * This file is part of the O2System PHP Framework package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author         PT. Lingkar Kreasi (Circle Creative)
- * @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
+ * @author         Steeve Andrian Salim
+ * @copyright      Copyright (c) Steeve Andrian Salim
  */
 // ------------------------------------------------------------------------
 
@@ -29,9 +29,7 @@ class AuthenticatedController extends Controller
      */
     public function __reconstruct()
     {
-        parent::__reconstruct();
-
         // Register user authentication middleware
-        middleware()->register( new UserAuthentication() );
+         middleware()->register( new UserAuthentication() );
     }
 }
