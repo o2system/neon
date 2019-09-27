@@ -10,16 +10,16 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Companies\Controllers\Overview;
+namespace App\Modules\Companies\Controllers\Overview;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Companies\Http\Controller;
+use App\Modules\Companies\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Companies\Models\Companies;
 /**
  * Class Companies
- * @package App\Manage\Modules\Companies\Controllers
+ * @package App\Modules\Companies\Controllers
  */
 class Transactions extends Controller
 {

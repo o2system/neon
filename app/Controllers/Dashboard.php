@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Controllers;
+namespace App\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Http\AccessControl\Controllers\AuthenticatedController;
+use App\Http\AccessControl\Controllers\AuthenticatedController;
 use App\Api\Modules\Companies\Models\Companies;
 use App\Api\Modules\Testimonials\Models\Testimonials;
 use App\Api\Modules\Transactions\Models\Logs;

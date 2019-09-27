@@ -10,14 +10,14 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers\Settings;
+namespace App\Modules\Site\Controllers\Settings;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 /**
  * Class Pages
- * @package App\Manage\Modules\Site\Controllers
+ * @package App\Modules\Site\Controllers
  */
 class Discussion extends Controller
 {

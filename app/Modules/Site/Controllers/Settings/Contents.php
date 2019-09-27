@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers\Settings;
+namespace App\Modules\Site\Controllers\Settings;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 use App\Api\Modules\Taxonomies\Models\Taxonomies;
 /**
  * Class Pages
- * @package App\Manage\Modules\Site\Controllers
+ * @package App\Modules\Site\Controllers
  */
 class Contents extends Controller
 {

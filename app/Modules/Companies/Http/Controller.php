@@ -10,10 +10,10 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Companies\Http;
+namespace App\Modules\Companies\Http;
 
 // ------------------------------------------------------------------------
-use App\Manage\Http\AccessControl\Controllers\AuthenticatedController;
+use App\Http\AccessControl\Controllers\AuthenticatedController;
 
 /**
  * Class Controller

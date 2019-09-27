@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Master\Controllers\Taxonomies;
+namespace App\Modules\Master\Controllers\Taxonomies;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Master\Http\Controller;
+use App\Modules\Master\Http\Controller;
 
 /**
  * Class Metadata
- * @package App\Manage\Modules\Taxonomies\Controllers
+ * @package App\Modules\Taxonomies\Controllers
  */
 class Metadata extends Controller
 {

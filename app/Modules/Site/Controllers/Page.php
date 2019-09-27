@@ -10,17 +10,17 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers;
+namespace App\Modules\Site\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Media\Models\Media;
 
 /**
  * Class Pages
- * @package App\Manage\Modules\Sites\Controllers
+ * @package App\Modules\Sites\Controllers
  */
 class Page extends Controller
 {

@@ -10,18 +10,18 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\System\Controllers;
+namespace App\Modules\System\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Master\Models\Banks;
 use App\Api\Modules\Master\Models\Currencies;
 use App\Api\Modules\Master\Models\Geodirectories;
 /**
  * Class Pages
- * @package App\Manage\Modules\System\Controllers
+ * @package App\Modules\System\Controllers
  */
 class Settings extends Controller
 {

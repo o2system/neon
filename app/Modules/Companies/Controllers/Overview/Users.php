@@ -11,11 +11,11 @@
 
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Companies\Controllers\Overview;
+namespace App\Modules\Companies\Controllers\Overview;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Companies\Http\Controller;
+use App\Modules\Companies\Http\Controller;
 use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Image\Uploader;
 use O2System\Spl\DataStructures\SplArrayObject;
@@ -24,7 +24,7 @@ use O2System\Security\Generators\Token;
 
 /**
  * Class Companies
- * @package App\Manage\Modules\Companies\Controllers
+ * @package App\Modules\Companies\Controllers
  */
 class Users extends Controller
 {

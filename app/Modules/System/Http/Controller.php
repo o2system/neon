@@ -10,7 +10,7 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\System\Http;
+namespace App\Modules\System\Http;
 
 // ------------------------------------------------------------------------
 use App\Http\AccessControl\Controllers\AuthenticatedController;

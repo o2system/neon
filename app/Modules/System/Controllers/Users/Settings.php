@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\System\Controllers\Users;
+namespace App\Modules\System\Controllers\Users;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 use O2System\Kernel\Http\Message\UploadFile;
 use O2System\Security\Generators\Token;
 

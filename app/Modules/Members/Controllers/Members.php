@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Members\Controllers;
+namespace App\Modules\Members\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Members\Http\Controller;
+use App\Modules\Members\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Filesystem\Handlers\Uploader;
@@ -23,7 +23,7 @@ use App\Libraries\Rajaongkir;
 
 /**
  * Class Members
- * @package App\Manage\Modules\Members\Controllers
+ * @package App\Modules\Members\Controllers
  */
 class Members extends Controller
 {

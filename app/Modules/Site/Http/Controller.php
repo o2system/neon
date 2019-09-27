@@ -10,14 +10,14 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Http;
+namespace App\Modules\Site\Http;
 
 // ------------------------------------------------------------------------
-use App\Manage\Http\AccessControl\Controllers\AuthenticatedController;
+use App\Http\AccessControl\Controllers\AuthenticatedController;
 
 /**
  * Class Controller
- * @package App\Manage\Modules\Sites\Http
+ * @package App\Modules\Sites\Http
  */
 class Controller extends AuthenticatedController
 {

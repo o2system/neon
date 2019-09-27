@@ -10,18 +10,18 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers\Appearance;
+namespace App\Modules\Site\Controllers\Appearance;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Taxonomies\Models\Taxonomies;
 use App\Api\Modules\Taxonomies\Models\Terms;
 
 /**
  * Class Customizer
- * @package App\Manage\Modules\Sites\Controllers
+ * @package App\Modules\Sites\Controllers
  */
 class Sliders extends Controller
 {

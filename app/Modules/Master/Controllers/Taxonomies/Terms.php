@@ -10,17 +10,17 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Master\Controllers\Taxonomies;
+namespace App\Modules\Master\Controllers\Taxonomies;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Master\Http\Controller;
+use App\Modules\Master\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Taxonomies\Models\Taxonomies;
 
 /**
  * Class Terms
- * @package App\Manage\Modules\Taxonomies\Controllers
+ * @package App\Modules\Taxonomies\Controllers
  */
 class Terms extends Controller
 {

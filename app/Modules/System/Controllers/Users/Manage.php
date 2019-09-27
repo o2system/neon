@@ -10,12 +10,12 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\System\Controllers\Users;
+namespace App\Modules\System\Controllers\Users;
 
 // ------------------------------------------------------------------------
 
 use App\Api\Modules\System\Models\Modules\Roles;
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Image\Uploader;
 use O2System\Spl\DataStructures\SplArrayObject;

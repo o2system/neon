@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Products\Controllers;
+namespace App\Modules\Products\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Products\Http\Controller;
+use App\Modules\Products\Http\Controller;
 use App\Api\Modules\Products\Models\Categories;
 use App\Api\Modules\Master\Models\Currencies;
 use App\Api\Modules\Companies\Models\Companies;
@@ -23,7 +23,7 @@ use O2System\Spl\Datastructures\SplArrayObject;
 
 /**
  * Class Products
- * @package App\Manage\Modules\Products\Controllers
+ * @package App\Modules\Products\Controllers
  */
 class Products extends Controller
 {

@@ -6,10 +6,10 @@
  * Time: 13:15
  */
 
-namespace App\Manage\Modules\System\Controllers;
+namespace App\Modules\System\Controllers;
 
 
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 
 class Language extends Controller
 {

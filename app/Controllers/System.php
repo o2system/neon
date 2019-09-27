@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Controllers;
+namespace App\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Http\Controller;
+use App\Http\Controller;
 
 /**
  * Class System

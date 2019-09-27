@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Taxonomies\Controllers;
+namespace App\Modules\Taxonomies\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Taxonomies\Http\Controller;
+use App\Modules\Taxonomies\Http\Controller;
 
 /**
  * Class Terms
- * @package App\Manage\Modules\Taxonomies\Controllers
+ * @package App\Modules\Taxonomies\Controllers
  */
 class Terms extends Controller
 {

@@ -10,18 +10,18 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers;
+namespace App\Modules\Site\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Media\Models\Media;
 use App\Api\Modules\Posts\Models\Media as PostsMedia;
 
 /**
  * Class Posts
- * @package App\Manage\Modules\Posts\Controllers
+ * @package App\Modules\Posts\Controllers
  */
 class Posts extends Controller
 {

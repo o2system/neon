@@ -10,18 +10,18 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Master\Controllers;
+namespace App\Modules\Master\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Master\Http\Controller;
+use App\Modules\Master\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 use App\Api\Modules\Taxonomies\Models\Terms;
 use App\Api\Modules\Taxonomies\Models\Metadata;
 
 /**
  * Class Taxonomies
- * @package App\Manage\Modules\Taxonomies\Controllers
+ * @package App\Modules\Taxonomies\Controllers
  */
 class Taxonomies extends Controller
 {

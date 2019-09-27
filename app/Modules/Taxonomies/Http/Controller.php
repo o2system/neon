@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Taxonomies\Http;
+namespace App\Modules\Taxonomies\Http;
 
 // ------------------------------------------------------------------------
 
 /**
  * Class Controller
- * @package App\Manage\Modules\Taxonomies\Http
+ * @package App\Modules\Taxonomies\Http
  */
-class Controller extends \App\Manage\Http\Controller
+class Controller extends \App\Http\Controller
 {
 
 }

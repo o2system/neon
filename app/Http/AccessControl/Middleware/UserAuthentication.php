@@ -48,7 +48,7 @@ class UserAuthentication implements RequestHandlerInterface
     {
         if ( ! services('user')->loggedIn()) {
             redirect_url('/');
-        } else if(  $user = models('users')->find(session()->account->user->id)){
+        } else if($user = models('users')->find(session()->account->user->id)){
             $this->account = new Account($user->getArrayCopy());
             $this->account->store('user', $user);
             if ($profile = $user->profile) {
@@ -58,10 +58,8 @@ class UserAuthentication implements RequestHandlerInterface
             globals()->store('account', $this->account);
             presenter()->store('account', $this->account);
             models(Notifications::class)->qb->orderBy('id', 'DESC');
-            $notif = models(Notifications::class)->findIn([0, $user->id],'sys_module_user_recipient_id');
-            presenter()->store('notifications', view(PATH_RESOURCES.'views/notifications/manage.phtml', [
-                'notifications' => $notif
-            ], true));
+            $notif = models(Notifications::class)->findIn([$user->id],'sys_module_user_recipient_id');
+            presenter()->store('notifications', null);
 
         }
     }

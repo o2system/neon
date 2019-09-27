@@ -38,7 +38,6 @@ class Controller extends \O2System\Framework\Http\Controller
      */
     public function __reconstruct()
     {
-        parent::__reconstruct();
         presenter()->page
             ->setHeader( 'Neon' )
             ->setDescription( 'Boilerplate Neon' );

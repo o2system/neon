@@ -14,7 +14,6 @@ namespace App\Modules\Personal\Http;
 
 // ------------------------------------------------------------------------
 
-use App\Api\Modules\Scrum\Models\Boards\Cards\Tasks;
 use App\Http\AccessControl\Controllers\AuthenticatedController;
 use O2System\Framework\Libraries\Ui\Contents\Link;
 use O2System\Framework\Models\Sql\Model;

@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Master\Controllers;
+namespace App\Modules\Master\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Master\Http\Controller;
+use App\Modules\Master\Http\Controller;
 
 /**
  * Class Words
- * @package App\Manage\Modules\Master\Controllers
+ * @package App\Modules\Master\Controllers
  */
 class Words extends Controller
 {

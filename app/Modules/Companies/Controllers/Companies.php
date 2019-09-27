@@ -10,11 +10,11 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Companies\Controllers;
+namespace App\Modules\Companies\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Companies\Http\Controller;
+use App\Modules\Companies\Http\Controller;
 use App\Api\Modules\Companies\Models\Metadata;
 use App\Api\Modules\Master\Models\Geodirectories;
 use O2System\Spl\Datastructures\SplArrayObject;
@@ -26,7 +26,7 @@ use App\Libraries\Rajaongkir;
 
 /**
  * Class Companies
- * @package App\Manage\Modules\Companies\Controllers
+ * @package App\Modules\Companies\Controllers
  */
 class Companies extends Controller
 {

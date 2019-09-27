@@ -10,14 +10,14 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\System\Controllers\Settings;
+namespace App\Modules\System\Controllers\Settings;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 /**
  * Class Pages
- * @package App\Manage\Modules\System\Controllers
+ * @package App\Modules\System\Controllers
  */
 class Emails extends Controller
 {

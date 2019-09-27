@@ -9,10 +9,10 @@
  *  @copyright      Copyright (c) PT. Lingkar Kreasi (Circle Creative)
  */
 
-namespace App\Manage\Modules\System\Controllers\Users;
+namespace App\Modules\System\Controllers\Users;
 
 use App\Api\Modules\System\Models\Modules;
-use App\Manage\Modules\System\Http\Controller;
+use App\Modules\System\Http\Controller;
 use O2System\Spl\DataStructures\SplArrayObject;
 use O2System\Spl\Exceptions\Logic\BadFunctionCall\BadDependencyCallException;
 

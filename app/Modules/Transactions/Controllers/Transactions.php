@@ -11,7 +11,7 @@
 
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Transactions\Controllers;
+namespace App\Modules\Transactions\Controllers;
 
 // ------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@ use App\Api\Modules\Products\Models\Requests\Images;
 use App\Api\Modules\System\Models\Modules\Users\Notifications;
 use App\Api\Modules\Transactions\Models\Logs;
 use App\Libraries\Rajaongkir;
-use App\Manage\Modules\Transactions\Http\Controller;
+use App\Modules\Transactions\Http\Controller;
 use O2System\Filesystem\Handlers\Uploader;
 use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Spl\DataStructures\SplArrayObject;
 
 /**
  * Class Transactions
- * @package App\Manage\Modules\Transactions\Controllers
+ * @package App\Modules\Transactions\Controllers
  */
 class Transactions extends Controller
 {

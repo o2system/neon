@@ -10,16 +10,16 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Master\Controllers;
+namespace App\Modules\Master\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Master\Http\Controller;
+use App\Modules\Master\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 
 /**
  * Class Currencies
- * @package App\Manage\Modules\Master\Controllers
+ * @package App\Modules\Master\Controllers
  */
 class Currencies extends Controller
 {

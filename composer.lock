@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbb81e9c02c69c849f3bf1f529da7f64",
+    "content-hash": "feebd16ce066bb659b2c3130d6ce0cbc",
     "packages": [
         {
             "name": "filp/whoops",
@@ -444,6 +444,60 @@
                 "utilities"
             ],
             "time": "2019-09-25T14:24:13+00:00"
+        },
+        {
+            "name": "o2system/gear",
+            "version": "v2.1.62",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/o2system/gear.git",
+                "reference": "b76406b68c5f72122c6f840b757e957f424bc772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/o2system/gear/zipball/b76406b68c5f72122c6f840b757e957f424bc772",
+                "reference": "b76406b68c5f72122c6f840b757e957f424bc772",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.0"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "O2System\\Gear\\": "src"
+                },
+                "files": [
+                    "src/Helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steeven Andrian Salim",
+                    "email": "steevenz@steevenz.com",
+                    "homepage": "http://www.steevenz.com",
+                    "role": "Founder and Lead Project"
+                },
+                {
+                    "name": "Teguh Rianto",
+                    "email": "teguh.rianto22@gmail.com",
+                    "homepage": "http://teguhrianto22.pusku.com",
+                    "role": "Template Designer"
+                }
+            ],
+            "description": "PHP Developer Tools Library",
+            "keywords": [
+                "driver",
+                "framework",
+                "libraries",
+                "php",
+                "utilities"
+            ],
+            "time": "2019-04-09T06:22:43+00:00"
         },
         {
             "name": "o2system/html",

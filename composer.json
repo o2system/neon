@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": "~7.2.0",
-        "o2system/framework": "*"
+        "o2system/framework": "*",
+        "o2system/gear": "^2.1"
     },
     "autoload": {
         "psr-4": {

@@ -11,16 +11,16 @@
 
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Testimonials\Controllers;
+namespace App\Modules\Testimonials\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Testimonials\Http\Controller;
+use App\Modules\Testimonials\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 
 /**
  * Class Testimonials
- * @package App\Manage\Modules\Testimonials\Controllers
+ * @package App\Modules\Testimonials\Controllers
  */
 class Testimonials extends Controller
 {

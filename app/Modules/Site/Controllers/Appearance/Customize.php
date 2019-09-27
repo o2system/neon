@@ -10,15 +10,15 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Site\Controllers\Appearance;
+namespace App\Modules\Site\Controllers\Appearance;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 
 /**
  * Class Customizer
- * @package App\Manage\Modules\Sites\Controllers
+ * @package App\Modules\Sites\Controllers
  */
 class Customize extends Controller
 {

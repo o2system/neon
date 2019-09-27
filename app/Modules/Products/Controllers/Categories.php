@@ -10,16 +10,16 @@
  */
 // ------------------------------------------------------------------------
 
-namespace App\Manage\Modules\Products\Controllers;
+namespace App\Modules\Products\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Manage\Modules\Products\Http\Controller;
+use App\Modules\Products\Http\Controller;
 use O2System\Spl\Datastructures\SplArrayObject;
 
 /**
  * Class Products
- * @package App\Manage\Modules\Products\Controllers
+ * @package App\Modules\Products\Controllers
  */
 class Categories extends Controller
 {

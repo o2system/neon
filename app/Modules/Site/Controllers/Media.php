@@ -6,10 +6,10 @@
  * Time: 17:04
  */
 
-namespace App\Manage\Modules\Site\Controllers;
+namespace App\Modules\Site\Controllers;
 
 
-use App\Manage\Modules\Site\Http\Controller;
+use App\Modules\Site\Http\Controller;
 use O2System\Filesystem\Handlers\Uploader;
 use O2System\Framework\Libraries\Ui\Contents\Lists\Unordered;
 use O2System\Spl\DataStructures\SplArrayObject;
