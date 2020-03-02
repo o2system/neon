@@ -8,7 +8,7 @@
 
 # O2System Neon Boilerplate
 
-O2System Basic Project is for those who likes to make everything from scratch, build your project with this boilerplate.
+O2System Neon Boilerplate is build for everyone who want to start building a web-based application.
 
 
 ### Composer Installation
