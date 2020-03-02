@@ -1,4 +1,4 @@
-[![O2System Framework](http://o2system.id/assets/img/logo/logo-200px.png)](http://o2system.id/assets/img/logo/logo-white-200px.png)
+![alt text](https://repository-images.githubusercontent.com/131026885/90f6c880-5c9b-11ea-903c-60afa975031b "O2System Neon Boilerplate")
 
 [![Build Status](https://travis-ci.org/o2system/o2system.svg?branch=master)](https://travis-ci.org/o2system/o2system)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/o2system/framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/o2system/framework/?branch=master)
