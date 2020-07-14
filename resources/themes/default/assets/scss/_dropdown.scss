@@ -1,0 +1,133 @@
+.dropdown-ellipsis{
+  &:after{
+    content: "\f141";
+    font-family: "Font Awesome\ 5 Free";
+    font-weight: 900;
+    border: none;
+    font-size: 16px;
+    width: auto;
+    height: auto;
+    transition: all 0.1s ease-in-out;
+    color: $body-color;
+    vertical-align: 0;
+    margin-top: 3px;
+    margin-left: 0;
+  }
+
+  &:before {
+    position: absolute;
+    z-index: -1;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    content: '';
+    background-color: #e5e9f2;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all .3s;
+  }
+
+  /*&[aria-expanded="true"]{
+    &:after{
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }*/
+
+  &:hover, &:focus{
+    &:before{
+      opacity: 1;
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+.dropdown-head {
+  border-bottom: 1px solid #e5e9f2;
+}
+.dropdown-head, .dropdown-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #e5e9f2;
+}
+
+.dropdown-body {
+  padding: 1.25rem;
+}
+
+.dropdown-foot {
+  border-top: 1px solid #e5e9f2;
+}
+
+.dropdown-menu-xl {
+  min-width: 360px;
+  max-width: 360px;
+}
+
+.dropdown-menu-checklist{
+  padding: 5px 0;
+  .subtitle{
+    padding: 5px 10px;
+    margin-bottom: 0px;
+  }
+  .item{
+    position: relative;
+
+    input{
+      display: none;
+
+      + label{
+        position: relative;
+        padding: 5px 10px;
+        display: block;
+        margin-bottom: 0;
+        cursor: pointer;
+
+        &:after{
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 16px;
+          color: $primary;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\F00C";
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      &:checked{
+        + label{
+          &:after{
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown-item{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #526484;
+  transition: all .4s;
+  position: relative;
+
+  i{
+    font-size: 14px;
+  }
+}

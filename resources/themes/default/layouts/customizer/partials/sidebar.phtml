@@ -1,0 +1,379 @@
+<!-- Sidebar scroll-->
+<div class="scroll-sidebar perfect-scrollbar">
+    <!-- Sidebar navigation-->
+    <div class="d-flex justify-content-between align-items-center p-3 bg-white">
+        <a href="#"><i class="fas fa-times"></i></a>
+        <button class="btn btn-primary">Save</button>
+    </div>
+    <nav id="customize-menu">
+        <ul>
+            <li>
+                <a href="javascript:void">Site Identity</a>
+                <ul>
+                    <li>
+                        <label>Site Name</label>
+                        <input type="text" class="form-control" name="site_name" value="">
+                    </li>
+                    <li>
+                        <label>Tagline</label>
+                        <input type="text" class="form-control" name="tag_line" value="">
+                    </li>
+                    <li>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="check_site" value="1" class="custom-control-input" id="checkbox-1">
+                            <label class="custom-control-label" for="checkbox-1">Display Site Title and Tagline</label>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Site Icon</label>
+                        <label class="text-muted">
+                            Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here!<br>
+                            Site Icons should be square and at least 512 × 512 pixels.
+                        </label>
+                        <input type="file" name="site_icon" data-default-file ="" class="dropify" data-height="150" data-allowed-file-extensions="jpg png" />
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Schemes</a>
+                <ul>
+                    <li>
+                        <div class="form-row">
+                            <div class="col-auto">
+                                <div class="checkbox-square">
+                                    <input type="radio" name="scheme" id="scheme-1">
+                                    <label for="scheme-1" style="background-color: #0d95e8;"></label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-square">
+                                    <input type="radio" name="scheme" id="scheme-2">
+                                    <label for="scheme-2" style="background-color: #0acf97;"></label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-square">
+                                    <input type="radio" name="scheme" id="scheme-3">
+                                    <label for="scheme-3" style="background-color: #8a92f7;"></label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-square">
+                                    <input type="radio" name="scheme" id="scheme-4">
+                                    <label for="scheme-4" style="background-color: #c98100;"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Fonts</a>
+                <ul>
+                    <li>
+                        <label>Heading</label>
+                        <select name="fonts[heading]" class="form-control custom-select">
+                            <option>Default Theme Font</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label>Body</label>
+                        <select name="fonts[body]" class="form-control custom-select">
+                            <option>Default Theme Font</option>
+                        </select>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Menus</a>
+                <ul>
+                    <li>
+                        <label>Menus</label>
+                        <label class="text-muted">
+                            It doesn’t look like your site has any menus yet. Want to build one? Click the button to start.<br><br>
+                            You’ll create a menu, assign it a location, and add menu items like links to pages and categories. If your theme has multiple menu areas, you might need to create more than one.
+                        </label>
+                    </li>
+                    <li data-tpl="menu-item">
+                        <a href="javascript:void">Primary Menu</a>
+                        <ul>
+                            <li>
+                                <label>Menu Name</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="" value="Primary Menu">
+                                </div>
+                                <label class="text-muted">
+                                    Time to add some links! Click “Add Items” to start putting pages, categories, and custom links in your menu. Add as many things as you’d like.
+                                </label>
+                                <ol class="sortable sortable-menu mb-3">
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-header" class="collapsed" data-toggle="collapse" href="#about" aria-expanded="false">
+                                                <h5 class="mb-0">
+                                                    <a role="button">
+                                                        About
+                                                    </a>
+                                                </h5>
+                                            </div>
+
+                                            <div id="about" class="collapse" aria-labelledby="settings-record-status">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>URL</label>
+                                                        <input type="text" class="form-control" name="" value="http://">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Navigation Label</label>
+                                                        <input type="text" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group mb-0">
+                                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card">
+                                            <div class="card-header" class="collapsed" data-toggle="collapse" href="#custom1" aria-expanded="false">
+                                                <h5 class="mb-0">
+                                                    <a role="button">
+                                                        Nama Menu Custom
+                                                    </a>
+                                                </h5>
+                                            </div>
+
+                                            <div id="custom1" class="collapse">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>URL</label>
+                                                        <input type="text" class="form-control" name="" value="http://">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Navigation Label</label>
+                                                        <input type="text" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group mb-0">
+                                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <button type="button" class="btn btn-default" data-role="open-sidebar-panel"><i class="fas fa-plus"></i> Add Items</button>
+                            </li>
+                            <li>
+                                <label>Menu Location</label>
+                                <label class="text-muted">
+                                    Here’s where this menu appears. If you’d like to change that, pick another location.
+                                </label>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('PRIMARY_MENU'); ?></label>
+                                </div>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES">
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('BOTTOM_MENU'); ?></label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Menu Options</label>
+                                <div class="form-group d-flex">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0">Automatically add new top-level pages to this menu</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void">Footer Menu</a>
+                        <ul>
+                            <li>
+                                <label>Menu Name</label>
+                                <input type="text" class="form-control" name="Footer Menu">
+                                <label class="text-muted">
+                                    Time to add some links! Click “Add Items” to start putting pages, categories, and custom links in your menu. Add as many things as you’d like.
+                                </label>
+                                <button type="button" class="btn btn-default" data-role="open-sidebar-panel"><i class="fas fa-plus"></i> Add Items</button>
+                            </li>
+                            <li>
+                                <label>Menu Location</label>
+                                <label class="text-muted">
+                                    Here’s where this menu appears. If you’d like to change that, pick another location.
+                                </label>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('PRIMARY_MENU'); ?></label>
+                                </div>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES">
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('BOTTOM_MENU'); ?></label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Menu Options</label>
+                                <div class="form-group d-flex">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0">Automatically add new top-level pages to this menu</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void" class="btn btn-default">Create New Menu</a>
+                        <ul>
+                            <li>
+                                <label>Menu Name</label>
+                                <input type="text" class="form-control" name="Footer Menu">
+                                <label class="text-muted">
+                                    Time to add some links! Click “Add Items” to start putting pages, categories, and custom links in your menu. Add as many things as you’d like.
+                                </label>
+                                <button type="button" class="btn btn-default" data-role="open-sidebar-panel"><i class="fas fa-plus"></i> Add Items</button>
+                            </li>
+                            <li>
+                                <label>Menu Location</label>
+                                <label class="text-muted">
+                                    Here’s where this menu appears. If you’d like to change that, pick another location.
+                                </label>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('PRIMARY_MENU'); ?></label>
+                                </div>
+                                <div class="form-group d-flex align-items-center">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES">
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0"><?php echo language('BOTTOM_MENU'); ?></label>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Menu Options</label>
+                                <div class="form-group d-flex">
+                                    <label class="switch">
+                                        <input type="hidden" name="" value="NO">
+                                        <input type="checkbox" name="" value="YES" checked>
+                                        <span></span>
+                                    </label>
+                                    <label class="ml-3 mb-0">Automatically add new top-level pages to this menu</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void">Blog Settings</a>
+                <ul>
+                    <li>
+                        <div class="form-row">
+                            <div class="col-auto">
+                                <div class="checkbox-img">
+                                    <input type="radio" name="blog_setting" id="blog-1">
+                                    <label for="blog-1">
+                                        <img src="assets/img/blog.png" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-img">
+                                    <input type="radio" name="blog_setting" id="blog-2">
+                                    <label for="blog-2">
+                                        <img src="assets/img/blog.png" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-img">
+                                    <input type="radio" name="blog_setting" id="blog-3">
+                                    <label for="blog-3">
+                                        <img src="assets/img/blog.png" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="checkbox-img">
+                                    <input type="radio" name="blog_setting" id="blog-4">
+                                    <label for="blog-4">
+                                        <img src="assets/img/blog.png" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- End Sidebar navigation -->    
+</div>
+<!-- End Sidebar scroll-->
+
+<div class="sidebar-footer">
+    <div class="d-flex justify-content-between align-items-center p-3 bg-white">
+        <div>
+            <a class="nav-link  pl-0" href="{{base_url()}}">
+                <i class="fas fa-caret-left"></i> Hide Control
+            </a>
+        </div>
+        <div class="d-flex align-items-center">
+            <a class="px-2 480px" href="javascript:void(0)">
+                <i class="fas fa-mobile"></i>
+            </a>
+
+            <a class="px-2 768px" href="javascript:void(0)">
+                <i class="fas fa-tablet"></i>
+            </a>
+
+            <a class="px-2 reset" href="javascript:void(0)">
+                <i class="fas fa-desktop"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Nested demo
+    var nestedSortables = [].slice.call(document.querySelectorAll('.sortable-menu'));
+
+    // Loop through each nested sortable element
+    for (var i = 0; i < nestedSortables.length; i++) {
+        new Sortable(nestedSortables[i], {
+            group: 'nested',
+            animation: 150,
+            fallbackOnBody: true,
+            swapThreshold: 0.65
+        });
+    }
+</script>

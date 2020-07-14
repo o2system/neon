@@ -1,0 +1,220 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <h5 class="mb-0"><?php echo language('TRAFFICS'); ?></h5>
+                            </div>
+                            <div class="col-auto ml-auto">
+                                <select class="form-control-sm custom-select">
+                                    <option>Day</option>
+                                    <option>Week</option>
+                                    <option>Month</option>
+                                    <option>Year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body position-relative" style="height:400px">
+                        <canvas id="column-chart" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-widget pb-3">
+                    <div class="card-body">
+                        <div class="icon"><i class="fa fa-user"></i></div>
+                        <div class="num text-muted">2000</div>
+                        <h3 class="text-muted">Visitors</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-widget pb-3">
+                    <div class="card-body">
+                        <div class="icon"><i class="fa fa-eye"></i></div>
+                        <div class="num text-muted">1200</div>
+                        <h3 class="text-muted">Views</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-widget pb-3">
+                    <div class="card-body">
+                        <div class="icon"><i class="fa fa-comment"></i></div>
+                        <div class="num text-muted">50</div>
+                        <h3 class="text-muted">Comments</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <h5 class="card-header">Post &amp; Pages</h5>
+                    <div class="card-body with-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Content</th>
+                                    <th>Views</th>
+                                    <th>Unique visitors</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="#">Tutorial Belanja Online</a>
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Tutorial Belanja Online</a>
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Tutorial Belanja Online</a>
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h5 class="card-header">Countries</h5>
+                    <div class="card-body with-table">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Content</th>
+                                    <th>Views</th>
+                                    <th>Unique visitors</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        Indonesia
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Indonesia
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Indonesia
+                                    </td>
+                                    <td>
+                                        120
+                                    </td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Column chart
+    // ------------------------------
+
+    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var color = Chart.helpers.color;
+    var barChartData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [{
+            label: "Visitors",
+            data: [650, 590, 808, 810, 560, 450, 300, 200, 900, 1000, 870, 560],
+            backgroundColor: "#16D39A",
+            hoverBackgroundColor: "rgba(22,211,154,.9)",
+            borderColor: "transparent"
+        }, {
+            label: "View",
+            data: [280, 480, 400, 190, 860, 120, 230, 420, 240, 340, 150, 170],
+            backgroundColor: "#F98E76",
+            hoverBackgroundColor: "rgba(249,142,118,.9)",
+            borderColor: "transparent"
+        }, {
+            label: "Comments",
+            data: [180, 380, 300, 190, 460, 180, 380, 300, 190, 460, 120, 230],
+            backgroundColor: "#C1B0E1",
+            hoverBackgroundColor: "rgba(193,176,225,.9)",
+            borderColor: "transparent"
+        }]
+
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('column-chart').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Traffics'
+                }
+            }
+        });
+
+    };
+
+
+</script>

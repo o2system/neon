@@ -1,0 +1,5 @@
+/app/Config/Development/
+/cache/
+/storage/*
+node_modules/
+.idea

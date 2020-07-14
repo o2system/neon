@@ -1,0 +1,74 @@
+$primary:       #16C7D2 !default;
+$secondary:     #00A5E4 !default;
+$success:       #2FAE37 !default;
+$info:          #00A5E4 !default;
+$warning:       #ffac16 !default;
+$danger:        #E43A43 !default;
+$dark:          #0c142b !default;
+$sidebar:		#E9EFF3;
+
+//Custom Sidebar
+$main-menu-item-height: 110px;
+$main-menu-width: 60px;
+$main-menu-width-lg: 60px;
+$main-menu-width-md: 60px;
+$main-menu-width-xs: 60px;
+
+// $sub-menu-width: 275px;
+// $sub-menu-width-lg: 275px;
+// $sub-menu-width-md: 250px;
+// $sub-menu-width-xs: 220px;
+
+$sub-menu-width: 250px;
+$sub-menu-width-lg: 250px;
+$sub-menu-width-md: 250px;
+$sub-menu-width-xs: 250px;
+
+$navbar-height: 120px;
+$navbar-height-xs: 70px;
+$navbar-height-md: 80px;
+$navbar-height-lg: 90px;
+
+$main-margin: 60px;
+$main-margin-lg: 50px;
+$main-margin-md: 40px;
+$main-margin-xs: 15px;
+
+$app-menu-width: 280px;
+
+$main-menu-item-height-mobile: 55px;
+
+$menu-collapse-time: 300ms;
+$animation-time-long: 1000ms;
+$animation-time-short: 200ms;
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$gray-v2: #D3D3D3;
+$font-aw: 'Font Awesome 5 Free';

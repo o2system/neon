@@ -1,0 +1,19 @@
+{
+  "name": "Sample",
+  "created": "30 June 2020",
+  "version": "1.0.0",
+  "description": "Premium module of O2System Nitro to manage e-commerce.",
+  "copyright": "Copyright (c) 2020 - Steeve Andrian Salim",
+  "author": {
+    "name": "O2System Team",
+    "email": "hello@o2system.id"
+  },
+  "support": {
+    "email": "support@o2system.id",
+    "issues": "https://o2system.id/support"
+  },
+  "links": {
+    "info": "http://www.o2system.id/boilerplates/nitro/premium-modules/store",
+    "docs": "http://www.o2system.id/boilerplates/nitro/premium-modules/store/docs"
+  }
+}

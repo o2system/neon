@@ -1,0 +1,18 @@
+.list-group {
+  .list-group-item {
+    border-radius: 0;
+    .list-group-thumb {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: (50%);
+      background-color: aquamarine;
+      color: #fff;
+      text-align: center;
+    }
+
+    .list-group-subheading {
+      font-size: 12px;
+    }
+  }
+}

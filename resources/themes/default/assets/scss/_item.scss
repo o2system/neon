@@ -1,0 +1,221 @@
+.item-document{
+  position: relative;
+  .card{
+    position: relative;
+    .action{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 15px;
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s linear;
+      text-align: right;
+    }
+    .card-img-top{
+      position: relative;
+      height: 215px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+    .card-body{
+      position: relative;
+      h6{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:hover{
+      .action{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &.uploading{
+    &:before{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba($white, 0.7);
+      display: block;
+      content: "";
+      z-index: 2;
+    }
+    .upload-progress{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      margin: 0 auto;
+      z-index: 3;
+
+      .progress{
+        height: 5px;
+      }
+    }
+  }
+
+  &.selected{
+    .card{
+      outline: 2px solid $primary;
+    }
+  }
+
+  input{
+    display: none;
+
+    + label{
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      border: 2px solid transparent;
+      display: block;
+      border-radius: 0.25rem;
+      margin-bottom: 30px;
+      .card{
+        margin-bottom: 0;
+      }
+    }
+
+    &:checked{
+      + label{
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+.dz-error{
+  .item-document{
+    &:before{
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $danger;
+      opacity: 0.8;
+      z-index: 2;
+    }
+
+    .documents-file-error {
+      display: block;
+      opacity: 1;
+      position: absolute;
+      left: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+
+      .documents-icon-error {
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        line-height: .5;
+        color: $white;
+        font-size: 3em;
+      }
+
+      .documents-file-name-error {
+        position: relative;
+        overflow: hidden;
+        max-width: 80%;
+        margin: 0 auto;
+        color: $white;
+        font-size: 1rem;
+      }
+
+      .documents-file-extension-error{
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.item-image {
+  width: 100%;
+  padding-bottom: 100%;
+  border: 1px dashed #dfdfdf;
+  border-radius: 8px;
+  position: relative;
+  background-color: #f5f5f5;
+  overflow: hidden;
+
+  &.item-image-landscape{
+    padding-bottom: 56.25%;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b7b6b6;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+
+    a{
+      color: #b7b6b6;
+
+      &:hover{
+        color: $primary;
+      }
+    }
+  }
+
+  .image-container{
+    img{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .action{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover{
+    .action{
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "o2system/html",
+  "description": "PHP Document and Element Library.",
+  "license": "MIT",
+  "type": "package",
+  "keywords": [
+    "utilities",
+    "php",
+    "framework",
+    "libraries",
+    "interfaces"
+  ],
+  "authors": [
+    {
+      "name": "Steeven Andrian Salim",
+      "email": "steevenz@steevenz.com",
+      "homepage": "http://www.steevenz.com",
+      "role": "Founder and Lead Project"
+    },
+    {
+      "name": "Teguh Rianto",
+      "email": "teguh.rianto22@gmail.com",
+      "homepage": "http://teguhrianto22.pusku.com",
+      "role": "Template Designer"
+    }
+  ],
+  "support": {
+    "email": "o2system.framework@gmail.com",
+    "issues": "https://github.com/o2system/html/issues",
+    "forum": "https://www.facebook.com/groups/498147006994512"
+  },
+  "require": {
+    "php": "^7.2.0",
+    "o2system/kernel": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "O2System\\Html\\": "src"
+    }
+  }
+}

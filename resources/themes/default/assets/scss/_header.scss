@@ -1,0 +1,149 @@
+.venus-admin {
+    .header{
+        z-index: 30;
+        background-color: $white;
+        .mobile-back, .mobile-close{
+            img{
+                height: 16px;
+                width: auto;
+                max-width: unset;
+            }
+        }
+        .header-left{
+            background-color: $primary;
+            justify-content: center;
+            padding: 0 15px;
+
+            @include device(mobile){
+                padding: 0;
+                background-color: $white;
+            }
+
+            .logo-main{
+                @include avatar(40px);
+                border: 2px solid $success;
+            }
+
+            .toolbar{
+                transition: all 0.3s ease-in-out;
+                opacity: 1;
+                display: flex;
+                a{
+                    font-size: 16px;
+                    color: $white;
+                }
+            }
+
+            &.expand-logo{
+                .toolbar{
+                    opacity: 1;
+                    display: flex;
+                }
+            }
+        }
+
+        .header-right{
+
+            .navbar{
+                .navbar-nav{
+                    .dropdown-menu{
+                        border-top: 3px solid $primary;
+                        @include device(tablet) {
+                            position: absolute;
+                        }
+                        @include device(mobile) {
+                            position: absolute;
+                        }
+
+                        &.dropdown-menu-company{
+                            @include device(mobile) {
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                        }
+
+                        .dropdown-item-header, .dropdown-item-footer{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 0.75rem 1.25rem;
+                        }
+
+                        .dropdown-item-header{
+                            border-bottom: 1px solid #e5e9f2;
+                        }
+                        .dropdown-item-footer{
+                            border-top: 1px solid #e5e9f2;
+                        }
+
+                        .dropdown-item-footer{
+                            justify-content: center;
+                        }
+
+                        .dropdown-item-list{
+                            .dropdown-item{
+                                padding: 1.25rem 1.75rem;
+
+                                &.unread{
+                                    background-color: rgba($primary, 0.1);
+                                }
+
+                                + .dropdown-item {
+                                    border-top: 1px solid #e5e9f2;
+                                }
+                            }
+                        }
+                    }
+
+                    .nav-item{
+                        .nav-link{
+                            @include device(mobile){
+                                font-size: 16px;
+                            }
+                            span.flag-icon, span.notify{
+                                @include device(tablet) {
+                                    display: block;
+                                }
+                                @include device(mobile) {
+                                    display: block;
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .breadcrumb{
+            margin-left: 1rem;
+            margin-bottom: 0;
+
+            .breadcrumb-item a {
+                color: #6c757d;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    &.mini-sidebar-left{
+        .header{
+            .header-left{
+                .toolbar{
+                    opacity: 0;
+                    display: none;
+                }
+
+                &.expand-logo{
+                    .toolbar{
+                        opacity: 1;
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}

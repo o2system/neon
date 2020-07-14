@@ -1,0 +1,57 @@
+{
+  "name": "o2system/kernel",
+  "description": "O2System Framework Kernel",
+  "license": "MIT",
+  "type": "package",
+  "keywords": [
+    "singleton",
+    "php",
+    "framework",
+    "driver",
+    "libraries"
+  ],
+  "authors": [
+    {
+      "name": "Steeven Andrian Salim",
+      "email": "steevenz@steevenz.com",
+      "homepage": "http://www.steevenz.com",
+      "role": "Founder and Lead Project"
+    },
+    {
+      "name": "Teguh Rianto",
+      "email": "teguh.rianto22@gmail.com",
+      "homepage": "http://teguhrianto22.pusku.com",
+      "role": "Template Designer"
+    }
+  ],
+  "support": {
+    "email": "o2system.framework@gmail.com",
+    "issues": "https://github.com/o2system/psr/issues",
+    "forum": "https://www.facebook.com/groups/498147006994512"
+  },
+  "links": {
+    "info": "http://www.o2system.id/libraries/core.html",
+    "documentation": "http://www.o2system.id/libraries/core/documentation.html",
+    "github-wiki": "http://github.com/o2system/core/wiki"
+  },
+  "require": {
+    "php": "^7.2.0",
+    "o2system/spl": "*",
+    "filp/whoops": "^2.3"
+  },
+  "require-dev": {
+    "o2system/gear": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "O2System\\Kernel\\": "src"
+    },
+    "files": [
+      "src/Config/Constants.php",
+      "src/Helpers/Common.php",
+      "src/Helpers/Inflector.php",
+      "src/Helpers/Cookie.php",
+      "src/Kernel.php"
+    ]
+  }
+}

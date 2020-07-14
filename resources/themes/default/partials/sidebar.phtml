@@ -1,0 +1,74 @@
+<div class="sidebar-header">
+    <div class="logo">
+        <div class="large">
+            <img src="assets/img/logo/logo-rectangle.png">
+        </div>
+        <div class="mini">
+            <img src="assets/img/logo/logo-square.png" alt="">
+        </div>
+    </div>
+    <div class="toolbar d-md-flex d-none">
+        <a href="javascript:void(0);" data-toggle="sidebar-left">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar scroll-->
+<div class="scroll-sidebar perfect-scrollbar">
+    <!-- SIDEBAR NAVIGATION-->
+    <nav class="sidebar-nav pt-0">
+        {{ $navigations->sidebar }}
+    </nav>
+</div>
+
+<script type="application/javascript">
+    //Multilevel
+    $('#nav-sidebar a').each(function (){
+        if($(this).hasClass('active')){
+            $(this).parents('ul:first').closest('.sidebar-item').addClass('open-active');
+            $(this).parents("ul:first").addClass("in-active");
+            $(this).parents("ul:first").prev('.has-arrow').addClass("open-current-active current");
+        }
+    });
+
+    $('#nav-sidebar a.has-arrow:not(.current)').on('click', function (e) {
+        e.preventDefault();
+        if (!$(this).hasClass("open-current")) {
+            // hide any open menus and remove all other classes
+            $("ul", $(this).parents("ul:first")).removeClass("in");
+            $("a", $(this).parents("ul:first")).removeClass("open-current");
+            $('.sidebar-item').removeClass('open');
+            // open our new menu and add the open class
+            $(this).parents('.sidebar-item').addClass('open');
+            $(this).next("ul").addClass("in");
+            $(this).addClass("open-current");
+        } else if ($(this).hasClass("open-current")) {
+            $(this).removeClass("open-current");
+            $(this).parents('.sidebar-item').removeClass('open');
+            $(this).parents("ul:first").removeClass("active");
+            $(this).next("ul").removeClass("in");
+        }
+    });
+
+    $('#nav-sidebar a.current').on('click', function (e) {
+        e.preventDefault();
+        if (!$(this).hasClass("open-current-active")) {
+            // hide any open menus and remove all other classes
+            $("ul", $(this).parents("ul:first")).removeClass("in-active");
+            $("a", $(this).parents("ul:first")).removeClass("open-current-active");
+            $('.sidebar-item').removeClass('open-active');
+
+            // open our new menu and add the open class
+            $(this).parents('.sidebar-item').addClass('open-active');
+            $(this).next("ul").addClass("in-active");
+            $(this).addClass("open-current-active");
+
+        } else if ($(this).hasClass("open-current-active")) {
+            $(this).removeClass("open-current-active");
+            $(this).parents('.sidebar-item').removeClass('open-active');
+            $(this).parents("ul:first").removeClass("active");
+            $(this).next("ul").removeClass("in-active");
+        }
+    });
+</script>

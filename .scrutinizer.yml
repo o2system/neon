@@ -1,0 +1,49 @@
+build:
+    nodes:
+        my-tests:
+            environment:
+                php:
+                    version: 7.2  # or any other released version
+                    pecl_extensions:
+                        - memcached
+        
+        functional-tests:
+            environment:
+                hosts:
+                    'local.dev': '127.0.0.1'
+
+                apache2:
+                    modules: ['rewrite']
+                    sites:
+                        o2system_app:
+                            web_root: 'public/'
+                            host: 'local.dev'
+
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+                    - js-scrutinizer-run
+filter:
+    excluded_paths:
+        - '*.min.js'
+checks:
+    php: true
+    javascript: true
+coding_style:
+    php:
+        indentation:
+            general:
+                size: 1
+        spaces:
+            around_operators:
+                concatenation: true
+                negation: true
+            within:
+                brackets: true

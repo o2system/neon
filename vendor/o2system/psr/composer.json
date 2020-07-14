@@ -1,0 +1,46 @@
+{
+  "name": "o2system/psr",
+  "license": "MIT",
+  "description": "O2System PSR it's build based on PHP Framework Interop Group (PHP-FIG) standards recommendations. This repository contains a collection of PHP interfaces based on the PSR-0 until the PSR-7.",
+  "type": "package",
+  "keywords": [
+    "utilities",
+    "php",
+    "framework",
+    "libraries",
+    "interfaces"
+  ],
+  "authors": [
+    {
+      "name": "Steeven Andrian Salim",
+      "email": "steevenz@steevenz.com",
+      "homepage": "http://www.steevenz.com",
+      "role": "Founder and Lead Project"
+    },
+    {
+      "name": "Teguh Rianto",
+      "email": "teguh.rianto22@gmail.com",
+      "homepage": "http://teguhrianto22.pusku.com",
+      "role": "Template Designer"
+    }
+  ],
+  "support": {
+    "email": "o2system.framework@gmail.com",
+    "issues": "https://github.com/o2system/psr/issues",
+    "forum": "https://www.facebook.com/groups/498147006994512"
+  },
+  "require": {
+    "php": "^7.2.0",
+    "psr/log": "*",
+    "psr/cache": "*",
+    "psr/container": "*",
+    "psr/http-message": "*",
+    "psr/http-server-middleware": "*",
+    "psr/simple-cache": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "O2System\\Psr\\": "src"
+    }
+  }
+}

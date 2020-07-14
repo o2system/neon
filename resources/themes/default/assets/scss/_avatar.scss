@@ -1,0 +1,53 @@
+.avatar{
+  @for $i from 1 through 30 {
+    &.avatar-#{$i * 5} {
+      @include avatar(#{$i * 5}px);
+    }
+  }
+
+  .action{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $white;
+    text-shadow: 0px 0px 2px $danger;
+  }
+}
+
+.avatar-text{
+  @for $i from 1 through 30 {
+    &.avatar-text-#{$i * 5} {
+      @include avatar-text(#{$i * 5}px, $primary, 50%, 1rem, $white);
+    }
+  }
+}
+
+.avatar-group{
+  position: relative;
+  display: flex;
+  .avatar{
+    border-width: 2px;
+    + .avatar{
+      margin-left: -5px;
+    }
+    + .avatar-text{
+      margin-left: -5px;
+    }
+    + .dropdown-avatar{
+      margin-left: -5px;
+    }
+  }
+
+  .avatar-text{
+    border-width: 2px;
+    + .avatar-text{
+      margin-left: -5px;
+    }
+    + .avatar{
+      margin-left: -5px;
+    }
+    + .dropdown-avatar{
+      margin-left: -5px;
+    }
+  }
+}

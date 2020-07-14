@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ $meta->title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	{{ $assets->head }}
+</head>
+<body class="venus-admin bg-white">
+    <main id="page-content bg-white" class="main m-0">
+        {{ $partials->content }}
+    </main>
+    
+    <?php if (null !== ($message = $session->getFlash('success'))): ?>
+        <script type="text/javascript">
+            Swal.fire({
+                title: '<?php echo language('ALERT_SUCCESS_HEADING'); ?>',
+                text: '<?php echo $message; ?>',
+                type: 'success'
+            })
+        </script>
+    <?php elseif (null !== ($message = $session->getFlash('danger'))): ?>
+        <script type="text/javascript">
+            Swal.fire({
+                title: '<?php echo language('ALERT_DANGER_HEADING'); ?>',
+                text: '<?php echo $message; ?>',
+                type: 'error'
+            })
+        </script>
+    <?php endif; ?>
+	{{ $assets->body }}
+</body>
+</html>

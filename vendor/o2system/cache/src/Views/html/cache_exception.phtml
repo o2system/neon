@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="generator" content="O2System PHP Framework">
+
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="<?php echo $exception->getAssetsUrl('packages/bootstrap/bootstrap.css', true); ?>">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<?php echo $exception->getAssetsUrl('fonts/font-awesome.css', true); ?>">
+
+	<!-- Main Style -->
+	<link rel="stylesheet" href="<?php echo $exception->getAssetsUrl('css/theme.css', true); ?>">
+
+	<title><?php echo $exception->getHeader(); ?></title>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="error-wrapper">
+				<img src="<?php echo $exception->getAssetsUrl('images/logo/o2cache.png'); ?>" height="50"/>
+
+				<h1><?php echo $exception->getHeader(); ?></h1>
+
+				<h2><?php echo $exception->getDescription(); ?> (<?php echo $exception->getCode(); ?>)</h2>
+
+				<p class="error-text"><?php echo $exception->getMessage(); ?></p>
+
+
+				<ol class="backtrace">
+
+					<?php foreach ($exception->getChronology() as $chronology): ?>
+						<li>
+							<i class="fa fa-code"></i> <?php echo $chronology->call; ?><br>
+							<i class="fa fa-file-code-o"></i> <?php echo @realpath($chronology->file); ?><br>
+							<i class="fa fa-list-ol"></i> <?php echo $chronology->line; ?>
+						</li>
+                    <?php endforeach ?>
+
+				</ol>
+
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

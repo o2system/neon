@@ -1,0 +1,30 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/o2system-blender/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/o2system-blender/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/o2system-blender/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "cross-env": "^5.1",
+        "lodash": "^4.17.19",
+        "o2system-blender": "^2.0.0",
+        "o2system-venus-admin": "^1.1.3",
+        "o2system-venus-ui": "^1.5.0",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "chart.js": "^2.9.3",
+        "jquery-slinky": "^4.2.1",
+        "quill": "^1.3.7",
+        "sortablejs": "^1.10.2"
+    }
+}
