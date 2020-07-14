@@ -1,6 +1,0 @@
-{
-    "presets": {
-      "title": "Administrator",
-      "access": "authenticated"
-    }
-  }
