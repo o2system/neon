@@ -1,0 +1,44 @@
+/*!
+ * This file is part of the O2System PHP Framework package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author         Teguh Rianto
+ *  @copyright      Copyright (c) Steeve Andrian Salim
+ */
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: #f5f6fa;
+    font-weight: 400;
+    font-size: 14px;
+    color: $default;
+}
+a{
+    transition: all 0.3s ease-in-out;
+    outline: none !important;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.tooltip{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+ul.list-style-none{
+    list-style: none;
+
+    ul{
+        padding-left: 2rem;
+        list-style: none;
+
+        ul{
+            padding-left: 2rem;
+            list-style: none;
+        }
+    }
+}

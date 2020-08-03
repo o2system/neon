@@ -14,13 +14,13 @@ namespace App\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Http\AccessControl\Controllers\AuthorizedController;
+use App\Http\Controller;
 
 /**
  * Class Dashboard
  * @package App\Controllers
  */
-class Dashboard extends AuthorizedController
+class Dashboard extends Controller
 {
     /**
      * Dashboard::index

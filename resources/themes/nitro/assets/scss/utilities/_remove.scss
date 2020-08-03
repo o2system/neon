@@ -1,0 +1,7 @@
+.remove{
+  &-caret{
+    &:after{
+      display: none;
+    }
+  }
+}

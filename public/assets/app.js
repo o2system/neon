@@ -109,27 +109,27 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 
 /***/ }),
 
-/***/ "./resources/themes/default/theme.scss":
-/*!*********************************************!*\
-  !*** ./resources/themes/default/theme.scss ***!
-  \*********************************************/
+/***/ "./resources/themes/nitro/theme.scss":
+/*!*******************************************!*\
+  !*** ./resources/themes/nitro/theme.scss ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvdGhlbWVzL2RlZmF1bHQvdGhlbWUuc2Nzcz84YWViIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3RoZW1lcy9kZWZhdWx0L3RoZW1lLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/themes/default/theme.scss\n");
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvdGhlbWVzL25pdHJvL3RoZW1lLnNjc3M/ZmJiYSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIuL3Jlc291cmNlcy90aGVtZXMvbml0cm8vdGhlbWUuc2Nzcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIHJlbW92ZWQgYnkgZXh0cmFjdC10ZXh0LXdlYnBhY2stcGx1Z2luIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/themes/nitro/theme.scss\n");
 
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************************************************!*\
-  !*** multi ./resources/app.js ./resources/app.scss ./resources/themes/default/theme.scss ***!
-  \*******************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** multi ./resources/app.js ./resources/app.scss ./resources/themes/nitro/theme.scss ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Applications/MAMP/htdocs/o2system/neon/resources/app.js */"./resources/app.js");
 __webpack_require__(/*! /Applications/MAMP/htdocs/o2system/neon/resources/app.scss */"./resources/app.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/o2system/neon/resources/themes/default/theme.scss */"./resources/themes/default/theme.scss");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/o2system/neon/resources/themes/nitro/theme.scss */"./resources/themes/nitro/theme.scss");
 
 
 /***/ })

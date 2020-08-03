@@ -14,7 +14,7 @@ namespace App\Controllers;
 
 // ------------------------------------------------------------------------
 
-use App\Panel\Http\Controller;
+use App\Http\Controller;
 use O2System\Security\Authentication\JsonWebToken;
 
 /**

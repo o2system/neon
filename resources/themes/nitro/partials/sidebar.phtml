@@ -1,0 +1,117 @@
+<div class="aside-header">
+    <div class="aside-header__logo">
+        <div class="aside-header__logo-large">
+            <img src="assets/img/logo/logo-rectangle.png">
+        </div>
+        <div class="aside-header__logo-mini">
+            <img src="assets/img/logo/logo-square.png" alt="">
+        </div>
+    </div>
+    <div class="aside-header__toolbar d-md-flex d-none">
+        <a href="javascript:void(0);" data-toggle="aside-left">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar scroll-->
+<div class="aside-scroll perfect-scrollbar">
+    <!-- SIDEBAR NAVIGATION-->
+    <nav class="aside-nav">
+        <ul id="aside-nav-default" class="aside-nav-default">
+            <li class="aside-nav-item aside-nav-item--title">
+                <div>
+                    <i class="fas fa-cubes"></i>
+                    <span class="hide-menu">Site</span>
+                </div>
+                <div class="ml-auto">
+                    <span class="hide-menu">
+                        <a href="#" class="text-white">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </span>
+                </div>
+            </li>
+            <li class="aside-nav-item">
+                <a class="aside-nav-link" href="{{base_url('dashboard')}}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="hide-menu">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="aside-nav-item">
+                <a class="aside-nav-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                    <i class="fas fa-list"></i>
+                    <span class="hide-menu">Multilevel</span>
+                </a>
+                <ul aria-expanded="false" class="collapse second-level">
+                    <li class="aside-nav-item">
+                        <a class="aside-nav-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                            <i class="fas fa-brush"></i>
+                            <span class="hide-menu">Level 2</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse third-level">
+                            <li class="aside-nav-item">
+                                <a class="aside-nav-link" href="#">
+                                    <i class="fas fa-th-large"></i>
+                                    <span class="hide-menu">Level 3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<script type="application/javascript">
+    //Multilevel
+    $('#aside-nav-default a').each(function (){
+        if($(this).hasClass('active')){
+            $(this).parents('ul:first').closest('.aside-nav-item').addClass('open-active');
+            $(this).parents("ul:first").addClass("in-active");
+            $(this).parents("ul:first").prev('.has-arrow').addClass("open-current-active current");
+        }
+    });
+
+    $('#aside-nav-default a.has-arrow:not(.current)').on('click', function (e) {
+        e.preventDefault();
+        if (!$(this).hasClass("open-current")) {
+            // hide any open menus and remove all other classes
+            $("ul", $(this).parents("ul:first")).removeClass("in");
+            $("a", $(this).parents("ul:first")).removeClass("open-current");
+            $('.aside-nav-item').removeClass('open');
+            // open our new menu and add the open class
+            $(this).parents('.aside-nav-item').addClass('open');
+            $(this).next("ul").addClass("in");
+            $(this).addClass("open-current");
+        } else if ($(this).hasClass("open-current")) {
+            $(this).removeClass("open-current");
+            $(this).parents('.aside-nav-item').removeClass('open');
+            $(this).parents("ul:first").removeClass("active");
+            $(this).next("ul").removeClass("in");
+        }
+    });
+
+    $('#aside-nav-default a.current').on('click', function (e) {
+        e.preventDefault();
+        if (!$(this).hasClass("open-current-active")) {
+            // hide any open menus and remove all other classes
+            $("ul", $(this).parents("ul:first")).removeClass("in-active");
+            $("a", $(this).parents("ul:first")).removeClass("open-current-active");
+            $('.aside-nav-item').removeClass('open-active');
+
+            // open our new menu and add the open class
+            $(this).parents('.aside-nav-item').addClass('open-active');
+            $(this).next("ul").addClass("in-active");
+            $(this).addClass("open-current-active");
+
+        } else if ($(this).hasClass("open-current-active")) {
+            $(this).removeClass("open-current-active");
+            $(this).parents('.aside-nav-item').removeClass('open-active');
+            $(this).parents("ul:first").removeClass("active");
+            $(this).next("ul").removeClass("in-active");
+        }
+    });
+</script>

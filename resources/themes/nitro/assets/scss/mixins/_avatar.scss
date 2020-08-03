@@ -1,0 +1,34 @@
+@mixin avatar($size, $bg-color: #fff, $radius: 50%) {
+  width: $size;
+  height: $size;
+  display: flex;
+  flex: 0 0 $size;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: $bg-color;
+  position: relative;
+  border-radius: $radius;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@mixin avatar-text($size, $bg-color: #fff, $radius: 50%, $font-size, $color: #fff) {
+  width: $size;
+  height: $size;
+  display: flex;
+  flex: 0 0 $size;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: $bg-color;
+  position: relative;
+  font-size: $font-size;
+  color: $color;
+  border-radius: $radius;
+}

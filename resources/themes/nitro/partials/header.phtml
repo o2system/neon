@@ -1,0 +1,92 @@
+<div class="header-left"></div>
+<div class="header-right">
+    <nav class="navbar navbar-light navbar-expand-sm">
+        <div class="navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link toolbar" href="javascript:history.go(-1)" data-toggle="tooltip" data-original-title="Go Back">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link toolbar" href="javascript:history.forward()" data-toggle="tooltip" data-original-title="Go Forward">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link toolbar" href="javascript:location.reload()" data-toggle="tooltip" data-original-title="Reload">
+                        <i class="fas fa-sync-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown dropdown-user">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-user-avatar">
+                            <img src="assets/img/avatar/1.png" alt="Teguh Rianto">
+                        </div>
+                        <div class="dropdown-user-info">
+                            <span class="dropdown-user-info-status">
+                                Administrator
+                            </span>
+                            <span class="dropdown-user-info-name">
+                                Teguh Rianto
+                            </span>
+                        </div>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="dropdownUser">
+                        <div class="dropdown-menu-body">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-power-off"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle remove-caret" href="#" id="dropdownNotif" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="notify"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0" aria-labelledby="dropdownNotif">
+                        <div class="dropdown-menu-header">
+                            <span>Notifications (3)</span>
+                            <a href="#" class="text-primary">Mark all as read</a>
+                        </div>
+                        <div class="dropdown-menu-body perfect-scrollbar position-relative">
+                            <?php for($i=1;$i<10;$i++):?>
+                                <a href="#" class="dropdown-item <?=$i==1 ? 'dropdown-item-unread':'';?>">
+                                    <div class="media">
+                                        <div class="avatar avatar-40 mr-3">
+                                            <img src="assets/img/avatar/1.png" alt="Name">
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="mb-0">
+                                                <strong>Otko</strong> <br>
+                                                Do Something better or not at all
+                                            </p>
+                                            <small>2 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endfor;?>
+                        </div>
+                        <div class="dropdown-menu-footer justify-content-center">
+                            <a href="#" class="text-primary">
+                                View All
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,25 @@
+/*!
+ * This file is part of the O2System PHP Framework package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author         Teguh Rianto
+ *  @copyright      Copyright (c) Teguh Rianto
+ */
+@import "./assets/scss/variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/bootstrap";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "./assets/scss/mixins/mixins";
+@import "./assets/scss/animations/animations";
+@import "./assets/scss/global";
+@import "./assets/scss/layout/layout";
+@import "./assets/scss/avatar";
+@import "./assets/scss/card";
+@import "./assets/scss/table";
+@import "./assets/scss/form/form";
+@import "./assets/scss/dropdown";
+@import "./assets/scss/header";
+@import "./assets/scss/aside";
+@import "./assets/scss/utilities/utilities";

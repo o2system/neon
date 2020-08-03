@@ -32,7 +32,7 @@ $view = new \O2System\Kernel\DataStructures\Config([
          *
          * @var string
          */
-        'theme' => 'default',
+        'theme' => 'nitro',
 
         // ------------------------------------------------------------------------
 
