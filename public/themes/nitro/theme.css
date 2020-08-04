@@ -11185,7 +11185,8 @@ ul.list-style-none ul ul {
   transition: all 0.3s;
 }
 
-.nitro-auth {
+.nitro-auth,
+.nitro-blank {
   min-height: 100vh;
   padding: 2rem 0;
   align-items: center;
@@ -11193,12 +11194,14 @@ ul.list-style-none ul ul {
   display: flex;
 }
 
-.nitro-auth .logo {
+.nitro-auth .logo,
+.nitro-blank .logo {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
-.nitro-auth .logo img {
+.nitro-auth .logo img,
+.nitro-blank .logo img {
   height: 50px;
   width: auto;
 }
