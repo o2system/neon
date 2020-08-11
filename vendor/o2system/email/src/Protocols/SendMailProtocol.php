@@ -39,6 +39,7 @@ class SendmailProtocol extends Abstracts\AbstractProtocol
     protected function sending(Message $message)
     {
         $phpMailer = new PHPMailer();
+        $phpMailer->SMTPDebug = $this->config[ 'debug' ];
         $phpMailer->isSendmail();
 
         // Set from

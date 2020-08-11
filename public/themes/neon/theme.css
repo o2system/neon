@@ -12758,7 +12758,7 @@ ul.list-style-none ul ul {
   }
 }
 
-.aside-nav-item--title {
+.aside-nav-item-title {
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -12773,12 +12773,12 @@ ul.list-style-none ul ul {
   line-height: 18px;
 }
 
-.aside-nav-item--title > div {
+.aside-nav-item-title > div {
   display: flex;
   align-items: center;
 }
 
-.aside-nav-item--title i {
+.aside-nav-item-title i {
   line-height: 30px;
   margin-right: 5px;
 }

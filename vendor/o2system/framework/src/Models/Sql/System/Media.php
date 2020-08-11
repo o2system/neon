@@ -75,8 +75,6 @@ class Media extends Model
      */
     public function image(): string
     {
-        print_out($this->db->getLastQuery());
-
         $image = PATH_STORAGE . 'images/' .$this->row->filepath;
         if (is_file($image)) {
             return images_url($image);

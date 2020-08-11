@@ -12,7 +12,7 @@
     z-index: 32;
 
     @include device(mobile) {
-      padding-top: 60pz;
+      padding-top: 60px;
       left: -240px;
     }
   }
@@ -91,7 +91,7 @@
         text-transform: uppercase;
         font-size: 0.75rem;
         font-weight: 500;
-        color: $white;
+        color: $primary;
         margin-bottom: 10px;
         padding: 0 23px;
         line-height: 18px;

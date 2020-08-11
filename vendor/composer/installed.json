@@ -231,17 +231,17 @@
     },
     {
         "name": "o2system/database",
-        "version": "v2.2.111",
-        "version_normalized": "2.2.111.0",
+        "version": "v2.2.115",
+        "version_normalized": "2.2.115.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/database.git",
-            "reference": "ca879d1e42f0c4f093b800fbad6d2af5c98eb3ed"
+            "reference": "75a184f3cfdea78b53a4c407fa800974eb88276e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/database/zipball/ca879d1e42f0c4f093b800fbad6d2af5c98eb3ed",
-            "reference": "ca879d1e42f0c4f093b800fbad6d2af5c98eb3ed",
+            "url": "https://api.github.com/repos/o2system/database/zipball/75a184f3cfdea78b53a4c407fa800974eb88276e",
+            "reference": "75a184f3cfdea78b53a4c407fa800974eb88276e",
             "shasum": ""
         },
         "require": {
@@ -249,7 +249,7 @@
             "o2system/kernel": "*",
             "php": "^7.2.0"
         },
-        "time": "2020-06-02T22:04:36+00:00",
+        "time": "2020-07-10T17:28:34+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -279,17 +279,17 @@
     },
     {
         "name": "o2system/email",
-        "version": "v2.0.14",
-        "version_normalized": "2.0.14.0",
+        "version": "v2.0.18",
+        "version_normalized": "2.0.18.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/email.git",
-            "reference": "9359405fbe1a0af2f1d5d9c6415142d2c864ab8b"
+            "reference": "fae833a9609028faee9c9e09b43eed6ed15272e4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/email/zipball/9359405fbe1a0af2f1d5d9c6415142d2c864ab8b",
-            "reference": "9359405fbe1a0af2f1d5d9c6415142d2c864ab8b",
+            "url": "https://api.github.com/repos/o2system/email/zipball/fae833a9609028faee9c9e09b43eed6ed15272e4",
+            "reference": "fae833a9609028faee9c9e09b43eed6ed15272e4",
             "shasum": ""
         },
         "require": {
@@ -298,7 +298,7 @@
             "phpmailer/phpmailer": "*",
             "tijsverkoyen/css-to-inline-styles": "^2.2"
         },
-        "time": "2020-06-02T22:48:02+00:00",
+        "time": "2020-07-14T16:40:51+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -390,17 +390,17 @@
     },
     {
         "name": "o2system/framework",
-        "version": "v5.7.98",
-        "version_normalized": "5.7.98.0",
+        "version": "v5.7.199",
+        "version_normalized": "5.7.199.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/framework.git",
-            "reference": "9f38c25221ea133f6047dd9a94979048c23da7ec"
+            "reference": "a5964a942b494fb77a183e9755656deeed8a795d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/framework/zipball/9f38c25221ea133f6047dd9a94979048c23da7ec",
-            "reference": "9f38c25221ea133f6047dd9a94979048c23da7ec",
+            "url": "https://api.github.com/repos/o2system/framework/zipball/a5964a942b494fb77a183e9755656deeed8a795d",
+            "reference": "a5964a942b494fb77a183e9755656deeed8a795d",
             "shasum": ""
         },
         "require": {
@@ -416,7 +416,7 @@
             "o2system/security": "*",
             "php": "^7.2.0"
         },
-        "time": "2020-06-02T21:41:47+00:00",
+        "time": "2020-07-14T16:40:03+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -452,6 +452,16 @@
             "libraries",
             "php",
             "utilities"
+        ],
+        "funding": [
+            {
+                "url": "https://opencollective.com/o2system",
+                "type": "open_collective"
+            },
+            {
+                "url": "https://www.patreon.com/o2system",
+                "type": "patreon"
+            }
         ]
     },
     {
@@ -621,17 +631,17 @@
     },
     {
         "name": "o2system/kernel",
-        "version": "v2.0.25",
-        "version_normalized": "2.0.25.0",
+        "version": "v2.0.38",
+        "version_normalized": "2.0.38.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/kernel.git",
-            "reference": "392558572be751daf682d6d57a129ee581beb9d3"
+            "reference": "396265d4e1d56cb992ea335046f7b810ce480f99"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/kernel/zipball/392558572be751daf682d6d57a129ee581beb9d3",
-            "reference": "392558572be751daf682d6d57a129ee581beb9d3",
+            "url": "https://api.github.com/repos/o2system/kernel/zipball/396265d4e1d56cb992ea335046f7b810ce480f99",
+            "reference": "396265d4e1d56cb992ea335046f7b810ce480f99",
             "shasum": ""
         },
         "require": {
@@ -642,7 +652,7 @@
         "require-dev": {
             "o2system/gear": "*"
         },
-        "time": "2020-06-02T22:01:12+00:00",
+        "time": "2020-07-10T17:28:11+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -847,24 +857,24 @@
     },
     {
         "name": "o2system/session",
-        "version": "v2.1.18",
-        "version_normalized": "2.1.18.0",
+        "version": "v2.1.21",
+        "version_normalized": "2.1.21.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/session.git",
-            "reference": "3c352df83f7706297d32330588e0a2e3d35e8ad0"
+            "reference": "4247eff48407d9486eec1aa91fd8f734027f9404"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/session/zipball/3c352df83f7706297d32330588e0a2e3d35e8ad0",
-            "reference": "3c352df83f7706297d32330588e0a2e3d35e8ad0",
+            "url": "https://api.github.com/repos/o2system/session/zipball/4247eff48407d9486eec1aa91fd8f734027f9404",
+            "reference": "4247eff48407d9486eec1aa91fd8f734027f9404",
             "shasum": ""
         },
         "require": {
             "o2system/kernel": "*",
             "php": "^7.2.0"
         },
-        "time": "2020-06-02T22:33:54+00:00",
+        "time": "2020-07-10T17:29:26+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -901,24 +911,24 @@
     },
     {
         "name": "o2system/spl",
-        "version": "v1.1.74",
-        "version_normalized": "1.1.74.0",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/o2system/spl.git",
-            "reference": "790b21f02ef696af7f4804d3c45bbfbb69767544"
+            "reference": "a4c60d92230cc989f227ef15b0edd16f2ea6d743"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/o2system/spl/zipball/790b21f02ef696af7f4804d3c45bbfbb69767544",
-            "reference": "790b21f02ef696af7f4804d3c45bbfbb69767544",
+            "url": "https://api.github.com/repos/o2system/spl/zipball/a4c60d92230cc989f227ef15b0edd16f2ea6d743",
+            "reference": "a4c60d92230cc989f227ef15b0edd16f2ea6d743",
             "shasum": ""
         },
         "require": {
             "o2system/psr": "*",
             "php": "^7.2.0"
         },
-        "time": "2020-06-02T22:06:28+00:00",
+        "time": "2020-07-10T17:26:51+00:00",
         "type": "package",
         "installation-source": "dist",
         "autoload": {
@@ -955,17 +965,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v6.1.6",
-        "version_normalized": "6.1.6.0",
+        "version": "v6.1.7",
+        "version_normalized": "6.1.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3"
+            "reference": "2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
-            "reference": "c2796cb1cb99d7717290b48c4e6f32cb6c60b7b3",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0",
+            "reference": "2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0",
             "shasum": ""
         },
         "require": {
@@ -986,7 +996,7 @@
             "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
             "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
         },
-        "time": "2020-05-27T12:24:03+00:00",
+        "time": "2020-07-14T18:50:27+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1640,29 +1650,29 @@
     },
     {
         "name": "tijsverkoyen/css-to-inline-styles",
-        "version": "2.2.2",
-        "version_normalized": "2.2.2.0",
+        "version": "2.2.3",
+        "version_normalized": "2.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-            "reference": "dda2ee426acd6d801d5b7fd1001cde9b5f790e15"
+            "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/dda2ee426acd6d801d5b7fd1001cde9b5f790e15",
-            "reference": "dda2ee426acd6d801d5b7fd1001cde9b5f790e15",
+            "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+            "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
             "shasum": ""
         },
         "require": {
             "ext-dom": "*",
             "ext-libxml": "*",
-            "php": "^5.5 || ^7.0",
+            "php": "^5.5 || ^7.0 || ^8.0",
             "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
         },
-        "time": "2019-10-24T08:53:34+00:00",
+        "time": "2020-07-13T06:12:54+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

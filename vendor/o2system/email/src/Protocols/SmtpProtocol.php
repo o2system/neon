@@ -91,7 +91,13 @@ class SmtpProtocol extends Abstracts\AbstractProtocol
         }
 
         $phpMailer->Host = $host;
-        $phpMailer->SMTPAuth = $this->config[ 'auth' ];
+        if($this->config['auth'] === true) {
+            $phpMailer->SMTPAuth = true;
+        } elseif(is_string($this->config['auth'])) {
+            $phpMailer->SMTPAuth = true;
+            $phpMailer->AuthType = $this->config['auth'];
+        }
+
         $phpMailer->Username = $this->config[ 'username' ];
         $phpMailer->Password = $this->config[ 'password' ];
         $phpMailer->SMTPSecure = $this->config[ 'encryption' ];
@@ -133,7 +139,9 @@ class SmtpProtocol extends Abstracts\AbstractProtocol
         }
 
         if ( ! $phpMailer->send()) {
-            $this->addError(100, $phpMailer->ErrorInfo);
+            $this->addErrors([
+                $phpMailer->ErrorInfo,
+            ]);
 
             return false;
         }

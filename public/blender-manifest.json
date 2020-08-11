@@ -1,6 +1,6 @@
 {
     "/assets/app.js": "/assets/app.js",
+    "/themes/nitro/theme.js": "/themes/nitro/theme.js",
     "/assets/app.css": "/assets/app.css",
-    "/themes/nitro/theme.css": "/themes/nitro/theme.css",
-    "/themes/nitro/theme.js": "/themes/nitro/theme.js"
+    "/themes/nitro/theme.css": "/themes/nitro/theme.css"
 }

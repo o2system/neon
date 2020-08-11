@@ -5,12 +5,20 @@
  * file that was distributed with this source code.
  *
  * @author         Teguh Rianto
- *  @copyright      Copyright (c) Teguh Rianto
+ * @copyright      Copyright (c) Teguh Rianto
  */
-@import "./assets/scss/variables";
-@import "~bootstrap/scss/functions";
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900');
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+// bootstrap
 @import "~bootstrap/scss/bootstrap";
-@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "~bootstrap/scss/functions";
+
+// plugins
+@import "./assets/scss/plugins";
+
+@import "./assets/scss/variables";
 @import "./assets/scss/mixins/mixins";
 @import "./assets/scss/animations/animations";
 @import "./assets/scss/global";
