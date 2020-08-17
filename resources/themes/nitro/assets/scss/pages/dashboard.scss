@@ -1,0 +1,83 @@
+.sales{
+  position: relative;
+  height: 270px;
+  -webkit-filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
+  .ct-series-a .ct-area {
+    fill-opacity:0.1;
+    fill: url(#gradient);
+  }
+  .ct-series-a .ct-line, .ct-series-a .ct-point{
+    stroke: $info;
+    stroke-width:3px;
+  }
+  .ct-series-b .ct-area{
+    fill: #c9d9ea;
+    fill-opacity:0.0;
+
+  }
+  .ct-series-b .ct-line, .ct-series-b .ct-point {
+    stroke: #c9d9ea;
+    stroke-width: 3px;
+  }
+  .ct-series-a .ct-point, .ct-series-b .ct-point{
+    stroke-width:5px;
+  }
+  .ct-grid{
+    stroke-width: 0.5px;
+  }
+}
+// Maps
+.gmaps, .gmaps-panaroma {
+  height: 300px;
+}
+
+.gmaps, .gmaps-panaroma {
+  height: 300px;
+  background: $gray-200;
+  border-radius: $border-radius;
+}
+
+.gmaps-overlay {
+  display: block;
+  text-align: center;
+  color: $white;
+  font-size: 16px;
+  line-height: 40px;
+  background: $info;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.gmaps-overlay_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid $info;
+}
+
+.gmaps-overlay_arrow.below {
+  top: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid $info;
+}
+
+// Vector map
+.jvectormap-zoomin, .jvectormap-zoomout {
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+}
+
+.jvectormap-zoomout {
+  top: 40px;
+}

@@ -8,4 +8,21 @@ $dark:          #0c142b !default;
 $sidebar:		#E9EFF3;
 $default:       #526484;
 
+// Typography
 $font-awesome: 'Font Awesome 5 Free';
+$font-size-base: 0.875rem;
+$font-family-sans-serif: 'Rubik',
+sans-serif !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 700 !default;
+$h1-font-size: 36px !default;
+$h2-font-size: 30px !default;
+$h3-font-size: 24px !default;
+$h4-font-size: 18px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 14px !default;
+$headings-margin-bottom: (1rem / 2) !default;
+$headings-font-weight: 400 !default;
+$headings-color: inherit !default;

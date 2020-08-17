@@ -11,18 +11,22 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900');
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
-// bootstrap
+//Variables
+@import "./assets/scss/variables";
+
+// Bootstrap
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/functions";
 
 // plugins
 @import "./assets/scss/plugins";
 
-@import "./assets/scss/variables";
+// Custom
 @import "./assets/scss/mixins/mixins";
 @import "./assets/scss/animations/animations";
 @import "./assets/scss/global";
 @import "./assets/scss/layout/layout";
+@import "./assets/scss/type";
 @import "./assets/scss/avatar";
 @import "./assets/scss/card";
 @import "./assets/scss/table";
@@ -31,3 +35,4 @@
 @import "./assets/scss/header";
 @import "./assets/scss/aside";
 @import "./assets/scss/utilities/utilities";
+@import "./assets/scss/pages/dashboard";
