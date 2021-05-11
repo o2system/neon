@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "cross-env": "^5.1",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "o2system-blender": "^2.0.0",
         "o2system-venus-ui": "^1.5.0",
         "popper.js": "^1.12",
